@@ -1,10 +1,10 @@
 {
-  "gerado_em": "2026-04-16 14:50",
-  "total": 44,
+  "gerado_em": "2026-04-16 17:12 (títulos corrigidos)",
+  "total": 56,
   "filmes": [
     {
       "id": 17319,
-      "titulo": "Exibidor",
+      "titulo": "Bts World Tour Arirang In Japan Live Viewing",
       "estreia": "2026-04-18",
       "distribuidora": "Trafalgar Releasing",
       "genero": "Documentário Musical",
@@ -14,7 +14,7 @@
     },
     {
       "id": 10484,
-      "titulo": "Exibidor",
+      "titulo": "Suspiria",
       "estreia": "2026-04-23",
       "distribuidora": "FJ Cines",
       "genero": "Terror,Suspense",
@@ -24,17 +24,17 @@
     },
     {
       "id": 16583,
-      "titulo": "Exibidor",
+      "titulo": "Terra a Deriva 2 Destino",
       "estreia": "2026-04-23",
       "distribuidora": "Sato Company",
       "genero": "Aventura,Ação",
-      "sinopse": "",
+      "sinopse": "Receba em seu e-mail nosso boletim atualizado - de segunda a sexta - com as notícias do mercado e da indústria.",
       "poster": "https://www.claquete.com/fotos/filmes/poster/16583_medio.jpg",
       "urlExibidor": "https://www.exibidor.com.br/filme/16583/terra-a-deriva-2-destino.html"
     },
     {
       "id": 16652,
-      "titulo": "Exibidor",
+      "titulo": "Boa Sorte Divirta se Nao Morra",
       "estreia": "2026-04-23",
       "distribuidora": "Paris Filmes",
       "genero": "Suspense,Ficção,Ação",
@@ -44,7 +44,7 @@
     },
     {
       "id": 16900,
-      "titulo": "Exibidor",
+      "titulo": "Michael",
       "estreia": "2026-04-23",
       "distribuidora": "Universal Pictures",
       "genero": "Drama,Biografia",
@@ -54,7 +54,7 @@
     },
     {
       "id": 17306,
-      "titulo": "Exibidor",
+      "titulo": "Um Pai em Apuros",
       "estreia": "2026-04-23",
       "distribuidora": "Galeria Distribuidora",
       "genero": "Comédia",
@@ -64,7 +64,7 @@
     },
     {
       "id": 17368,
-      "titulo": "Exibidor",
+      "titulo": "Papagaios",
       "estreia": "2026-04-23",
       "distribuidora": "Olhar Filmes/Vitrine Filmes",
       "genero": "Suspense",
@@ -74,7 +74,7 @@
     },
     {
       "id": 17369,
-      "titulo": "Exibidor",
+      "titulo": "Festival de Cinema Europeu Imovision",
       "estreia": "2026-04-23",
       "distribuidora": "Imovision",
       "genero": "Família",
@@ -84,7 +84,7 @@
     },
     {
       "id": 17419,
-      "titulo": "Exibidor",
+      "titulo": "Veneno para as Fadas",
       "estreia": "2026-04-23",
       "distribuidora": "Filmicca",
       "genero": "Fantasia,Terror",
@@ -94,7 +94,7 @@
     },
     {
       "id": 16670,
-      "titulo": "Exibidor",
+      "titulo": "Zico o Samurai de Quintino",
       "estreia": "2026-04-30",
       "distribuidora": "Downtown/Paris",
       "genero": "Documentário",
@@ -104,7 +104,7 @@
     },
     {
       "id": 16678,
-      "titulo": "Exibidor",
+      "titulo": "O Diabo Veste Prada 2",
       "estreia": "2026-04-30",
       "distribuidora": "Walt Disney Studios",
       "genero": "Comédia",
@@ -114,7 +114,7 @@
     },
     {
       "id": 16793,
-      "titulo": "Exibidor",
+      "titulo": "Mae e Filho",
       "estreia": "2026-04-30",
       "distribuidora": "Retrato Filmes",
       "genero": "Drama",
@@ -124,7 +124,7 @@
     },
     {
       "id": 17057,
-      "titulo": "Exibidor",
+      "titulo": "A Furia",
       "estreia": "2026-04-30",
       "distribuidora": "Pandora Filmes",
       "genero": "Drama",
@@ -134,7 +134,7 @@
     },
     {
       "id": 17104,
-      "titulo": "Exibidor",
+      "titulo": "O Riso e a Faca",
       "estreia": "2026-04-30",
       "distribuidora": "Vitrine Filmes",
       "genero": "Drama",
@@ -144,7 +144,7 @@
     },
     {
       "id": 17160,
-      "titulo": "Exibidor",
+      "titulo": "Exit 8",
       "estreia": "2026-04-30",
       "distribuidora": "Paris Filmes",
       "genero": "Terror,Suspense",
@@ -154,7 +154,7 @@
     },
     {
       "id": 17225,
-      "titulo": "Exibidor",
+      "titulo": "2die4 24 Horas no Limite",
       "estreia": "2026-04-30",
       "distribuidora": "O2 Play",
       "genero": "Ação",
@@ -164,7 +164,7 @@
     },
     {
       "id": 17242,
-      "titulo": "Exibidor",
+      "titulo": "Hokum o Pesadelo da Bruxa",
       "estreia": "2026-04-30",
       "distribuidora": "Diamond Films",
       "genero": "Terror",
@@ -174,7 +174,7 @@
     },
     {
       "id": 17299,
-      "titulo": "Exibidor",
+      "titulo": "Alma Negra do Quilombo ao Baile",
       "estreia": "2026-04-30",
       "distribuidora": "Synapse Distribution",
       "genero": "Documentário",
@@ -184,7 +184,7 @@
     },
     {
       "id": 17344,
-      "titulo": "Exibidor",
+      "titulo": "Todas Elas em uma",
       "estreia": "2026-04-30",
       "distribuidora": "Kolbe Arte Produções",
       "genero": "Drama",
@@ -194,7 +194,7 @@
     },
     {
       "id": 17400,
-      "titulo": "Exibidor",
+      "titulo": "That Time I Got Reincarnated as a Slime o Filme Lagrimas do Mar Azul Celeste",
       "estreia": "2026-04-30",
       "distribuidora": "Sony Pictures",
       "genero": "Fantasia,Aventura",
@@ -204,7 +204,7 @@
     },
     {
       "id": 16521,
-      "titulo": "Exibidor",
+      "titulo": "Mortal Kombat 2",
       "estreia": "2026-05-07",
       "distribuidora": "Warner Bros.",
       "genero": "Ação",
@@ -213,18 +213,18 @@
       "urlExibidor": "https://www.exibidor.com.br/filme/16521/mortal-kombat-2.html"
     },
     {
-      "id": 16765,
-      "titulo": "Exibidor",
+      "id": 16619,
+      "titulo": "Quase o Amor da Minha Vida",
       "estreia": "2026-05-07",
       "distribuidora": "PlayArte Pictures",
-      "genero": "Animação",
-      "sinopse": "Finnick, um despreocupado, perde sua invisibilidade após despertar a magia de um cajado ancestral. Agora, todos os finns estão em perigo. Ele e Christine precisam embarcar em uma aventura para restaur",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/16765_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/16765/os-peludos-2.html"
+      "genero": "Romance,Comédia",
+      "sinopse": "Werther, um jovem escritor despreocupado e encantador, se depara com o amor de sua vida — apenas para descobrir que ela está noiva. Ignorando os conselhos de seu melhor amigo, Werther vira seu mundo d",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16619_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16619/quase-o-amor-da-minha-vida.html"
     },
     {
       "id": 17016,
-      "titulo": "Exibidor",
+      "titulo": "Eu Nao Te Ouco",
       "estreia": "2026-05-07",
       "distribuidora": "Bretz Filmes",
       "genero": "Comédia",
@@ -234,7 +234,7 @@
     },
     {
       "id": 17140,
-      "titulo": "Exibidor",
+      "titulo": "As Ovelhas Detetives",
       "estreia": "2026-05-07",
       "distribuidora": "Sony Pictures",
       "genero": "Mistério,Drama,Comédia",
@@ -244,7 +244,7 @@
     },
     {
       "id": 17183,
-      "titulo": "Exibidor",
+      "titulo": "Era uma Vez Minha Mae",
       "estreia": "2026-05-07",
       "distribuidora": "California Filmes",
       "genero": "Drama",
@@ -254,7 +254,7 @@
     },
     {
       "id": 17218,
-      "titulo": "Exibidor",
+      "titulo": "Dolly a Boneca Maldita",
       "estreia": "2026-05-07",
       "distribuidora": "Paris Filmes",
       "genero": "Horror,Terror,Thriller",
@@ -264,7 +264,7 @@
     },
     {
       "id": 17222,
-      "titulo": "Exibidor",
+      "titulo": "Billie Eilish Hit Me Hard And Soft The Tour In 3d",
       "estreia": "2026-05-07",
       "distribuidora": "Paramount Pictures",
       "genero": "Documentário",
@@ -274,7 +274,7 @@
     },
     {
       "id": 17277,
-      "titulo": "Exibidor",
+      "titulo": "Eclipse",
       "estreia": "2026-05-07",
       "distribuidora": "Pandora Filmes",
       "genero": "Suspense",
@@ -283,8 +283,258 @@
       "urlExibidor": "https://www.exibidor.com.br/filme/17277/eclipse.html"
     },
     {
+      "id": 17286,
+      "titulo": "Aqui Nao Entra Luz",
+      "estreia": "2026-05-07",
+      "distribuidora": "Embaúba Filmes",
+      "genero": "Documentário",
+      "sinopse": "Entre memórias pessoais e pesquisa histórica, uma cineasta, filha de uma trabalhadora doméstica, percorre os quatro estados brasileiros que mais receberam mão de obra escravizada e revela como os espa",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17286_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17286/aqui-nao-entra-luz.html"
+    },
+    {
+      "id": 17296,
+      "titulo": "Hungria a Escolha de um Sonho",
+      "estreia": "2026-05-07",
+      "distribuidora": "Studio 10 Filmes",
+      "genero": "Drama",
+      "sinopse": "Gustavo da Hungria, filho de Dona Raquel, cresceu com um sonho enquanto tudo ao redor conspirava contra ele: a realidade da periferia, os amigos tomando outros rumos e um futuro que parecia distante d",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17296_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17296/hungria-a-escolha-de-um-sonho.html"
+    },
+    {
+      "id": 17351,
+      "titulo": "Iron Maiden Burning Ambition",
+      "estreia": "2026-05-07",
+      "distribuidora": "Universal Pictures",
+      "genero": "Thriller,Musical,Drama,Documentário Musi",
+      "sinopse": "A história de 50 anos do Iron Maiden por meio de entrevistas com o grupo, a última palestra de Di´Anno, depoimentos de celebridades, imagens inéditas e animações de Eddie. Com Bardem, Ulrich e Simmons",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17351_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17351/iron-maiden-burning-ambition.html"
+    },
+    {
+      "id": 17356,
+      "titulo": "Uma Infancia Alema",
+      "estreia": "2026-05-07",
+      "distribuidora": "Imovision",
+      "genero": "Drama",
+      "sinopse": "Ilha de Amrum, primavera de 1945. Nos últimos dias da guerra, Nanning, de 12 anos, enfrenta o mar traiçoeiro para pescar e trabalha na fazenda próxima para ajudar sua mãe a sustentar a família. Apesar",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17356_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17356/uma-infancia-alema.html"
+    },
+    {
+      "id": 17381,
+      "titulo": "Nino de Sexta a Segunda",
+      "estreia": "2026-05-07",
+      "distribuidora": "Filmes do Estação",
+      "genero": "Drama",
+      "sinopse": "Em três dias, Nino enfrentará um grande desafio. Mas, primeiro, seus médicos lhe atribuíram duas tarefas vitais. Duas missões que levarão o jovem em uma jornada por Paris, forçando-o a se reconectar c",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17381_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17381/nino-de-sexta-a-segunda.html"
+    },
+    {
+      "id": 1286,
+      "titulo": "Top Gun Ases Indomaveis 40 Aniversario",
+      "estreia": "2026-05-13",
+      "distribuidora": "Paramount Pictures",
+      "genero": "Aventura",
+      "sinopse": "Top Gun mostra o perigo e a emoção que aguardam cada um dos pilotos da prestigiosa escola de aviação de caça da Marinha. Tom Cruise é Maverick Mitchell, um ousado jovem piloto que entra na escola de a",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/1286_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/1286/top-gun-ases-indomaveis-40-aniversario.html"
+    },
+    {
+      "id": 10078,
+      "titulo": "Top Gun Maverick",
+      "estreia": "2026-05-14",
+      "distribuidora": "Paramount Pictures",
+      "genero": "Ação",
+      "sinopse": "Depois de mais de 30 anos servindo a marinha como um dos maiores pilotos de caça, Pete ``Maverick´´ Mitchell continua na ativa, se recusando a subir de patente e deixar de fazer o que mais gosta, que ",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/10078_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/10078/top-gun-maverick-relancamento.html"
+    },
+    {
+      "id": 15288,
+      "titulo": "Authentic Games",
+      "estreia": "2026-05-14",
+      "distribuidora": "Imagem Filmes",
+      "genero": "Aventura,Animação,Ação",
+      "sinopse": "Após anos comandando um mundo offline, o Império Desconectado decide se vingar. O Imperador planeja sequestrar Marco Túlio, criador do Authentic Games, para levar alegria ao seu reino sombrio. Ao entr",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/15288_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/15288/authentic-games.html"
+    },
+    {
+      "id": 15945,
+      "titulo": "Na Zona Cinzenta",
+      "estreia": "2026-05-14",
+      "distribuidora": "Diamond Films",
+      "genero": "Ação",
+      "sinopse": "O filme acompanha Sophia (González), uma negociadora com ampla experiência em transações milionárias que se utiliza de todos os meios possíveis para completar sua tarefa. Quando recebe uma missão de a",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/15945_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/15945/na-zona-cinzenta.html"
+    },
+    {
+      "id": 16765,
+      "titulo": "Os Peludos 2",
+      "estreia": "2026-05-14",
+      "distribuidora": "PlayArte Pictures",
+      "genero": "Animação",
+      "sinopse": "Finnick, um despreocupado, perde sua invisibilidade após despertar a magia de um cajado ancestral. Agora, todos os finns estão em perigo. Ele e Christine precisam embarcar em uma aventura para restaur",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16765_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16765/os-peludos-2.html"
+    },
+    {
+      "id": 16794,
+      "titulo": "Surda",
+      "estreia": "2026-05-14",
+      "distribuidora": "Retrato Filmes",
+      "genero": "Drama",
+      "sinopse": "Ángela, uma mulher surda, está esperando um filho com Héctor, seu parceiro ouvinte. A chegada do bebê interrompe o relacionamento deles, forçando Ángela a enfrentar os desafios de criar sua filha em u",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16794_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16794/surda.html"
+    },
+    {
+      "id": 16944,
+      "titulo": "O Genio do Crime",
+      "estreia": "2026-05-14",
+      "distribuidora": "Paris Filmes",
+      "genero": "Comédia,Aventura",
+      "sinopse": "Durante a Copa do Mundo, o álbum de figurinhas é a maior febre entre os alunos do Colégio Tres Bandeiras. Gordo, líder de um grupo empenhado em completar o álbum, descobre uma operação de falsificação",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16944_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16944/o-genio-do-crime.html"
+    },
+    {
+      "id": 17014,
+      "titulo": "Heranca de Narcisa",
+      "estreia": "2026-05-14",
+      "distribuidora": "",
+      "genero": "Terror,Drama",
+      "sinopse": "Assombrada pelas memórias da sua recém-falecida mãe, a ex-vedete Narcisa, Ana decide vender o casarão de infância que herdou e dividir o dinheiro com o irmão, Diego. Porém, o sombrio processo de limpe",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17014_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17014/heranca-de-narcisa.html"
+    },
+    {
+      "id": 17107,
+      "titulo": "Cansei de Ser Nerd",
+      "estreia": "2026-05-14",
+      "distribuidora": "H2O Films",
+      "genero": "Comédia",
+      "sinopse": "Nerd inveterado, Airton foi o principal suspeito do sumiço e suposto assassinato de uma colega, nos tempos da faculdade. Hoje, 20 anos depois, ele decide reencontrar toda a turma na festa de reencontr",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17107_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17107/cansei-de-ser-nerd.html"
+    },
+    {
+      "id": 17193,
+      "titulo": "Fanon",
+      "estreia": "2026-05-14",
+      "distribuidora": "Fênix Filmes",
+      "genero": "História,Drama",
+      "sinopse": "Baseado na história real de Frantz Fanon, o pensador que ousou enfrentar o sistema colonial francês. Em plena Guerra da Argélia, sua trajetória redefiniu não só a psiquiatria e a luta anticolonial, ma",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17193_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17193/fanon.html"
+    },
+    {
+      "id": 17211,
+      "titulo": "Eu Voce na Toscana",
+      "estreia": "2026-05-14",
+      "distribuidora": "Imagem Filmes",
+      "genero": "Romance,Comédia",
+      "sinopse": "Depois de perder o emprego e o apartamento no mesmo dia, Anna (Halle Bailey) toma a decisão mais impulsiva da sua vida: se instalar na vila de um homem que mal conhece, no coração da Toscana. Quando a",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17211_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17211/eu-voce-na-toscana.html"
+    },
+    {
+      "id": 17248,
+      "titulo": "O Rei da Internet",
+      "estreia": "2026-05-14",
+      "distribuidora": "Manequim Filmes",
+      "genero": "Drama",
+      "sinopse": "Inspirado na vida de Daniel Nascimento, “O Rei da Internet” é uma aventura dramática que conta como Daniel se destacou como um dos maiores hackers do Brasil, fez parte de uma organização criminosa que",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17248_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17248/o-rei-da-internet.html"
+    },
+    {
+      "id": 17334,
+      "titulo": "Chopin uma Sonata em Paris",
+      "estreia": "2026-05-14",
+      "distribuidora": "Synapse Distribution",
+      "genero": "Musical,Drama,Biografia",
+      "sinopse": "Paris, 1835. Ídolo da aristocracia e presença constante nos salões da cidade, Chopin divide seus dias entre partituras encomendadas e aulas de piano, enquanto uma doença progressiva ameaça silenciar u",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17334_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17334/chopin-uma-sonata-em-paris.html"
+    },
+    {
+      "id": 17340,
+      "titulo": "Perto do Sol e Mais Claro",
+      "estreia": "2026-05-14",
+      "distribuidora": "O2 Play",
+      "genero": "Drama",
+      "sinopse": "Um comovente retrato de Rêgi, um engenheiro carioca de 85 anos enfrentando a perda de sua esposa. A resiliência e o poder do amor nas complexidades do envelhecimento.",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17340_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17340/perto-do-sol-e-mais-claro.html"
+    },
+    {
+      "id": 17401,
+      "titulo": "Mambembe",
+      "estreia": "2026-05-14",
+      "distribuidora": "Roseira",
+      "genero": "Documentário",
+      "sinopse": "Três mulheres de um circo itinerante — Índia Morena, Madona Show e Jéssica — cruzam o caminho de um misterioso topógrafo. A partir de suas histórias, se desenha uma trama que mistura ficção e realidad",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17401_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17401/mambembe.html"
+    },
+    {
+      "id": 16039,
+      "titulo": "O Mandaloriano e Grogu",
+      "estreia": "2026-05-21",
+      "distribuidora": "Walt Disney Studios",
+      "genero": "Ficção-científica,Aventura,Ação",
+      "sinopse": "Outrora um caçador de recompensas solitário, o Mandaloriano Din Djarin e seu aprendiz Grogu embarcam em uma nova e empolgante aventura de Guerra nas Estrelas.",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16039_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16039/o-mandaloriano-e-grogu.html"
+    },
+    {
+      "id": 16603,
+      "titulo": "O Poder do Rosario",
+      "estreia": "2026-05-21",
+      "distribuidora": "Kolbe Arte Produções",
+      "genero": "Documentário,Drama",
+      "sinopse": "Em \"O Poder do Rosário\", a jovem Helena de 12 anos, é envolvida em um acidente trágico que a coloca em coma. O fotógrafo André, testemunha do incidente, torna-se seu improvável anjo da guarda, conecta",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16603_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16603/o-poder-do-rosario.html"
+    },
+    {
+      "id": 16790,
+      "titulo": "Masha e os Ursos",
+      "estreia": "2026-05-21",
+      "distribuidora": "A2 Filmes",
+      "genero": "Animação",
+      "sinopse": "Receba em seu e-mail nosso boletim atualizado - de segunda a sexta - com as notícias do mercado e da indústria.",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/16790_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/16790/masha-e-os-ursos.html"
+    },
+    {
+      "id": 17077,
+      "titulo": "Pillion",
+      "estreia": "2026-05-21",
+      "distribuidora": "Diamond Films",
+      "genero": "Romance,Drama,Comédia",
+      "sinopse": "Receba em seu e-mail nosso boletim atualizado - de segunda a sexta - com as notícias do mercado e da indústria.",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17077_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17077/pillion.html"
+    },
+    {
+      "id": 17217,
+      "titulo": "Sexo e Destino",
+      "estreia": "2026-05-21",
+      "distribuidora": "Paris Filmes",
+      "genero": "Terror,Drama",
+      "sinopse": "Ambientado aos dias atuais, o filme narra as complexas relações entre as famílias Nogueira e Torres. A trama explora temas como livre-arbítrio, responsabilidade e as consequências das escolhas humanas",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/17217_medio.jpg",
+      "urlExibidor": "https://www.exibidor.com.br/filme/17217/sexo-e-destino.html"
+    },
+    {
       "id": 17259,
-      "titulo": "Exibidor",
+      "titulo": "Passageiro do Mal",
       "estreia": "2026-05-21",
       "distribuidora": "Paramount Pictures",
       "genero": "Terror",
@@ -294,7 +544,7 @@
     },
     {
       "id": 17266,
-      "titulo": "Exibidor",
+      "titulo": "Obsessao",
       "estreia": "2026-05-21",
       "distribuidora": "Universal Pictures",
       "genero": "Terror",
@@ -304,143 +554,13 @@
     },
     {
       "id": 17274,
-      "titulo": "Exibidor",
+      "titulo": "Diamantes",
       "estreia": "2026-05-21",
       "distribuidora": "Pandora Filmes",
       "genero": "Drama",
       "sinopse": "Um realizador convoca suas atrizes favoritas para fazer um filme sobre mulheres, mas não revela muito sobre o projeto. Entre solidões, paixões, ansiedades, ausências devastadoras e laços indissolúveis",
       "poster": "https://www.claquete.com/fotos/filmes/poster/17274_medio.jpg",
       "urlExibidor": "https://www.exibidor.com.br/filme/17274/diamantes.html"
-    },
-    {
-      "id": 17315,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-21",
-      "distribuidora": "Elo Studios",
-      "genero": "Comédia",
-      "sinopse": "O inusitado encontro entre o cineasta paulista Henrique e o cantor baiano de pagodão Cristian é o ponto de virada desta comédia de costumes, que promete boas risadas a partir do embate entre mundos tã",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17315_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17315/quem-tem-com-quem-me-pague-nao-me-deve-nada.html"
-    },
-    {
-      "id": 17341,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-21",
-      "distribuidora": "O2 Play",
-      "genero": "Ação,Drama",
-      "sinopse": "No centro de São Paulo, devastado pelo crack, uma jovem vampira, Helena, assombra um café sujo, cativando um garçom ingênuo. À medida que ele descobre os segredos dela e o submundo da cidade, ele é at",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17341_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17341/love-kills.html"
-    },
-    {
-      "id": 17357,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-21",
-      "distribuidora": "Imovision",
-      "genero": "Drama,Comédia",
-      "sinopse": "Ao herdar uma antiga casa deixada intocada desde 1940, quatro primos distantes se reencontram e mergulham nos segredos há muito esquecidos de sua família. Ao explorarem o local, descobrem vestígios da",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17357_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17357/as-cores-do-tempo.html"
-    },
-    {
-      "id": 17279,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-26",
-      "distribuidora": "Pandora Filmes",
-      "genero": "Romance,Drama",
-      "sinopse": "Natalia, de 30 anos, encontra refúgio numa região remota do interior da Espanha. Ao ser confrontada com uma proposta sexual inquietante de seu vizinho, ela desencadeia uma paixão devoradora e obsessiv",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17279_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17279/um-amor.html"
-    },
-    {
-      "id": 16657,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "PlayArte Pictures",
-      "genero": "Thriller,Suspense",
-      "sinopse": "Em um mundo onde a fama e a justiça se chocam, uma estrela pop mundial leva secretamente uma vida dupla como vigilante. Traumatizado por um evento horrível de seu passado, Bunny-Man usa suas habilidad",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/16657_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/16657/bunny-man.html"
-    },
-    {
-      "id": 16873,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "PlayArte Pictures",
-      "genero": "Infantil,Animação",
-      "sinopse": "Um menino de 12 anos perde a capacidade de andar em um acidente. Felizmente, uma criatura peluda e prestativa de outra dimensão aparece e o leva a uma aventura fantástica, onde ele encontra uma maneir",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/16873_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/16873/fleak.html"
-    },
-    {
-      "id": 16886,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "Synapse Distribution",
-      "genero": "Drama,Comédia",
-      "sinopse": "Adam sofre de ecoansiedade. Ao ligar para o suporte de uma luminária terapêutica, conhece Tina. Entre tempestades e colapsos, os dois se conectam — provando que, mesmo quando tudo desmorona, ainda há ",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/16886_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/16886/amor-apocalipse.html"
-    },
-    {
-      "id": 17067,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "Universal Pictures",
-      "genero": "Drama",
-      "sinopse": "Um músico apaixonado se junta a um estudante de psicologia, desencadeando um caos hilário no campus enquanto ele persegue a garota dos seus sonhos, colocando seus desejos e ambições à prova.",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17067_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17067/procurando-emily.html"
-    },
-    {
-      "id": 17080,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "Diamond Films",
-      "genero": "Thriller,Crime,Ação",
-      "sinopse": "Na trama, comandada pelo diretor David Mackenzie (\"A Qualquer Custo\"), o centro de Londres entra em pânico com a descoberta de uma bomba da Segunda Guerra Mundial não detonada em um canteiro de obras.",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17080_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17080/golpe-explosivo.html"
-    },
-    {
-      "id": 17195,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "California Filmes",
-      "genero": "Suspense,Drama",
-      "sinopse": "Um casamento de 15 anos é abalado quando a ex-namorada de infância de Julien, Anaëlle, reaparece. Consumida pelo ciúme, Marie começa um caso com seu chefe manipulador, Thomas, o que a leva a uma espir",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17195_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17195/fora-de-controle.html"
-    },
-    {
-      "id": 17250,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "Vitrine Filmes",
-      "genero": "Documentário",
-      "sinopse": "O edifício Copan é um microcosmo do Brasil. São 5 mil moradores e mais de cem funcionários que representam uma diversidade de personagens e pontos de vista que revelam contrastes e desigualdades estru",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17250_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17250/copan.html"
-    },
-    {
-      "id": 17290,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "Warner Bros.",
-      "genero": "Drama",
-      "sinopse": "",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17290_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17290/natal-amargo.html"
-    },
-    {
-      "id": 17328,
-      "titulo": "Exibidor",
-      "estreia": "2026-05-28",
-      "distribuidora": "Imagem Filmes",
-      "genero": "Terror,Ficção-científica",
-      "sinopse": "Backrooms é um filme inspirado em um curta-metragem popularmente conhecido na internet. Quando uma série de lugares passam a contar com lugares peculiares, possivelmente dando de cara a outra realidad",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/17328_medio.jpg",
-      "urlExibidor": "https://www.exibidor.com.br/filme/17328/backrooms-um-nao-lugar.html"
     }
   ]
 }

@@ -65,6 +65,44 @@ def limpar(texto):
     return re.sub(r"\s+", " ", texto.replace("\xa0", " ")).strip()
 
 
+MINUSCULAS_PT = {'a','o','as','os','e','de','do','da','dos','das','em','no','na','nos','nas',
+                 'para','por','com','um','uma','se','ao','aos','num','numa'}
+
+def slug_para_titulo(slug, sinopse=""):
+    """Converte slug de URL em título legível, usando sinopse como dica."""
+    slug = re.sub(r"-(relancamento|relançamento|remake)$", "", slug)
+
+    # Tenta extrair da sinopse quando o título aparece em CAPS no início
+    if sinopse:
+        m = re.match(
+            r'^(?:Em\s+|Em\s+)?["\u201c]?'
+            r'([A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ][A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ\s\-:]{3,60}?)'
+            r'["\u201d]?,\s',
+            sinopse
+        )
+        if m:
+            candidate = m.group(1).strip().title()
+            palavras = candidate.split()
+            resultado = [palavras[0]] + [
+                p.lower() if p.lower() in MINUSCULAS_PT else p
+                for p in palavras[1:]
+            ]
+            return " ".join(resultado)
+
+    # Slug → título
+    palavras = slug.replace("-", " ").split()
+    resultado = []
+    for i, p in enumerate(palavras):
+        p_lower = p.lower()
+        if i == 0:
+            resultado.append(p.capitalize())
+        elif p_lower in MINUSCULAS_PT:
+            resultado.append(p_lower)
+        else:
+            resultado.append(p.capitalize())
+    return " ".join(resultado)
+
+
 def scrape():
     filmes = []
 
@@ -133,89 +171,106 @@ def scrape():
 
             soup = BeautifulSoup(html_f, "html.parser")
 
-            # Título — pega o H1 do conteúdo, não o do header/nav
-            titulo = ""
-            for h1 in soup.find_all("h1"):
-                txt = limpar(h1.get_text())
-                # ignora H1s do menu/header (muito curtos ou com "Exibidor")
-                if txt and txt.lower() not in ("exibidor", "") and len(txt) > 2:
-                    titulo = txt
-                    break
-            # fallback: tenta pegar via title da página
-            if not titulo or titulo.lower() == "exibidor":
-                title_tag = soup.find("title")
-                if title_tag:
-                    titulo = limpar(title_tag.get_text().split("|")[0].split("-")[0]).strip()
-            if not titulo or titulo.lower() == "exibidor":
-                continue
-
-            # Data de estreia
-            estreia_str = None
-            for tag in soup.find_all(["h3", "h4", "p", "li", "strong", "span"]):
-                txt = tag.get_text()
-                d = extrair_data(txt)
-                if d:
-                    estreia_str = d
-                    break
-
-            if not estreia_str:
-                continue
-
-            # Filtra janela de 6 meses
-            try:
-                dt = datetime.strptime(estreia_str, "%Y-%m-%d")
-            except ValueError:
-                continue
-
-            if dt < HOJE or dt > LIMITE:
-                continue
-
-            # Distribuidora
-            distribuidora = ""
-            for label in soup.find_all(string=re.compile(r"Distribuidor", re.I)):
-                parent = label.find_parent()
-                if parent:
-                    nxt = parent.find_next_sibling()
-                    if nxt:
-                        distribuidora = limpar(nxt.get_text())[:50]
-                        break
-            if not distribuidora:
-                # tenta via li próximo
-                for li in soup.find_all("li"):
-                    txt = li.get_text()
-                    if re.search(r"distribuidor", txt, re.I):
-                        distribuidora = limpar(txt.split(":")[-1])[:50]
-                        break
-
-            # Gênero
-            genero = ""
-            for label in soup.find_all(string=re.compile(r"Gênero|Genero", re.I)):
-                parent = label.find_parent()
-                if parent:
-                    nxt = parent.find_next_sibling()
-                    if nxt:
-                        genero = limpar(nxt.get_text())[:40]
-                        break
-            if not genero:
-                for li in soup.find_all("li"):
-                    txt = li.get_text()
-                    if re.search(r"gênero|genero", txt, re.I):
-                        genero = limpar(txt.split(":")[-1])[:40]
-                        break
-
-            # Sinopse
+            # ── Sinopse primeiro (usada também para extrair título) ──
             sinopse = ""
-            sinopse_h = soup.find(string=re.compile(r"Sinopse", re.I))
-            if sinopse_h:
-                parent = sinopse_h.find_parent()
+            for tag in soup.find_all(string=re.compile(r"^Sinopse$", re.I)):
+                parent = tag.find_parent()
                 if parent:
                     nxt = parent.find_next_sibling()
                     if nxt:
                         sinopse = limpar(nxt.get_text())[:200]
+                        break
+            if not sinopse:
+                for p in soup.find_all("p"):
+                    txt = limpar(p.get_text())
+                    if len(txt) > 80:
+                        sinopse = txt[:200]
+                        break
 
-            # Poster (padrão claquete.com)
+            # ── Título — derivado do slug da URL (mais confiável) ──
+            slug = ficha["url"].rstrip("/").split("/")[-1].replace(".html", "")
+            titulo = slug_para_titulo(slug, sinopse)
+            if not titulo:
+                continue
+
+            # ── Data de estreia ───────────────────────────────────
+            estreia_str = None
+            for tag in soup.find_all(string=re.compile(r"Estreia", re.I)):
+                bloco = tag.find_parent()
+                if bloco:
+                    contexto = limpar(bloco.get_text()) + " "
+                    vizinho = bloco.find_next_sibling()
+                    if vizinho:
+                        contexto += limpar(vizinho.get_text())
+                    d = extrair_data(contexto)
+                    if d:
+                        estreia_str = d
+                        break
+            if not estreia_str:
+                for tag in soup.find_all(["h3", "h4", "p", "li", "strong", "span", "div"]):
+                    d = extrair_data(tag.get_text())
+                    if d:
+                        estreia_str = d
+                        break
+            if not estreia_str:
+                continue
+
+            # ── Filtra janela de 6 meses ─────────────────────────
+            try:
+                dt = datetime.strptime(estreia_str, "%Y-%m-%d")
+            except ValueError:
+                continue
+            if dt < HOJE or dt > LIMITE:
+                continue
+
+            # ── Distribuidora ─────────────────────────────────────
+            distribuidora = ""
+            for tag in soup.find_all(string=re.compile(r"Distribuidor", re.I)):
+                parent = tag.find_parent()
+                if parent:
+                    nxt = parent.find_next_sibling()
+                    if nxt:
+                        txt = limpar(nxt.get_text())
+                        if txt and len(txt) > 1:
+                            distribuidora = txt[:50]
+                            break
+                    full = limpar(parent.get_text())
+                    if ":" in full:
+                        distribuidora = limpar(full.split(":", 1)[1])[:50]
+                        if distribuidora:
+                            break
+            if not distribuidora:
+                for li in soup.find_all("li"):
+                    txt = li.get_text()
+                    if re.search(r"distribuidor", txt, re.I) and ":" in txt:
+                        distribuidora = limpar(txt.split(":", 1)[1])[:50]
+                        break
+
+            # ── Gênero ────────────────────────────────────────────
+            genero = ""
+            for tag in soup.find_all(string=re.compile(r"G[eê]nero", re.I)):
+                parent = tag.find_parent()
+                if parent:
+                    nxt = parent.find_next_sibling()
+                    if nxt:
+                        txt = limpar(nxt.get_text())
+                        if txt and len(txt) > 1:
+                            genero = txt[:40]
+                            break
+                    full = limpar(parent.get_text())
+                    if ":" in full:
+                        genero = limpar(full.split(":", 1)[1])[:40]
+                        if genero:
+                            break
+            if not genero:
+                for li in soup.find_all("li"):
+                    txt = li.get_text()
+                    if re.search(r"gênero|genero", txt, re.I) and ":" in txt:
+                        genero = limpar(txt.split(":", 1)[1])[:40]
+                        break
+
+            # ── Poster ────────────────────────────────────────────
             poster_url = f"https://www.claquete.com/fotos/filmes/poster/{ficha['id']}_medio.jpg"
-            # tenta encontrar poster real na página
             img = soup.find("img", src=re.compile(r"claquete\.com.*poster"))
             if img:
                 src = img.get("src", "")
