@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário de Cinema — Lançamentos Brasil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #f7f6f2;
+    --bg2:      #ffffff;
+    --bg3:      #f0ede6;
+    --bg4:      #ece9e1;
+    --border:   #e2ddd5;
+    --border2:  #d5d0c8;
+    --accent:   #e05a1e;
+    --accent2:  #f07840;
+    --navy:     #1a1f3c;
+    --navy2:    #2d3357;
+    --text:     #1a1f3c;
+    --muted:    #8a8880;
+    --muted2:   #b0aca5;
+    --tag-bg:   #eef0f7;
+    --tag-color:#3a4278;
+    --gold:     #c47d2a;
+    --green:    #2a7a4a;
+    --shadow:   0 1px 3px rgba(26,31,60,.07), 0 4px 16px rgba(26,31,60,.04);
+    --shadow-lg:0 2px 8px rgba(26,31,60,.08), 0 12px 40px rgba(26,31,60,.08);
+  }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .75rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 1px 0 var(--border);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-mark {
+    width: 34px; height: 34px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -.02em;
+    flex-shrink: 0;
+  }
+  .logo-text h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -.02em;
+    line-height: 1.1;
+  }
+  .logo-text span {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: .05em;
+    font-weight: 400;
+  }
+  .hbtns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+  .btn-accent {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background .2s, transform .1s;
+  }
+  .btn-accent:hover { background: var(--accent2); }
+  .btn-accent:active { transform: scale(.98); }
+  .btn-accent:disabled { opacity: .4; cursor: not-allowed; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--border2);
+    padding: 8px 14px;
+    border-radius: 7px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: var(--navy); background: var(--bg3); }
+
+  /* ── STATUS BAR ── */
+  .status-bar {
+    padding: 7px 2rem;
+    background: var(--navy);
+    display: flex;
+    gap: 1.5rem;
+    font-size: 11px;
+    color: rgba(255,255,255,.45);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .stat { display: flex; align-items: center; gap: 5px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .dot-r { background: var(--accent); }
+  .dot-g { background: #5db87a; }
+  .dot-gray { background: rgba(255,255,255,.15); }
+
+  /* ── PROGRESS ── */
+  .progress-bar { height: 3px; background: var(--border); }
+  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width .4s; }
+
+  /* ── LOG ── */
+  .log-panel {
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    padding: .5rem 2rem;
+    font-size: 11px;
+    font-family: monospace;
+    display: none;
+    color: var(--muted);
+  }
+  .log-panel.active { display: block; }
+  .log-ok   { color: var(--green); }
+  .log-info { color: var(--navy2); }
+  .log-warn { color: var(--accent); }
+
+  /* ── FILTERS ── */
+  .filters {
+    padding: .75rem 2rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    position: sticky;
+    top: 69px;
+    z-index: 40;
+  }
+  .fsel {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border2);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--navy);
+  }
+  .month-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+  .mpill {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: 'Sora', sans-serif;
+    font-weight: 400;
+    transition: all .15s;
+  }
+  .mpill.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .mpill:hover:not(.active) { border-color: var(--navy2); color: var(--navy); }
+
+  /* ── CONTENT ── */
+  .content { padding: 2rem; }
+
+  .month-sec { margin-bottom: 3rem; }
+  .month-hdr {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+  }
+  .month-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -.02em;
+  }
+  .month-count {
+    font-size: 11px;
+    color: var(--muted2);
+    background: var(--bg3);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* ── GRID ── */
+  .film-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    gap: 14px;
+  }
+  .film-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow .2s, transform .15s, border-color .2s;
+    box-shadow: var(--shadow);
+  }
+  .film-card:hover {
+    border-color: var(--border2);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: var(--bg3);
+    position: relative;
+    overflow: hidden;
+  }
+  .poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .poster-ph {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg4);
+  }
+  .clap {
+    width: 30px; height: 24px;
+    border: 2px solid var(--border2);
+    border-radius: 3px;
+    position: relative;
+  }
+  .clap::before {
+    content: '';
+    position: absolute;
+    top: -8px; left: -2px;
+    width: calc(100% + 4px);
+    height: 8px;
+    background: repeating-linear-gradient(90deg, var(--border2) 0, var(--border2) 5px, var(--bg4) 5px, var(--bg4) 10px);
+    border-radius: 2px 2px 0 0;
+  }
+
+  .date-badge {
+    position: absolute;
+    top: 7px; right: 7px;
+    background: rgba(255,255,255,.92);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 9px;
+    color: var(--muted);
+    font-weight: 500;
+    font-family: 'Sora', sans-serif;
+    letter-spacing: .02em;
+  }
+  .pre-badge {
+    position: absolute;
+    top: 7px; left: 7px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 9px;
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    letter-spacing: .01em;
+  }
+  .pre-badge.confirmed {
+    background: var(--accent);
+    color: #fff;
+  }
+  .pre-badge.estimated {
+    background: rgba(196,125,42,.15);
+    color: var(--gold);
+    border: 1px solid rgba(196,125,42,.25);
+  }
+  .pre-badge.searching {
+    background: rgba(255,255,255,.85);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .film-info { padding: 10px 12px 12px; }
+  .film-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .film-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .film-date { color: var(--accent); font-size: 10px; font-weight: 500; }
+  .distrib-tag {
+    font-size: 9px;
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    padding: 2px 6px;
+    border-radius: 3px;
+    max-width: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* ── EMPTY ── */
+  .empty {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: var(--muted2);
+    font-size: 14px;
+    line-height: 2.4;
+  }
+  .empty strong { color: var(--navy); }
+  .empty .empty-icon {
+    width: 48px; height: 48px;
+    background: var(--bg4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+  .empty .clap-lg {
+    width: 22px; height: 18px;
+    border: 2px solid var(--border2);
+    border-radius: 2px;
+    position: relative;
+  }
+  .empty .clap-lg::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: -2px;
+    width: calc(100% + 4px); height: 6px;
+    background: repeating-linear-gradient(90deg, var(--border2) 0, var(--border2) 4px, var(--bg4) 4px, var(--bg4) 8px);
+    border-radius: 1px 1px 0 0;
+  }
+
+  /* ── PULSE ── */
+  .pulse {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+  /* ── MODAL ── */
+  .modal-ov {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,31,60,.55);
+    backdrop-filter: blur(2px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .modal-ov.open { display: flex; }
+  .modal {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+  }
+  .modal-hdr {
+    padding: 1.25rem 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg2);
+  }
+  .modal-ttl {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    flex: 1;
+    padding-right: .75rem;
+  }
+  .modal-x {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: background .15s;
+  }
+  .modal-x:hover { background: var(--bg4); }
+  .modal-body { padding: 1.25rem 1.5rem; }
+  .mfield { margin-bottom: .9rem; }
+  .mfield label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted2);
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 500;
+  }
+  .mfield p { font-size: 13px; color: var(--navy); line-height: 1.55; font-weight: 300; }
+
+  .pre-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: .75rem;
+  }
+  .pre-box h4 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted2);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .pre-date-confirmed { color: var(--accent); font-size: 17px; font-weight: 600; }
+  .pre-date-estimated { color: var(--gold); font-size: 17px; font-weight: 600; }
+  .pre-nota { color: var(--muted); font-size: 11px; margin-top: 5px; line-height: 1.5; font-weight: 300; }
+
+  .modal-link {
+    font-size: 11px;
+    color: var(--tag-color);
+    margin-top: .75rem;
+    display: inline-block;
+    font-weight: 500;
+  }
+  .modal-link:hover { color: var(--navy); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+  /* ── API KEY SCREEN ── */
+  .apikey-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .apikey-screen.open { display: flex; }
+  .apikey-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-lg);
+  }
+  .ak-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+  }
+  .ak-logo-mark {
+    width: 38px; height: 38px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .ak-logo-text p { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.1; }
+  .ak-logo-text span { font-size: 11px; color: var(--muted); font-weight: 300; }
+
+  .ak-divider { height: 1px; background: var(--border); margin-bottom: 1.75rem; }
+
+  .ak-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted2);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .ak-input {
+    width: 100%;
+    background: var(--bg);
+    color: var(--navy);
+    border: 1.5px solid var(--border2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    letter-spacing: .03em;
+    outline: none;
+    transition: border-color .2s;
+    margin-bottom: .75rem;
+  }
+  .ak-input:focus { border-color: var(--navy); }
+  .ak-input::placeholder { color: var(--muted2); }
+  .ak-hint {
+    font-size: 11px;
+    color: var(--muted2);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .ak-hint a { color: var(--tag-color); text-decoration: none; font-weight: 500; }
+  .ak-hint a:hover { text-decoration: underline; }
+  .ak-btn {
+    width: 100%;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .ak-btn:hover { background: var(--navy2); }
+  .ak-btn:disabled { opacity: .4; cursor: not-allowed; }
+  .ak-error {
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: .75rem;
+    display: none;
+    text-align: center;
+    font-weight: 400;
+  }
+  .ak-error.show { display: block; }
+
+  /* badge de chave no header */
+  .key-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+    background: var(--bg);
+    transition: all .2s;
+    font-weight: 400;
+  }
+  .key-badge:hover { border-color: var(--border2); color: var(--navy); }
+  .key-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .key-dot.inactive { background: #d0ccc5; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header { padding: .875rem 1rem; }
+    .filters { padding: .6rem 1rem; top: 62px; }
+    .content { padding: 1.25rem 1rem; }
+    .month-nav { display: none; }
+    .status-bar { padding: 6px 1rem; }
+    .film-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; }
+    .apikey-card { padding: 2rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-mark">ETC</div>
+    <div class="logo-text">
+      <h1>Calendário de Cinema</h1>
+      <span>Lançamentos Brasil · próximos 6 meses</span>
+    </div>
+  </div>
+  <div class="hbtns">
+    <div class="key-badge" id="keyBadge" onclick="abrirKeyScreen()" title="Configurar chave API">
+      <span class="key-dot inactive" id="keyDot"></span>
+      <span id="keyLabel">Configurar API</span>
+    </div>
+    <button class="btn-outline" id="btnCSV" onclick="exportCSV()">↓ CSV</button>
+    <button class="btn-accent" id="btnFull" onclick="rodarCompleto()">✦ Atualizar tudo</button>
+  </div>
+</div>
+
+<div class="status-bar">
+  <span class="stat"><span class="dot dot-r"></span><span id="stTotal">0</span> filmes</span>
+  <span class="stat"><span class="dot dot-g"></span><span id="stPre">0</span> pré-estreias</span>
+  <span class="stat"><span class="dot dot-gray"></span>exibidor.com.br</span>
+  <span id="stWhen" style="margin-left:auto;font-size:10px;color:#333;"></span>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
+<div class="log-panel" id="logP"></div>
+
+<div class="filters">
+  <select class="fsel" id="fDist" onchange="render()"><option value="">Todas as distribuidoras</option></select>
+  <select class="fsel" id="fGen" onchange="render()"><option value="">Todos os gêneros</option></select>
+  <select class="fsel" id="fPre" onchange="render()">
+    <option value="">Todos os filmes</option>
+    <option value="yes">Com pré-estreia</option>
+    <option value="no">Sem pré-estreia</option>
+  </select>
+  <div class="month-nav" id="mNav"></div>
+</div>
+
+<div class="content" id="cal"></div>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modalOv" onclick="closeMod(event)">
+  <div class="modal">
+    <div class="modal-hdr">
+      <span class="modal-ttl" id="mTitle">—</span>
+      <button class="modal-x" onclick="closeModDirect()">✕</button>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<!-- API KEY SCREEN -->
+<div class="apikey-screen" id="apikeyScreen">
+  <div class="apikey-card">
+    <div class="ak-logo-row">
+      <div class="ak-logo-mark">ETC</div>
+      <div class="ak-logo-text">
+        <p>Calendário de Cinema</p>
+        <span>powered by Claude AI</span>
+      </div>
+    </div>
+    <div class="ak-divider"></div>
+
+    <label class="ak-label" for="akInput">Chave API Anthropic</label>
+    <input
+      class="ak-input"
+      id="akInput"
+      type="password"
+      placeholder="sk-ant-api03-..."
+      autocomplete="off"
+      spellcheck="false"
+    >
+
+    <p class="ak-hint">
+      Sua chave é salva apenas no seu navegador (localStorage) e nunca enviada para nenhum servidor além da API da Anthropic.<br><br>
+      Não tem uma chave? <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Crie em console.anthropic.com ↗</a>
+    </p>
+
+    <button class="ak-btn" id="akBtn" onclick="salvarChave()">Entrar</button>
+    <p class="ak-error" id="akError">Chave inválida. Verifique e tente novamente.</p>
+  </div>
+</div>
+
+<script>
+/* ─────────────────────────────────────────────
+   GERENCIAMENTO DE CHAVE API
+   ───────────────────────────────────────────── */
+const API_URL  = 'https://api.anthropic.com/v1/messages';
+const MODEL    = 'claude-sonnet-4-20250514';
+const KEY_STORE = 'cinema_apikey';
+
+function getApiKey() {
+  return localStorage.getItem(KEY_STORE) || '';
+}
+
+function salvarChave() {
+  const input = document.getElementById('akInput');
+  const key   = input.value.trim();
+  const btn   = document.getElementById('akBtn');
+  const err   = document.getElementById('akError');
+
+  if (!key.startsWith('sk-ant-')) {
+    err.classList.add('show');
+    err.textContent = 'A chave deve começar com "sk-ant-". Verifique e tente novamente.';
+    return;
+  }
+
+  err.classList.remove('show');
+  btn.disabled    = true;
+  btn.textContent = 'Verificando...';
+
+  /* testa a chave com uma chamada mínima */
+  fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: MODEL, max_tokens: 10, messages: [{ role: 'user', content: 'oi' }] })
+  })
+  .then(r => {
+    if (r.status === 401 || r.status === 403) throw new Error('auth');
+    return r.json();
+  })
+  .then(() => {
+    localStorage.setItem(KEY_STORE, key);
+    fecharKeyScreen();
+    atualizarKeyBadge();
+  })
+  .catch(e => {
+    btn.disabled    = false;
+    btn.textContent = 'Entrar';
+    err.classList.add('show');
+    err.textContent = e.message === 'auth'
+      ? 'Chave recusada pela API. Verifique se está correta e ativa.'
+      : 'Erro de conexão. Verifique sua internet e tente novamente.';
+  });
+}
+
+function abrirKeyScreen() {
+  const key = getApiKey();
+  const input = document.getElementById('akInput');
+  input.value = key ? key : '';
+  document.getElementById('akError').classList.remove('show');
+  document.getElementById('akBtn').disabled    = false;
+  document.getElementById('akBtn').textContent = 'Entrar';
+  document.getElementById('apikeyScreen').classList.add('open');
+  setTimeout(() => input.focus(), 100);
+}
+
+function fecharKeyScreen() {
+  document.getElementById('apikeyScreen').classList.remove('open');
+  init();
+}
+
+function atualizarKeyBadge() {
+  const key  = getApiKey();
+  const dot  = document.getElementById('keyDot');
+  const lbl  = document.getElementById('keyLabel');
+  if (key) {
+    dot.classList.remove('inactive');
+    lbl.textContent = 'API: •••' + key.slice(-4);
+  } else {
+    dot.classList.add('inactive');
+    lbl.textContent = 'Configurar API';
+  }
+}
+
+/* Enter confirma na tela de chave */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('apikeyScreen').classList.contains('open')) {
+      if (getApiKey()) fecharKeyScreen();
+    } else {
+      closeModDirect();
+    }
+  }
+  if (e.key === 'Enter' && document.getElementById('apikeyScreen').classList.contains('open')) {
+    salvarChave();
+  }
+});
+
+/* ─── CONSTANTES ─── */
+const MP = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+            'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const MS = ['Jan','Fev','Mar','Abr','Mai','Jun',
+            'Jul','Ago','Set','Out','Nov','Dez'];
+
+/* ─── ESTADO ─── */
+let filmes       = [];
+let activeMonth  = null;
+let isRunning    = false;
+
+/* ─── UTILS ─── */
+function getMeses() {
+  const h = new Date(), r = [];
+  for (let i = 0; i < 6; i++) {
+    const d = new Date(h.getFullYear(), h.getMonth() + i, 1);
+    r.push({ y: d.getFullYear(), m: d.getMonth() });
+  }
+  return r;
+}
+function ym(y, m) { return y + '-' + String(m + 1).padStart(2, '0'); }
+function fmt(s) {
+  if (!s) return '—';
+  const p = s.split('-');
+  return p[2] + '/' + p[1] + '/' + p[0];
+}
+function today() { return new Date().toISOString().slice(0, 10); }
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+/* ─── PERSISTÊNCIA ─── */
+function loadData() {
+  try {
+    const saved = localStorage.getItem('cinema_cal_v4');
+    if (saved) filmes = JSON.parse(saved);
+  } catch(e) { filmes = []; }
+}
+function saveData() {
+  try { localStorage.setItem('cinema_cal_v4', JSON.stringify(filmes)); } catch(e) {}
+}
+
+/* ─── INIT ─── */
+function init() {
+  loadData();
+  buildNav();
+  render();
+  updateStats();
+}
+
+function buildNav() {
+  const meses = getMeses();
+  document.getElementById('mNav').innerHTML =
+    '<button class="mpill active" onclick="setMonth(null,this)">Todos</button>' +
+    meses.map(x =>
+      `<button class="mpill" onclick="setMonth('${ym(x.y,x.m)}',this)">${MS[x.m]}</button>`
+    ).join('');
+}
+
+function setMonth(m, el) {
+  activeMonth = m;
+  document.querySelectorAll('.mpill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+
+/* ─── FILTROS ─── */
+function getFiltered() {
+  const dist = document.getElementById('fDist').value;
+  const gen  = document.getElementById('fGen').value;
+  const pre  = document.getElementById('fPre').value;
+  const keys = getMeses().map(x => ym(x.y, x.m));
+  return filmes.filter(f => {
+    const k = f.estreia ? f.estreia.slice(0, 7) : '';
+    if (!keys.includes(k)) return false;
+    if (activeMonth && k !== activeMonth) return false;
+    if (dist && f.distribuidora !== dist) return false;
+    if (gen  && f.genero !== gen) return false;
+    if (pre === 'yes' && !f.preEstreia) return false;
+    if (pre === 'no'  &&  f.preEstreia) return false;
+    return true;
+  });
+}
+
+/* ─── RENDER ─── */
+function render() {
+  const filtered = getFiltered();
+  const cal = document.getElementById('cal');
+
+  if (filmes.length === 0) {
+    cal.innerHTML = `<div class="empty">
+      <div class="empty-icon"><div class="clap-lg"></div></div>
+      Nenhum filme carregado ainda.<br>
+      Clique em <strong>✦ Atualizar tudo</strong> para buscar os lançamentos<br>
+      no exibidor.com.br e pesquisar as pré-estreias.
+    </div>`;
+    return;
+  }
+
+  const grouped = {};
+  filtered.forEach(f => {
+    const k = f.estreia.slice(0, 7);
+    if (!grouped[k]) grouped[k] = [];
+    grouped[k].push(f);
+  });
+
+  const keys = Object.keys(grouped).sort();
+  if (keys.length === 0) {
+    cal.innerHTML = '<div class="empty">Nenhum filme para os filtros selecionados.</div>';
+    return;
+  }
+
+  cal.innerHTML = keys.map(k => {
+    const [y, m] = k.split('-');
+    const lista = grouped[k].slice().sort((a, b) => a.estreia.localeCompare(b.estreia));
+    return `<div class="month-sec">
+      <div class="month-hdr">
+        <span class="month-name">${MP[parseInt(m)-1]} ${y}</span>
+        <span class="month-count">${lista.length} título${lista.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="film-grid">${lista.map(filmCard).join('')}</div>
+    </div>`;
+  }).join('');
+
+  /* atualiza selects de filtro sem resetar valor */
+  const distribs = [...new Set(filmes.map(f => f.distribuidora).filter(Boolean))].sort();
+  const generos  = [...new Set(filmes.map(f => f.genero).filter(Boolean))].sort();
+  const fd = document.getElementById('fDist'), fg = document.getElementById('fGen');
+  const dv = fd.value, gv = fg.value;
+  fd.innerHTML = '<option value="">Todas as distribuidoras</option>' +
+    distribs.map(d => `<option value="${d}"${d===dv?' selected':''}>${d}</option>`).join('');
+  fg.innerHTML = '<option value="">Todos os gêneros</option>' +
+    generos.map(g => `<option value="${g}"${g===gv?' selected':''}>${g}</option>`).join('');
+}
+
+function filmCard(f) {
+  let pre = '';
+  if (f.preEstreia) {
+    pre = `<span class="pre-badge confirmed">Pré ${fmt(f.preEstreia)}</span>`;
+  } else if (f.preStatus === 'searching') {
+    pre = `<span class="pre-badge searching"><span class="pulse"></span></span>`;
+  } else if (f.preEstimada) {
+    pre = `<span class="pre-badge estimated">~${fmt(f.preEstimada)}</span>`;
+  }
+
+  const poster = f.poster
+    ? `<img src="${f.poster}" alt="${escHtml(f.titulo)}" loading="lazy"
+         onerror="this.outerHTML='<div class=\\'poster-ph\\'><div class=\\'clap\\'></div></div>'">`
+    : `<div class="poster-ph"><div class="clap"></div></div>`;
+
+  const dd = f.estreia
+    ? f.estreia.slice(8,10) + '/' + f.estreia.slice(5,7)
+    : '';
+
+  return `<div class="film-card" onclick="openMod(${f.id})">
+    <div class="poster">
+      ${poster}${pre}
+      <span class="date-badge">${dd}</span>
+    </div>
+    <div class="film-info">
+      <div class="film-title" title="${escHtml(f.titulo)}">${escHtml(f.titulo)}</div>
+      <div class="film-meta">
+        <span class="film-date">${fmt(f.estreia)}</span>
+        <span class="distrib-tag">${escHtml(f.distribuidora || '—')}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function updateStats() {
+  const keys = getMeses().map(x => ym(x.y, x.m));
+  const rel  = filmes.filter(f => keys.includes(f.estreia ? f.estreia.slice(0,7) : ''));
+  document.getElementById('stTotal').textContent = rel.length;
+  document.getElementById('stPre').textContent   = rel.filter(f => f.preEstreia).length;
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ─── PROGRESS / LOG ─── */
+function setProgress(p) { document.getElementById('pFill').style.width = p + '%'; }
+function log(msg, type) {
+  const panel = document.getElementById('logP');
+  panel.classList.add('active');
+  panel.innerHTML = `<span class="log-${type||'info'}"> > ${escHtml(msg)}</span>`;
+}
+function clearLog() {
+  document.getElementById('logP').classList.remove('active');
+  document.getElementById('logP').innerHTML = '';
+  setProgress(0);
+}
+
+/* ─────────────────────────────────────────
+   ORQUESTRADOR PRINCIPAL
+   ───────────────────────────────────────── */
+async function rodarCompleto() {
+  if (isRunning) return;
+  isRunning = true;
+
+  const btn = document.getElementById('btnFull');
+  btn.disabled = true;
+  btn.innerHTML = '⟳ Rodando...';
+
+  filmes = [];
+  saveData();
+  render();
+  setProgress(3);
+
+  try {
+    log('Etapa 1/2 — Buscando filmes no exibidor.com.br...', 'info');
+    await etapa1_buscarFilmes();
+    setProgress(50);
+    render();
+    updateStats();
+    log(`${filmes.length} filmes encontrados. Etapa 2/2 — Pesquisando pré-estreias...`, 'ok');
+    await etapa2_buscarPreEstreias();
+    setProgress(100);
+    const agora = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('stWhen').textContent = `Atualizado às ${agora}`;
+    log(`Concluído — ${filmes.filter(f => f.preEstreia).length} pré-estreias confirmadas.`, 'ok');
+  } catch(e) {
+    log('Erro: ' + e.message, 'warn');
+    console.error(e);
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '✦ Atualizar tudo';
+  isRunning = false;
+  saveData();
+  render();
+  updateStats();
+  setTimeout(clearLog, 6000);
+}
+
+/* ─────────────────────────────────────────
+   ETAPA 1 — BUSCAR FILMES NO EXIBIDOR
+   ───────────────────────────────────────── */
+async function etapa1_buscarFilmes() {
+  const prompt = `Hoje é ${today()}.
+
+Acesse https://www.exibidor.com.br/lancamentos/ e liste TODOS os filmes que vão estreiar nos próximos 6 meses no Brasil.
+
+Para cada filme, acesse a ficha técnica em exibidor.com.br/filme/[ID]/[slug].html e colete os dados completos.
+
+Responda SOMENTE com JSON válido (sem markdown, sem texto antes ou depois):
+{
+  "filmes": [
+    {
+      "id": 1,
+      "titulo": "Título em português",
+      "estreia": "YYYY-MM-DD",
+      "distribuidora": "Nome",
+      "genero": "Gênero principal",
+      "sinopse": "Sinopse de até 150 caracteres",
+      "poster": "https://www.claquete.com/fotos/filmes/poster/ID_medio.jpg",
+      "urlExibidor": "URL completa da ficha"
+    }
+  ]
+}
+
+Retorne o máximo de filmes possível (ao menos 25). Inclua filmes nacionais e internacionais.`;
+
+  const data = await chamarClaude(prompt);
+  const text = extrairTexto(data);
+  const parsed = parseJSON(text);
+
+  filmes = (parsed.filmes || []).map((f, i) => ({
+    ...f,
+    id: f.id || (i + 1),
+    preEstreia: null,
+    preEstimada: null,
+    preStatus: 'pending',
+    preNota: null
+  }));
+
+  if (filmes.length === 0) throw new Error('Nenhum filme retornado pelo agente.');
+}
+
+/* ─────────────────────────────────────────
+   ETAPA 2 — BUSCAR PRÉ-ESTREIAS
+   ───────────────────────────────────────── */
+async function etapa2_buscarPreEstreias() {
+  for (let i = 0; i < filmes.length; i++) {
+    const f = filmes[i];
+    f.preStatus = 'searching';
+    render();
+    log(`(${i+1}/${filmes.length}) Pesquisando: ${f.titulo}`);
+    setProgress(50 + Math.round((i / filmes.length) * 47));
+
+    try {
+      const r = await buscarPreEstreia(f);
+      f.preEstreia  = r.data      || null;
+      f.preEstimada = r.estimada  || null;
+      f.preNota     = r.nota      || null;
+      f.preStatus   = r.data ? 'confirmed' : (r.estimada ? 'estimated' : 'no-info');
+    } catch(e) {
+      f.preStatus = 'no-info';
+    }
+    saveData();
+    await sleep(600);
+  }
+}
+
+async function buscarPreEstreia(f) {
+  const prompt = `Hoje é ${today()}. Você é especialista no mercado cinematográfico brasileiro.
+
+Pesquise na web a pré-estreia do filme "${f.titulo}" no Brasil.
+Distribuidora: ${f.distribuidora || 'desconhecida'}. Estreia: ${f.estreia}.
+
+Responda SOMENTE com JSON (sem markdown):
+{"data":"YYYY-MM-DD ou null","estimada":"YYYY-MM-DD ou null","nota":"até 80 chars"}
+
+- data: data de pré-estreia confirmada e divulgada publicamente
+- estimada: se não confirmada, estime com base no padrão da distribuidora (grandes lançamentos = 2 dias antes; filmes menores = 1 dia antes)
+- nota: fonte consultada ou raciocínio da estimativa`;
+
+  const data = await chamarClaude(prompt);
+  const text = extrairTexto(data);
+  return parseJSON(text);
+}
+
+/* ─────────────────────────────────────────
+   BUSCA INDIVIDUAL (botão no modal)
+   ───────────────────────────────────────── */
+async function buscarPreIndividual(id) {
+  const f = filmes.find(x => x.id === id);
+  if (!f) return;
+  f.preStatus = 'searching';
+  openMod(id);
+  render();
+
+  try {
+    const r = await buscarPreEstreia(f);
+    f.preEstreia  = r.data     || null;
+    f.preEstimada = r.estimada || null;
+    f.preNota     = r.nota     || null;
+    f.preStatus   = r.data ? 'confirmed' : (r.estimada ? 'estimated' : 'no-info');
+  } catch(e) {
+    f.preStatus = 'no-info';
+  }
+  saveData();
+  render();
+  updateStats();
+  openMod(id);
+}
+
+/* ─────────────────────────────────────────
+   API CLAUDE
+   ───────────────────────────────────────── */
+async function chamarClaude(prompt) {
+  const key = getApiKey();
+  if (!key) { abrirKeyScreen(); throw new Error('Chave API não configurada.'); }
+
+  const resp = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': key,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: 1000,
+      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  if (resp.status === 401 || resp.status === 403) {
+    abrirKeyScreen();
+    throw new Error('Chave API inválida ou expirada.');
+  }
+  if (!resp.ok) {
+    const err = await resp.text();
+    throw new Error(`API error ${resp.status}: ${err.slice(0,120)}`);
+  }
+  return resp.json();
+}
+
+function extrairTexto(data) {
+  return (data.content || [])
+    .filter(b => b.type === 'text')
+    .map(b => b.text)
+    .join('');
+}
+
+function parseJSON(text) {
+  const clean = text.replace(/```json/g, '').replace(/```/g, '').trim();
+  try { return JSON.parse(clean); }
+  catch(e) {
+    /* tenta extrair o primeiro objeto JSON do texto */
+    const m = clean.match(/\{[\s\S]*\}/);
+    if (m) { try { return JSON.parse(m[0]); } catch(e2) {} }
+    throw new Error('JSON inválido na resposta do agente.');
+  }
+}
+
+/* ─────────────────────────────────────────
+   MODAL
+   ───────────────────────────────────────── */
+function openMod(id) {
+  const f = filmes.find(x => x.id === id);
+  if (!f) return;
+
+  document.getElementById('mTitle').textContent = f.titulo;
+
+  let preHTML = '';
+  if (f.preEstreia) {
+    preHTML = `<div class="pre-box">
+      <h4>Pré-estreia confirmada</h4>
+      <p class="pre-date-confirmed">${fmt(f.preEstreia)}</p>
+      ${f.preNota ? `<p class="pre-nota">${escHtml(f.preNota)}</p>` : ''}
+    </div>`;
+  } else if (f.preEstimada) {
+    preHTML = `<div class="pre-box">
+      <h4>Pré-estreia estimada</h4>
+      <p class="pre-date-estimated">${fmt(f.preEstimada)}</p>
+      ${f.preNota ? `<p class="pre-nota">${escHtml(f.preNota)}</p>` : ''}
+    </div>`;
+  } else if (f.preStatus === 'searching') {
+    preHTML = `<div class="pre-box">
+      <h4>Pré-estreia</h4>
+      <p style="color:#444;font-size:13px;"><span class="pulse"></span> Pesquisando...</p>
+    </div>`;
+  } else {
+    preHTML = `<div class="pre-box">
+      <h4>Pré-estreia</h4>
+      <p style="color:#333;font-size:12px;margin-bottom:10px;">Não encontrada ainda.</p>
+      <button class="btn-accent" onclick="buscarPreIndividual(${f.id})" style="font-size:12px;padding:7px 14px;border-radius:6px;">
+        ✦ Buscar agora
+      </button>
+    </div>`;
+  }
+
+  document.getElementById('mBody').innerHTML = `
+    <div class="mfield"><label>Estreia</label><p>${fmt(f.estreia)}</p></div>
+    <div class="mfield"><label>Distribuidora</label><p>${escHtml(f.distribuidora || '—')}</p></div>
+    <div class="mfield"><label>Gênero</label><p>${escHtml(f.genero || '—')}</p></div>
+    <div class="mfield"><label>Sinopse</label><p>${escHtml(f.sinopse || '—')}</p></div>
+    ${preHTML}
+    ${f.urlExibidor
+      ? `<a class="modal-link" href="${escHtml(f.urlExibidor)}" target="_blank" rel="noopener">
+           Ver ficha no Exibidor ↗
+         </a>`
+      : ''}`;
+
+  document.getElementById('modalOv').classList.add('open');
+}
+
+function closeMod(e) {
+  if (e.target === document.getElementById('modalOv')) closeModDirect();
+}
+function closeModDirect() {
+  document.getElementById('modalOv').classList.remove('open');
+}
+
+/* ─── ESC fecha modal ─── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModDirect();
+});
+
+/* ─────────────────────────────────────────
+   EXPORT CSV
+   ───────────────────────────────────────── */
+function exportCSV() {
+  if (filmes.length === 0) { alert('Nenhum dado para exportar.'); return; }
+  const header = 'Título,Estreia,Distribuidora,Gênero,Pré-Estreia Confirmada,Pré-Estreia Estimada,Nota,URL Exibidor';
+  const rows = filmes.map(f =>
+    [f.titulo, f.estreia, f.distribuidora, f.genero,
+     f.preEstreia || '', f.preEstimada || '', f.preNota || '', f.urlExibidor || '']
+    .map(v => `"${String(v || '').replace(/"/g, '""')}"`)
+    .join(',')
+  );
+  const csv  = '\uFEFF' + [header, ...rows].join('\r\n'); // BOM para Excel BR
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url;
+  a.download = `cinema_lancamentos_${today()}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ─── START ─── */
+atualizarKeyBadge();
+if (!getApiKey()) {
+  abrirKeyScreen();
+} else {
+  init();
+}
+</script>
+</body>
+</html>
