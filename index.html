@@ -1218,15 +1218,24 @@ async function chamarClaude(prompt) {
       messages: [{ role: 'user', content: prompt }]
     })
   });
-  if (resp.status === 401 || resp.status === 403) {
-    abrirKeyScreen();
-    throw new Error('Chave API inválida ou expirada.');
+
+  const json = await resp.json();
+
+  // Trata erros retornados pela API no corpo da resposta
+  if (json.type === 'error' || json.error) {
+    const msg = (json.error && json.error.message) || JSON.stringify(json);
+    if (resp.status === 401 || resp.status === 403) {
+      abrirKeyScreen();
+      throw new Error('Chave API inválida ou expirada.');
+    }
+    throw new Error('Erro da API: ' + msg.slice(0, 120));
   }
+
   if (!resp.ok) {
-    const err = await resp.text();
-    throw new Error(`API error ${resp.status}: ${err.slice(0,120)}`);
+    throw new Error(`API error ${resp.status}: ${JSON.stringify(json).slice(0, 120)}`);
   }
-  return resp.json();
+
+  return json;
 }
 
 function extrairTexto(data) {
