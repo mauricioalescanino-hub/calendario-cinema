@@ -895,8 +895,9 @@ function render() {
     cal.innerHTML = `<div class="empty">
       <div class="empty-icon"><div class="clap-lg"></div></div>
       Nenhum filme carregado ainda.<br>
-      Clique em <strong>✦ Atualizar tudo</strong> para buscar os lançamentos<br>
-      no exibidor.com.br e pesquisar as pré-estreias.
+      Rode o <strong>scraper_exibidor.py</strong> na sua máquina,<br>
+      suba o <strong>filmes.json</strong> gerado no GitHub<br>
+      e clique em <strong>✦ Atualizar pré-estreias</strong>.
     </div>`;
     return;
   }
@@ -1012,12 +1013,12 @@ async function rodarCompleto() {
   setProgress(3);
 
   try {
-    log('Etapa 1/2 — Buscando filmes no exibidor.com.br...', 'info');
+    log('Etapa 1/2 — Carregando filmes do filmes.json...', 'info');
     await etapa1_buscarFilmes();
     setProgress(50);
     render();
     updateStats();
-    log(`${filmes.length} filmes encontrados. Etapa 2/2 — Pesquisando pré-estreias...`, 'ok');
+    log(`${filmes.length} filmes carregados. Etapa 2/2 — Pesquisando pré-estreias com IA...`, 'ok');
     await etapa2_buscarPreEstreias();
     setProgress(100);
     const agora = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
@@ -1038,80 +1039,45 @@ async function rodarCompleto() {
 }
 
 /* ─────────────────────────────────────────
-   ETAPA 1 — BUSCAR FILMES VIA CLAUDE
-   (1 chamada sem web_search — ~$0,01)
+   ETAPA 1 — CARREGA filmes.json (gerado pelo scraper)
    ───────────────────────────────────────── */
 async function etapa1_buscarFilmes() {
-  const meses = getMeses();
-  const de  = `${meses[0].y}-${String(meses[0].m+1).padStart(2,'0')}-01`;
-  const ate = `${meses[5].y}-${String(meses[5].m+1).padStart(2,'0')}-31`;
+  log('Carregando filmes.json...', 'info');
 
-  const prompt = `Hoje é ${today()}. Você é especialista no mercado cinematográfico brasileiro.
-
-Liste TODOS os filmes que vão estreiar no Brasil entre ${fmt(de)} e ${fmt(ate)}, incluindo filmes nacionais e internacionais já confirmados pelas distribuidoras.
-
-Inclua blockbusters internacionais (Marvel, DC, Universal, Warner, Disney, Sony, Paramount) E filmes nacionais E filmes de outros países com distribuição confirmada no Brasil.
-
-Responda SOMENTE com JSON válido (sem markdown, sem texto extra):
-{
-  "filmes": [
-    {
-      "id": 1,
-      "titulo": "Título em português",
-      "estreia": "YYYY-MM-DD",
-      "distribuidora": "Nome da distribuidora no Brasil",
-      "genero": "Gênero principal",
-      "sinopse": "Até 120 caracteres",
-      "poster": null
-    }
-  ]
-}
-
-Retorne o máximo possível — ao menos 20 filmes. Inclua apenas filmes com data de estreia confirmada ou fortemente esperada nesse período.`;
-
-  const data   = await chamarClaude(prompt);
-  const text   = extrairTexto(data);
-
-  let parsed;
+  let json;
   try {
-    parsed = parseJSON(text);
+    const resp = await fetch('filmes.json?v=' + Date.now());
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    json = await resp.json();
   } catch(e) {
-    // Tenta recuperar array parcial mesmo com JSON truncado
-    const m = text.match(/"filmes"\s*:\s*(\[[\s\S]*)/);
-    if (m) {
-      // Fecha o array/objeto se estiver truncado
-      let arr = m[1];
-      // Remove último objeto incompleto (sem "}" fechando após a última vírgula)
-      arr = arr.replace(/,\s*\{[^}]*$/, '').replace(/\[$/, '');
-      if (!arr.endsWith(']')) arr += ']';
-      try {
-        const lista = JSON.parse(arr);
-        parsed = { filmes: lista };
-      } catch(e2) {
-        throw new Error('Resposta do agente inválida. Tente novamente.');
-      }
-    } else {
-      throw new Error('Resposta do agente inválida. Tente novamente.');
-    }
+    throw new Error(
+      'filmes.json não encontrado. ' +
+      'Rode o scraper_exibidor.py na sua máquina e suba o arquivo gerado junto com o index.html no GitHub.'
+    );
   }
 
-  filmes = (parsed.filmes || []).map((f, i) => ({
-    ...f,
-    id: f.id || (i + 1),
-    poster: f.poster || null,
-    urlExibidor: `https://www.exibidor.com.br/lancamentos/`,
-    preEstreia:  null,
-    preEstimada: null,
-    preStatus:   'pending',
-    preNota:     null
-  }));
-
-  // filtra só filmes dentro da janela de 6 meses
   const keys = getMeses().map(x => ym(x.y, x.m));
-  filmes = filmes.filter(f => f.estreia && keys.includes(f.estreia.slice(0,7)));
+
+  filmes = (json.filmes || [])
+    .filter(f => f.estreia && keys.includes(f.estreia.slice(0, 7)))
+    .map((f, i) => ({
+      ...f,
+      id:          f.id || (i + 1),
+      preEstreia:  null,
+      preEstimada: null,
+      preStatus:   'pending',
+      preNota:     null,
+    }));
+
   filmes.sort((a, b) => a.estreia.localeCompare(b.estreia));
 
-  if (filmes.length === 0) throw new Error('Nenhum filme retornado. Tente novamente.');
+  if (filmes.length === 0) {
+    throw new Error('Nenhum filme no filmes.json para os próximos 6 meses. Rode o scraper novamente.');
+  }
+
+  if (json.gerado_em) {
+    document.getElementById('stWhen').textContent = `Base: ${json.gerado_em}`;
+  }
 }
 
 /* ─────────────────────────────────────────
