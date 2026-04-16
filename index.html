@@ -1038,86 +1038,167 @@ async function rodarCompleto() {
 }
 
 /* ─────────────────────────────────────────
-   ETAPA 1 — BUSCAR FILMES NO EXIBIDOR
+   ETAPA 1 — SCRAPING DIRETO DO EXIBIDOR
+   (sem API, sem custo — fetch no browser)
    ───────────────────────────────────────── */
 async function etapa1_buscarFilmes() {
-  const prompt = `Hoje é ${today()}.
+  // Proxy CORS público para acessar o exibidor no browser
+  const PROXY = 'https://api.allorigins.win/get?url=';
+  const url   = encodeURIComponent('https://www.exibidor.com.br/lancamentos/');
 
-Acesse https://www.exibidor.com.br/lancamentos/ e liste TODOS os filmes que vão estreiar nos próximos 6 meses no Brasil.
+  log('Acessando exibidor.com.br...', 'info');
 
-Para cada filme, acesse a ficha técnica em exibidor.com.br/filme/[ID]/[slug].html e colete os dados completos.
+  let html = '';
+  try {
+    const r = await fetch(PROXY + url);
+    const j = await r.json();
+    html = j.contents || '';
+  } catch(e) {
+    throw new Error('Não foi possível acessar o exibidor.com.br. Tente novamente.');
+  }
 
-Responda SOMENTE com JSON válido (sem markdown, sem texto antes ou depois):
-{
-  "filmes": [
-    {
-      "id": 1,
-      "titulo": "Título em português",
-      "estreia": "YYYY-MM-DD",
-      "distribuidora": "Nome",
-      "genero": "Gênero principal",
-      "sinopse": "Sinopse de até 150 caracteres",
-      "poster": "https://www.claquete.com/fotos/filmes/poster/ID_medio.jpg",
-      "urlExibidor": "URL completa da ficha"
+  // Extrai os links de fichas técnicas: /filme/ID/slug.html
+  const regex = /href="https?:\/\/(?:www\.)?exibidor\.com\.br\/filme\/(\d+)\/([^"]+\.html)"/g;
+  const fichas = [];
+  const visto  = new Set();
+  let m;
+  while ((m = regex.exec(html)) !== null) {
+    const id  = m[1];
+    const slug = m[2];
+    if (!visto.has(id)) {
+      visto.add(id);
+      fichas.push({ id, url: `https://www.exibidor.com.br/filme/${id}/${slug}` });
     }
-  ]
-}
+  }
 
-Retorne o máximo de filmes possível (ao menos 25). Inclua filmes nacionais e internacionais.`;
+  if (fichas.length === 0) throw new Error('Nenhuma ficha encontrada no exibidor. O site pode ter mudado de estrutura.');
 
-  const data = await chamarClaude(prompt);
-  const text = extrairTexto(data);
-  const parsed = parseJSON(text);
+  log(`${fichas.length} fichas encontradas. Lendo detalhes...`, 'ok');
 
-  filmes = (parsed.filmes || []).map((f, i) => ({
-    ...f,
-    id: f.id || (i + 1),
-    preEstreia: null,
-    preEstimada: null,
-    preStatus: 'pending',
-    preNota: null
-  }));
+  const hoje   = new Date();
+  const limite = new Date(hoje.getFullYear(), hoje.getMonth() + 6, 1);
+  const filmesEncontrados = [];
 
-  if (filmes.length === 0) throw new Error('Nenhum filme retornado pelo agente.');
+  for (let i = 0; i < Math.min(fichas.length, 60); i++) {
+    const ficha = fichas[i];
+    setProgress(5 + Math.round((i / Math.min(fichas.length, 60)) * 42));
+    log(`Lendo ficha ${i+1}/${Math.min(fichas.length,60)}: ${ficha.url.split('/').pop()}`);
+
+    try {
+      const ru = encodeURIComponent(ficha.url);
+      const rf = await fetch(PROXY + ru);
+      const jf = await rf.json();
+      const hf = jf.contents || '';
+
+      // Extrai título
+      const tMatch = hf.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+      const titulo = tMatch ? tMatch[1].replace(/<[^>]+>/g,'').trim() : '';
+
+      // Extrai data de estreia (padrão: "16/04/2026" ou "16/04/2026")
+      const dMatch = hf.match(/Estreia[\s\S]{0,200}?(\d{2})\/(\d{2})\/(\d{4})/i);
+      let estreia = null;
+      if (dMatch) {
+        estreia = `${dMatch[3]}-${dMatch[2]}-${dMatch[1]}`;
+      }
+
+      // Filtra por janela de 6 meses
+      if (!estreia || !titulo) { await sleep(150); continue; }
+      const dataEstreia = new Date(estreia);
+      if (dataEstreia < hoje || dataEstreia > limite) { await sleep(150); continue; }
+
+      // Extrai distribuidora
+      const distMatch = hf.match(/Distribuidor[^:]*:[\s\S]{0,50}?<\/[a-z]+>\s*([\w\s\.\-&]+)/i)
+                     || hf.match(/distribuidor[\s\S]{0,100}?<li>\s*([\w\s\.\-&]+)<\/li>/i);
+      const distribuidora = distMatch ? distMatch[1].replace(/<[^>]+>/g,'').trim().slice(0,40) : '';
+
+      // Extrai gênero
+      const genMatch = hf.match(/G[eê]nero[^:]*:[\s\S]{0,100}?<\/[a-z]+>\s*([\w\s,]+)/i)
+                    || hf.match(/g[eê]nero[\s\S]{0,100}?<li>\s*([\w\s,]+)<\/li>/i);
+      const genero = genMatch ? genMatch[1].replace(/<[^>]+>/g,'').trim().slice(0,40) : '';
+
+      // Extrai sinopse
+      const sinMatch = hf.match(/Sinopse[\s\S]{0,50}<\/[^>]+>([\s\S]{20,400}?)<\/p>/i);
+      const sinopse = sinMatch ? sinMatch[1].replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,160) : '';
+
+      // Poster padrão claquete
+      const poster = `https://www.claquete.com/fotos/filmes/poster/${ficha.id}_medio.jpg`;
+
+      filmesEncontrados.push({
+        id: parseInt(ficha.id),
+        titulo,
+        estreia,
+        distribuidora,
+        genero,
+        sinopse,
+        poster,
+        urlExibidor: ficha.url,
+        preEstreia: null,
+        preEstimada: null,
+        preStatus: 'pending',
+        preNota: null
+      });
+    } catch(e) {
+      // ficha inacessível, segue
+    }
+    await sleep(200);
+  }
+
+  if (filmesEncontrados.length === 0) throw new Error('Nenhum filme nos próximos 6 meses encontrado.');
+  filmes = filmesEncontrados.sort((a, b) => a.estreia.localeCompare(b.estreia));
 }
 
 /* ─────────────────────────────────────────
    ETAPA 2 — BUSCAR PRÉ-ESTREIAS
+   (Claude sem web_search — muito mais barato)
    ───────────────────────────────────────── */
 async function etapa2_buscarPreEstreias() {
-  for (let i = 0; i < filmes.length; i++) {
-    const f = filmes[i];
-    f.preStatus = 'searching';
-    render();
-    log(`(${i+1}/${filmes.length}) Pesquisando: ${f.titulo}`);
-    setProgress(50 + Math.round((i / filmes.length) * 47));
+  // Monta um único prompt com todos os filmes — 1 chamada só para a lista inteira
+  log('Consultando Claude sobre pré-estreias...', 'info');
 
-    try {
-      const r = await buscarPreEstreia(f);
+  const lista = filmes.map((f, i) =>
+    `${i+1}. "${f.titulo}" | Distribuidora: ${f.distribuidora||'?'} | Estreia: ${f.estreia}`
+  ).join('\n');
+
+  const prompt = `Hoje é ${today()}. Você é especialista no mercado cinematográfico brasileiro.
+
+Para cada filme abaixo, informe a pré-estreia no Brasil (se souber) ou estime (padrão: 2 dias antes para grandes lançamentos, 1 dia antes para filmes menores).
+
+Filmes:
+${lista}
+
+Responda SOMENTE com JSON (sem markdown):
+{"resultados":[{"i":0,"data":"YYYY-MM-DD ou null","estimada":"YYYY-MM-DD ou null","nota":"até 60 chars"}]}
+
+"i" é o índice 0-based da lista acima. Retorne um objeto por filme.`;
+
+  try {
+    const data = await chamarClaude(prompt);
+    const text = extrairTexto(data);
+    const parsed = parseJSON(text);
+    const resultados = parsed.resultados || [];
+
+    resultados.forEach(r => {
+      const f = filmes[r.i];
+      if (!f) return;
       f.preEstreia  = r.data      || null;
       f.preEstimada = r.estimada  || null;
       f.preNota     = r.nota      || null;
       f.preStatus   = r.data ? 'confirmed' : (r.estimada ? 'estimated' : 'no-info');
-    } catch(e) {
-      f.preStatus = 'no-info';
-    }
-    saveData();
-    await sleep(600);
+    });
+  } catch(e) {
+    // se falhar, marca todos como no-info mas não quebra o fluxo
+    filmes.forEach(f => { if (f.preStatus === 'pending') f.preStatus = 'no-info'; });
+    log('Aviso: pré-estreias não carregadas — ' + e.message, 'warn');
   }
 }
 
 async function buscarPreEstreia(f) {
-  const prompt = `Hoje é ${today()}. Você é especialista no mercado cinematográfico brasileiro.
+  const prompt = `Hoje é ${today()}. Especialista em cinema brasileiro.
 
-Pesquise na web a pré-estreia do filme "${f.titulo}" no Brasil.
-Distribuidora: ${f.distribuidora || 'desconhecida'}. Estreia: ${f.estreia}.
+Filme: "${f.titulo}" | Distribuidora: ${f.distribuidora||'?'} | Estreia: ${f.estreia}
 
-Responda SOMENTE com JSON (sem markdown):
-{"data":"YYYY-MM-DD ou null","estimada":"YYYY-MM-DD ou null","nota":"até 80 chars"}
-
-- data: data de pré-estreia confirmada e divulgada publicamente
-- estimada: se não confirmada, estime com base no padrão da distribuidora (grandes lançamentos = 2 dias antes; filmes menores = 1 dia antes)
-- nota: fonte consultada ou raciocínio da estimativa`;
+Informe a pré-estreia no Brasil. Responda SOMENTE com JSON:
+{"data":"YYYY-MM-DD ou null","estimada":"YYYY-MM-DD ou null","nota":"até 60 chars"}`;
 
   const data = await chamarClaude(prompt);
   const text = extrairTexto(data);
@@ -1166,8 +1247,7 @@ async function chamarClaude(prompt) {
     },
     body: JSON.stringify({
       model: MODEL,
-      max_tokens: 1000,
-      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+      max_tokens: 2000,
       messages: [{ role: 'user', content: prompt }]
     })
   });
