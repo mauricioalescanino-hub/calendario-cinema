@@ -940,12 +940,13 @@ function render() {
 
 function filmCard(f) {
   let pre = '';
+  const fmtCurto = s => s ? s.slice(8,10) + '/' + s.slice(5,7) : '';
   if (f.preEstreia) {
-    pre = `<span class="pre-badge confirmed">Pré ${fmt(f.preEstreia)}</span>`;
+    pre = `<span class="pre-badge confirmed">Pré ${fmtCurto(f.preEstreia)}</span>`;
   } else if (f.preStatus === 'searching') {
     pre = `<span class="pre-badge searching"><span class="pulse"></span></span>`;
   } else if (f.preEstimada) {
-    pre = `<span class="pre-badge estimated">~${fmt(f.preEstimada)}</span>`;
+    pre = `<span class="pre-badge estimated">~${fmtCurto(f.preEstimada)}</span>`;
   }
 
   const poster = f.poster
