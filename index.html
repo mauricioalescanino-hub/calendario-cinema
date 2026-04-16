@@ -292,21 +292,23 @@
   .pre-badge {
     position: absolute;
     top: 7px; left: 7px;
-    border-radius: 4px;
-    padding: 2px 7px;
-    font-size: 9px;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 10px;
     font-weight: 600;
     font-family: 'Sora', sans-serif;
     letter-spacing: .01em;
+    line-height: 1.3;
   }
   .pre-badge.confirmed {
     background: var(--accent);
     color: #fff;
+    box-shadow: 0 1px 4px rgba(224,90,30,.35);
   }
   .pre-badge.estimated {
-    background: rgba(196,125,42,.15);
+    background: rgba(255,255,255,.92);
     color: var(--gold);
-    border: 1px solid rgba(196,125,42,.25);
+    border: 1px solid rgba(196,125,42,.3);
   }
   .pre-badge.searching {
     background: rgba(255,255,255,.85);
@@ -1083,60 +1085,67 @@ async function etapa1_buscarFilmes() {
 
 /* ─────────────────────────────────────────
    ETAPA 2 — BUSCAR PRÉ-ESTREIAS
-   (Claude sem web_search — muito mais barato)
+   (web search por lote de 10 filmes)
    ───────────────────────────────────────── */
 async function etapa2_buscarPreEstreias() {
-  // Monta um único prompt com todos os filmes — 1 chamada só para a lista inteira
-  log('Consultando Claude sobre pré-estreias...', 'info');
+  const LOTE = 10;
+  for (let i = 0; i < filmes.length; i += LOTE) {
+    const lote = filmes.slice(i, i + LOTE);
+    log(`Pesquisando pré-estreias ${i+1}–${Math.min(i+LOTE, filmes.length)} de ${filmes.length}...`, 'info');
+    setProgress(52 + Math.round((i / filmes.length) * 45));
 
-  const lista = filmes.map((f, i) =>
-    `${i+1}. "${f.titulo}" | Distribuidora: ${f.distribuidora||'?'} | Estreia: ${f.estreia}`
-  ).join('\n');
+    const lista = lote.map((f, j) =>
+      `${j}. "${f.titulo}" | ${f.distribuidora||'?'} | estreia ${fmt(f.estreia)}`
+    ).join('\n');
 
-  const prompt = `Hoje é ${today()}. Você é especialista no mercado cinematográfico brasileiro.
+    const prompt = `Hoje é ${today()}. Especialista em cinema brasileiro.
 
-Para cada filme abaixo, informe a pré-estreia no Brasil (se souber) ou estime (padrão: 2 dias antes para grandes lançamentos, 1 dia antes para filmes menores).
+Pesquise as datas de pré-estreia no Brasil para cada filme abaixo.
+Priorize informações confirmadas (sites de cinema, redes sociais das distribuidoras, Ingresso.com, Fandango, etc).
+Se não encontrar confirmação, estime: blockbusters = 2 dias antes; filmes médios = 1 dia antes; filmes pequenos = null.
 
-Filmes:
 ${lista}
 
-Responda SOMENTE com JSON (sem markdown):
-{"resultados":[{"i":0,"data":"YYYY-MM-DD ou null","estimada":"YYYY-MM-DD ou null","nota":"até 60 chars"}]}
+Responda SOMENTE com JSON (sem markdown, sem texto extra):
+{"r":[{"i":0,"data":"YYYY-MM-DD ou null","est":"YYYY-MM-DD ou null","nota":"fonte ou motivo, até 50 chars"}]}
 
-"i" é o índice 0-based da lista acima. Retorne um objeto por filme.`;
+"i" = índice 0-based acima. Um objeto por filme.`;
 
-  try {
-    const data = await chamarClaude(prompt);
-    const text = extrairTexto(data);
-    const parsed = parseJSON(text);
-    const resultados = parsed.resultados || [];
-
-    resultados.forEach(r => {
-      const f = filmes[r.i];
-      if (!f) return;
-      f.preEstreia  = r.data      || null;
-      f.preEstimada = r.estimada  || null;
-      f.preNota     = r.nota      || null;
-      f.preStatus   = r.data ? 'confirmed' : (r.estimada ? 'estimated' : 'no-info');
-    });
-  } catch(e) {
-    // se falhar, marca todos como no-info mas não quebra o fluxo
-    filmes.forEach(f => { if (f.preStatus === 'pending') f.preStatus = 'no-info'; });
-    log('Aviso: pré-estreias não carregadas — ' + e.message, 'warn');
+    try {
+      const data = await chamarClaude(prompt, true);
+      const text = extrairTexto(data);
+      const parsed = parseJSON(text);
+      (parsed.r || parsed.resultados || []).forEach(r => {
+        const f = lote[r.i];
+        if (!f) return;
+        f.preEstreia  = r.data || r.data_confirmada || null;
+        f.preEstimada = r.est  || r.estimada || null;
+        f.preNota     = r.nota || null;
+        f.preStatus   = f.preEstreia ? 'confirmed' : (f.preEstimada ? 'estimated' : 'no-info');
+      });
+    } catch(e) {
+      lote.forEach(f => { if (f.preStatus === 'pending') f.preStatus = 'no-info'; });
+    }
+    saveData();
+    render();
+    updateStats();
+    await sleep(500);
   }
 }
 
 async function buscarPreEstreia(f) {
   const prompt = `Hoje é ${today()}. Especialista em cinema brasileiro.
 
-Filme: "${f.titulo}" | Distribuidora: ${f.distribuidora||'?'} | Estreia: ${f.estreia}
+Pesquise a pré-estreia do filme "${f.titulo}" no Brasil.
+Distribuidora: ${f.distribuidora||'?'} | Estreia: ${fmt(f.estreia)}
 
-Informe a pré-estreia no Brasil. Responda SOMENTE com JSON:
-{"data":"YYYY-MM-DD ou null","estimada":"YYYY-MM-DD ou null","nota":"até 60 chars"}`;
+Responda SOMENTE com JSON:
+{"data":"YYYY-MM-DD ou null","est":"YYYY-MM-DD ou null","nota":"fonte ou motivo, até 50 chars"}`;
 
-  const data = await chamarClaude(prompt);
+  const data = await chamarClaude(prompt, true);
   const text = extrairTexto(data);
-  return parseJSON(text);
+  const r = parseJSON(text);
+  return { data: r.data || null, estimada: r.est || r.estimada || null, nota: r.nota || null };
 }
 
 /* ─────────────────────────────────────────
@@ -1167,9 +1176,18 @@ async function buscarPreIndividual(id) {
 /* ─────────────────────────────────────────
    API CLAUDE
    ───────────────────────────────────────── */
-async function chamarClaude(prompt) {
+async function chamarClaude(prompt, webSearch = false) {
   const key = getApiKey();
   if (!key) { abrirKeyScreen(); throw new Error('Chave API não configurada.'); }
+
+  const bodyObj = {
+    model: MODEL,
+    max_tokens: 4000,
+    messages: [{ role: 'user', content: prompt }]
+  };
+  if (webSearch) {
+    bodyObj.tools = [{ type: 'web_search_20250305', name: 'web_search' }];
+  }
 
   const resp = await fetch(API_URL, {
     method: 'POST',
@@ -1179,16 +1197,11 @@ async function chamarClaude(prompt) {
       'anthropic-version': '2023-06-01',
       'anthropic-dangerous-direct-browser-access': 'true'
     },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 4000,
-      messages: [{ role: 'user', content: prompt }]
-    })
+    body: JSON.stringify(bodyObj)
   });
 
   const json = await resp.json();
 
-  // Trata erros retornados pela API no corpo da resposta
   if (json.type === 'error' || json.error) {
     const msg = (json.error && json.error.message) || JSON.stringify(json);
     if (resp.status === 401 || resp.status === 403) {
