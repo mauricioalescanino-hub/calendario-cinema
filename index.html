@@ -1071,7 +1071,29 @@ Retorne o máximo possível — ao menos 20 filmes. Inclua apenas filmes com dat
 
   const data   = await chamarClaude(prompt);
   const text   = extrairTexto(data);
-  const parsed = parseJSON(text);
+
+  let parsed;
+  try {
+    parsed = parseJSON(text);
+  } catch(e) {
+    // Tenta recuperar array parcial mesmo com JSON truncado
+    const m = text.match(/"filmes"\s*:\s*(\[[\s\S]*)/);
+    if (m) {
+      // Fecha o array/objeto se estiver truncado
+      let arr = m[1];
+      // Remove último objeto incompleto (sem "}" fechando após a última vírgula)
+      arr = arr.replace(/,\s*\{[^}]*$/, '').replace(/\[$/, '');
+      if (!arr.endsWith(']')) arr += ']';
+      try {
+        const lista = JSON.parse(arr);
+        parsed = { filmes: lista };
+      } catch(e2) {
+        throw new Error('Resposta do agente inválida. Tente novamente.');
+      }
+    } else {
+      throw new Error('Resposta do agente inválida. Tente novamente.');
+    }
+  }
 
   filmes = (parsed.filmes || []).map((f, i) => ({
     ...f,
@@ -1192,7 +1214,7 @@ async function chamarClaude(prompt) {
     },
     body: JSON.stringify({
       model: MODEL,
-      max_tokens: 2000,
+      max_tokens: 4000,
       messages: [{ role: 'user', content: prompt }]
     })
   });
@@ -1215,14 +1237,27 @@ function extrairTexto(data) {
 }
 
 function parseJSON(text) {
-  const clean = text.replace(/```json/g, '').replace(/```/g, '').trim();
-  try { return JSON.parse(clean); }
-  catch(e) {
-    /* tenta extrair o primeiro objeto JSON do texto */
+  // Remove markdown code blocks
+  let clean = text.replace(/```json/gi, '').replace(/```/g, '').trim();
+
+  // Tenta parse direto
+  try { return JSON.parse(clean); } catch(e) {}
+
+  // Tenta extrair o maior bloco JSON do texto
+  try {
     const m = clean.match(/\{[\s\S]*\}/);
-    if (m) { try { return JSON.parse(m[0]); } catch(e2) {} }
-    throw new Error('JSON inválido na resposta do agente.');
-  }
+    if (m) return JSON.parse(m[0]);
+  } catch(e) {}
+
+  // Tenta extrair array JSON
+  try {
+    const m = clean.match(/\[[\s\S]*\]/);
+    if (m) return JSON.parse(m[0]);
+  } catch(e) {}
+
+  // Log para debug
+  console.error('parseJSON falhou. Texto recebido:', clean.slice(0, 500));
+  throw new Error('JSON inválido na resposta do agente. Ver console para detalhes.');
 }
 
 /* ─────────────────────────────────────────
