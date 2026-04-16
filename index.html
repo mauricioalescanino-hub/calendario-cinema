@@ -1038,113 +1038,58 @@ async function rodarCompleto() {
 }
 
 /* ─────────────────────────────────────────
-   ETAPA 1 — SCRAPING DIRETO DO EXIBIDOR
-   (sem API, sem custo — fetch no browser)
+   ETAPA 1 — BUSCAR FILMES VIA CLAUDE
+   (1 chamada sem web_search — ~$0,01)
    ───────────────────────────────────────── */
 async function etapa1_buscarFilmes() {
-  // Proxy CORS público para acessar o exibidor no browser
-  const PROXY = 'https://api.allorigins.win/get?url=';
-  const url   = encodeURIComponent('https://www.exibidor.com.br/lancamentos/');
+  const meses = getMeses();
+  const de  = `${meses[0].y}-${String(meses[0].m+1).padStart(2,'0')}-01`;
+  const ate = `${meses[5].y}-${String(meses[5].m+1).padStart(2,'0')}-31`;
 
-  log('Acessando exibidor.com.br...', 'info');
+  const prompt = `Hoje é ${today()}. Você é especialista no mercado cinematográfico brasileiro.
 
-  let html = '';
-  try {
-    const r = await fetch(PROXY + url);
-    const j = await r.json();
-    html = j.contents || '';
-  } catch(e) {
-    throw new Error('Não foi possível acessar o exibidor.com.br. Tente novamente.');
-  }
+Liste TODOS os filmes que vão estreiar no Brasil entre ${fmt(de)} e ${fmt(ate)}, incluindo filmes nacionais e internacionais já confirmados pelas distribuidoras.
 
-  // Extrai os links de fichas técnicas: /filme/ID/slug.html
-  const regex = /href="https?:\/\/(?:www\.)?exibidor\.com\.br\/filme\/(\d+)\/([^"]+\.html)"/g;
-  const fichas = [];
-  const visto  = new Set();
-  let m;
-  while ((m = regex.exec(html)) !== null) {
-    const id  = m[1];
-    const slug = m[2];
-    if (!visto.has(id)) {
-      visto.add(id);
-      fichas.push({ id, url: `https://www.exibidor.com.br/filme/${id}/${slug}` });
+Inclua blockbusters internacionais (Marvel, DC, Universal, Warner, Disney, Sony, Paramount) E filmes nacionais E filmes de outros países com distribuição confirmada no Brasil.
+
+Responda SOMENTE com JSON válido (sem markdown, sem texto extra):
+{
+  "filmes": [
+    {
+      "id": 1,
+      "titulo": "Título em português",
+      "estreia": "YYYY-MM-DD",
+      "distribuidora": "Nome da distribuidora no Brasil",
+      "genero": "Gênero principal",
+      "sinopse": "Até 120 caracteres",
+      "poster": null
     }
-  }
+  ]
+}
 
-  if (fichas.length === 0) throw new Error('Nenhuma ficha encontrada no exibidor. O site pode ter mudado de estrutura.');
+Retorne o máximo possível — ao menos 20 filmes. Inclua apenas filmes com data de estreia confirmada ou fortemente esperada nesse período.`;
 
-  log(`${fichas.length} fichas encontradas. Lendo detalhes...`, 'ok');
+  const data   = await chamarClaude(prompt);
+  const text   = extrairTexto(data);
+  const parsed = parseJSON(text);
 
-  const hoje   = new Date();
-  const limite = new Date(hoje.getFullYear(), hoje.getMonth() + 6, 1);
-  const filmesEncontrados = [];
+  filmes = (parsed.filmes || []).map((f, i) => ({
+    ...f,
+    id: f.id || (i + 1),
+    poster: f.poster || null,
+    urlExibidor: `https://www.exibidor.com.br/lancamentos/`,
+    preEstreia:  null,
+    preEstimada: null,
+    preStatus:   'pending',
+    preNota:     null
+  }));
 
-  for (let i = 0; i < Math.min(fichas.length, 60); i++) {
-    const ficha = fichas[i];
-    setProgress(5 + Math.round((i / Math.min(fichas.length, 60)) * 42));
-    log(`Lendo ficha ${i+1}/${Math.min(fichas.length,60)}: ${ficha.url.split('/').pop()}`);
+  // filtra só filmes dentro da janela de 6 meses
+  const keys = getMeses().map(x => ym(x.y, x.m));
+  filmes = filmes.filter(f => f.estreia && keys.includes(f.estreia.slice(0,7)));
+  filmes.sort((a, b) => a.estreia.localeCompare(b.estreia));
 
-    try {
-      const ru = encodeURIComponent(ficha.url);
-      const rf = await fetch(PROXY + ru);
-      const jf = await rf.json();
-      const hf = jf.contents || '';
-
-      // Extrai título
-      const tMatch = hf.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-      const titulo = tMatch ? tMatch[1].replace(/<[^>]+>/g,'').trim() : '';
-
-      // Extrai data de estreia (padrão: "16/04/2026" ou "16/04/2026")
-      const dMatch = hf.match(/Estreia[\s\S]{0,200}?(\d{2})\/(\d{2})\/(\d{4})/i);
-      let estreia = null;
-      if (dMatch) {
-        estreia = `${dMatch[3]}-${dMatch[2]}-${dMatch[1]}`;
-      }
-
-      // Filtra por janela de 6 meses
-      if (!estreia || !titulo) { await sleep(150); continue; }
-      const dataEstreia = new Date(estreia);
-      if (dataEstreia < hoje || dataEstreia > limite) { await sleep(150); continue; }
-
-      // Extrai distribuidora
-      const distMatch = hf.match(/Distribuidor[^:]*:[\s\S]{0,50}?<\/[a-z]+>\s*([\w\s\.\-&]+)/i)
-                     || hf.match(/distribuidor[\s\S]{0,100}?<li>\s*([\w\s\.\-&]+)<\/li>/i);
-      const distribuidora = distMatch ? distMatch[1].replace(/<[^>]+>/g,'').trim().slice(0,40) : '';
-
-      // Extrai gênero
-      const genMatch = hf.match(/G[eê]nero[^:]*:[\s\S]{0,100}?<\/[a-z]+>\s*([\w\s,]+)/i)
-                    || hf.match(/g[eê]nero[\s\S]{0,100}?<li>\s*([\w\s,]+)<\/li>/i);
-      const genero = genMatch ? genMatch[1].replace(/<[^>]+>/g,'').trim().slice(0,40) : '';
-
-      // Extrai sinopse
-      const sinMatch = hf.match(/Sinopse[\s\S]{0,50}<\/[^>]+>([\s\S]{20,400}?)<\/p>/i);
-      const sinopse = sinMatch ? sinMatch[1].replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,160) : '';
-
-      // Poster padrão claquete
-      const poster = `https://www.claquete.com/fotos/filmes/poster/${ficha.id}_medio.jpg`;
-
-      filmesEncontrados.push({
-        id: parseInt(ficha.id),
-        titulo,
-        estreia,
-        distribuidora,
-        genero,
-        sinopse,
-        poster,
-        urlExibidor: ficha.url,
-        preEstreia: null,
-        preEstimada: null,
-        preStatus: 'pending',
-        preNota: null
-      });
-    } catch(e) {
-      // ficha inacessível, segue
-    }
-    await sleep(200);
-  }
-
-  if (filmesEncontrados.length === 0) throw new Error('Nenhum filme nos próximos 6 meses encontrado.');
-  filmes = filmesEncontrados.sort((a, b) => a.estreia.localeCompare(b.estreia));
+  if (filmes.length === 0) throw new Error('Nenhum filme retornado. Tente novamente.');
 }
 
 /* ─────────────────────────────────────────
