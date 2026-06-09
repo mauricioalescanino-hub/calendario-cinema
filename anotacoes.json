@@ -1,5 +1,9 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T00:00:00.000Z",
-  "filmes": {}
+  "atualizado_em": "2026-06-09T20:09:47.144Z",
+  "filmes": {
+    "o-barulho-da-noite": {
+      "relevancia": "baixa"
+    }
+  }
 }
