@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:06:17.271Z",
+  "atualizado_em": "2026-06-09T22:06:27.731Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -16,7 +16,7 @@
       "status": "confirmado"
     },
     "a-noite-de-alade": {
-      "status": "confirmado"
+      "status": "sem"
     },
     "hit-para-dois": {
       "status": "confirmado"
