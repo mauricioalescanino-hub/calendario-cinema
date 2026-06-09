@@ -1,9 +1,13 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T20:21:00.171Z",
+  "atualizado_em": "2026-06-09T20:26:05.944Z",
   "filmes": {
     "o-barulho-da-noite": {
-      "relevancia": "baixa"
+      "relevancia": "alta",
+      "pre_estreia": "2026-06-02",
+      "pingplay": true,
+      "acessibilidades": true,
+      "masterizacao": true
     },
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -11,6 +15,13 @@
       "pingplay": false,
       "acessibilidades": false,
       "masterizacao": true
+    },
+    "trago-seu-amor": {
+      "pingplay": true,
+      "acessibilidades": true,
+      "masterizacao": true,
+      "relevancia": "alta",
+      "pre_estreia": "2026-06-11"
     }
   }
 }
