@@ -250,6 +250,44 @@
   .ak-error { font-size:12px; color:var(--accent); margin-top:.75rem; display:none; text-align:center; }
   .ak-error.show { display:block; }
 
+  /* ── IMPORT SCREEN ── */
+  .import-screen { display:none; position:fixed; inset:0; background:var(--bg); z-index:400; flex-direction:column; overflow:hidden; }
+  .import-screen.open { display:flex; }
+  .import-body { flex:1; overflow-y:auto; padding:2rem; max-width:840px; width:100%; margin:0 auto; }
+  .import-step { display:none; }
+  .import-step.active { display:block; }
+  .step-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:.35rem; }
+  .step-sub { font-size:13px; color:var(--muted); margin-bottom:1.5rem; font-weight:300; line-height:1.6; }
+  .import-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:1.25rem; }
+
+  .upload-zone { border:2px dashed var(--border2); border-radius:14px; padding:3.5rem 2rem; text-align:center; cursor:pointer; transition:all .2s; background:var(--bg2); }
+  .upload-zone:hover, .upload-zone.drag { border-color:var(--navy); background:var(--tag-bg); }
+  .upload-zone-icon { font-size:36px; margin-bottom:.75rem; }
+  .upload-zone-text { font-size:15px; color:var(--navy); font-weight:500; margin-bottom:.3rem; }
+  .upload-zone-sub { font-size:12px; color:var(--muted2); }
+
+  .col-map-grid { display:grid; gap:8px; margin-bottom:1.25rem; }
+  .col-map-row { display:flex; align-items:center; gap:12px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:10px 14px; }
+  .col-map-label { flex:1.2; font-size:13px; color:var(--navy); font-weight:500; min-width:0; }
+  .col-map-label span { font-size:10px; color:var(--muted2); font-weight:300; display:block; margin-top:1px; }
+  .col-map-sel { flex:1; background:var(--bg); color:var(--navy); border:1.5px solid var(--border2); border-radius:6px; padding:7px 10px; font-family:'Sora',sans-serif; font-size:12px; outline:none; min-width:0; }
+  .col-map-sel:focus { border-color:var(--navy); }
+
+  .review-table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:1.5rem; }
+  .review-table th { text-align:left; padding:8px 10px; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted2); border-bottom:2px solid var(--border); font-weight:500; white-space:nowrap; }
+  .review-table td { padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  .review-table tr.rev-skip td { opacity:.38; }
+  .review-table tr:hover td { background:var(--bg3); }
+  .conf-bar { display:flex; align-items:center; gap:6px; }
+  .conf-pill { width:46px; height:5px; border-radius:3px; background:var(--border); overflow:hidden; flex-shrink:0; }
+  .conf-fill { height:100%; border-radius:3px; }
+  .conf-pct { font-size:10px; width:28px; font-weight:600; }
+  .match-sel { background:var(--bg); border:1px solid var(--border2); color:var(--navy); border-radius:5px; padding:4px 7px; font-family:'Sora',sans-serif; font-size:11px; max-width:220px; width:100%; outline:none; }
+  .feat-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin:0 2px; vertical-align:middle; }
+  .feat-on  { background:var(--green); }
+  .feat-off { background:var(--border2); }
+  .feat-null { display:none; }
+
   ::-webkit-scrollbar { width:5px; }
   ::-webkit-scrollbar-track { background:var(--bg); }
   ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
@@ -288,6 +326,7 @@
       <span id="tmdbLabel">TMDB</span>
     </div>
     <button class="btn-outline" onclick="abrirContatos()">👤 Contatos</button>
+    <button class="btn-outline" onclick="abrirImport()">↑ Importar planilha</button>
     <button class="btn-outline" id="btnCapas" onclick="buscarTodasCapas()" style="display:none">🎬 Buscar capas</button>
     <button class="btn-outline" onclick="exportCSV()">↓ CSV</button>
     <button class="btn-accent" id="btnFull" onclick="carregarFilmes()">↻ Atualizar</button>
@@ -376,6 +415,60 @@
       <input id="csNewDist" placeholder="Adicionar nova distribuidora..." onkeydown="if(event.key==='Enter') adicionarDistribuidora()">
       <button onclick="adicionarDistribuidora()">+ Adicionar</button>
     </div>
+  </div>
+</div>
+
+<!-- ══ IMPORT SCREEN ══ -->
+<div class="import-screen" id="importScreen">
+  <div class="cs-header">
+    <div class="cs-header-left">
+      <button class="cs-back" onclick="fecharImport()">←</button>
+      <div>
+        <div class="cs-title">Importar Planilha</div>
+        <div class="cs-subtitle" id="impSubtitle">Passo 1 de 3 — Arquivo</div>
+      </div>
+    </div>
+  </div>
+  <div class="import-body">
+
+    <!-- STEP 1: Upload -->
+    <div class="import-step active" id="impStep1">
+      <div class="step-title">Selecione o arquivo</div>
+      <div class="step-sub">Formatos suportados: .xlsx, .xls, .csv<br>A primeira linha deve conter os cabeçalhos das colunas.</div>
+      <div class="upload-zone" id="uploadZone"
+           onclick="document.getElementById('impFileInput').click()"
+           ondragover="event.preventDefault();this.classList.add('drag')"
+           ondragleave="this.classList.remove('drag')"
+           ondrop="onImpFileDrop(event)">
+        <div class="upload-zone-icon">📊</div>
+        <div class="upload-zone-text">Arraste sua planilha aqui</div>
+        <div class="upload-zone-sub">ou clique para selecionar</div>
+      </div>
+      <input type="file" id="impFileInput" accept=".xlsx,.xls,.csv" style="display:none" onchange="onImpFileSelect(event)">
+    </div>
+
+    <!-- STEP 2: Map columns -->
+    <div class="import-step" id="impStep2">
+      <div class="step-title">Mapear colunas</div>
+      <div class="step-sub" id="impStep2Sub">Indique qual coluna corresponde a cada campo.</div>
+      <div class="col-map-grid" id="colMapGrid"></div>
+      <div class="import-actions">
+        <button class="btn-outline" onclick="goImpStep(1)">← Voltar</button>
+        <button class="btn-accent" onclick="goImpStep3()">Analisar correspondências →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Review -->
+    <div class="import-step" id="impStep3">
+      <div class="step-title">Revisar correspondências</div>
+      <div class="step-sub" id="impStep3Sub"></div>
+      <div id="reviewContainer"></div>
+      <div class="import-actions">
+        <button class="btn-outline" onclick="goImpStep(2)">← Voltar</button>
+        <button class="btn-accent" id="btnAplicarImp" onclick="aplicarImport()">✓ Aplicar</button>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1153,6 +1246,176 @@ document.addEventListener('keydown',e=>{
     if(curCfgTab==='gh') salvarGhPat(); else salvarTmdbKey();
   }
 });
+
+/* ═══════════════════════════════════════════════
+   IMPORTAR PLANILHA
+   ═══════════════════════════════════════════════ */
+let impRows    = [];
+let impHeaders = [];
+let impMatches = [];
+
+function abrirImport() { document.getElementById('importScreen').classList.add('open'); goImpStep(1); }
+function fecharImport() { document.getElementById('importScreen').classList.remove('open'); }
+
+function goImpStep(n) {
+  [1,2,3].forEach(i => document.getElementById('impStep'+i).classList.toggle('active', i===n));
+  const subs=['Passo 1 de 3 — Arquivo','Passo 2 de 3 — Colunas','Passo 3 de 3 — Revisão'];
+  document.getElementById('impSubtitle').textContent=subs[n-1];
+}
+
+async function loadSheetJS() {
+  if (window.XLSX) return;
+  await new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s); });
+}
+
+function onImpFileDrop(e) { e.preventDefault(); document.getElementById('uploadZone').classList.remove('drag'); if(e.dataTransfer.files[0]) handleImpFile(e.dataTransfer.files[0]); }
+function onImpFileSelect(e) { if(e.target.files[0]) handleImpFile(e.target.files[0]); e.target.value=''; }
+
+async function handleImpFile(file) {
+  const zone=document.getElementById('uploadZone');
+  zone.innerHTML='<div class="upload-zone-icon">⟳</div><div class="upload-zone-text">Lendo arquivo...</div>';
+  try {
+    await loadSheetJS();
+    const buf  = await file.arrayBuffer();
+    const ext  = file.name.split('.').pop().toLowerCase();
+    let data;
+    if (ext==='csv') {
+      const txt = new TextDecoder('utf-8').decode(buf);
+      const rows = txt.split(/\r?\n/).map(r=>r.split(/[;,\t]/));
+      data = rows;
+    } else {
+      const wb = XLSX.read(buf,{type:'array'});
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      data = XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+    }
+    // Detecta automaticamente qual linha tem os cabeçalhos reais
+    // (pula linhas de título do relatório que têm muitas células vazias)
+    let headerRow = 0;
+    for (let i = 0; i < Math.min(data.length, 5); i++) {
+      const filled = (data[i]||[]).filter(c=>String(c).trim()!=='').length;
+      if (filled >= 3) { headerRow = i; break; }
+    }
+    impHeaders = (data[headerRow]||[]).map(String);
+    impRows    = data.slice(headerRow+1).filter(r=>r.some(c=>String(c).trim()!==''));
+    zone.innerHTML=`<div class="upload-zone-icon">✓</div><div class="upload-zone-text">${escHtml(file.name)}</div><div class="upload-zone-sub">${impRows.length} linhas · ${impHeaders.length} colunas</div>`;
+    setTimeout(()=>{ buildColMap(); goImpStep(2); }, 600);
+  } catch(err) {
+    zone.innerHTML=`<div class="upload-zone-icon">⚠️</div><div class="upload-zone-text">Erro ao ler arquivo</div><div class="upload-zone-sub">${escHtml(err.message)}</div>`;
+  }
+}
+
+function buildColMap() {
+  document.getElementById('impStep2Sub').textContent=`${impRows.length} linhas detectadas — confirme o mapeamento de colunas abaixo.`;
+  const autoFind = kws => impHeaders.findIndex(h=>kws.some(k=>h.toLowerCase().replace(/[^a-z]/g,'').includes(k)));
+  const fields = [
+    {id:'cTitulo',    label:'Título original',    hint:'Título em inglês / original',          kws:['titulo','title']},
+    {id:'cTituloNac', label:'Título nacional',     hint:'Nome brasileiro — melhora o match',    kws:['nacional','national','br','ptbr']},
+    {id:'cDist',      label:'Distribuidora',       hint:'Melhora bastante a precisão do match', kws:['distribu','dist','label','studio']},
+    {id:'cAcess',     label:'Status ACE (Acessibilidades)', hint:'"Está na casa" = marcado como feito', kws:['ace']},
+    {id:'cMaster',    label:'Status CM (Masterização)',     hint:'"Está na casa" = marcado como feito', kws:['cm']},
+    {id:'cPingplay',  label:'Status CD (PingPlay)',         hint:'"Está na casa" = marcado como feito', kws:['cd']},
+  ];
+  document.getElementById('colMapGrid').innerHTML=fields.map(f=>{
+    const auto=autoFind(f.kws);
+    const opts=impHeaders.map((h,i)=>`<option value="${i}"${i===auto?' selected':''}>${escHtml(h)}</option>`).join('');
+    return `<div class="col-map-row">
+      <div class="col-map-label">${f.label}<span>${f.hint}</span></div>
+      <select class="col-map-sel" id="${f.id}">
+        <option value="-1"${auto<0?' selected':''}>(não usar)</option>
+        ${opts}
+      </select>
+    </div>`;
+  }).join('');
+}
+
+/* ── Fuzzy matching ── */
+function _normalize(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
+function _normDist(s){ const stop=['filmes','pictures','company','the','entertainment','studios','brasil','brazil','ltda','sa','distribuicao','distribuição','arte','imagem','filmes']; let n=_normalize(s); stop.forEach(w=>{n=n.replace(new RegExp('\\b'+w+'\\b','g'),'');}); return n.replace(/\s+/g,' ').trim(); }
+function _normTitle(s){ return _normalize(s).replace(/^(o |a |os |as |um |uma |the |el |la |los |las )/,'').trim(); }
+function _lev(a,b){ const m=a.length,n=b.length; if(!m) return n; if(!n) return m; const dp=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i?j?0:j:i)); for(let j=1;j<=n;j++) dp[0][j]=j; for(let i=1;i<=m;i++) for(let j=1;j<=n;j++) dp[i][j]=a[i-1]===b[j-1]?dp[i-1][j-1]:1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]); return dp[m][n]; }
+function _strSim(a,b){ if(!a&&!b) return 1; if(!a||!b) return 0; if(a===b) return 1; const ml=Math.max(a.length,b.length); const lev=1-_lev(a,b)/ml; const bg=s=>{const r=new Set(); for(let i=0;i<s.length-1;i++) r.add(s.slice(i,i+2)); return r;}; const ba=bg(a),bb=bg(b); const inter=[...ba].filter(x=>bb.has(x)).length; const bsim=ba.size+bb.size>0?2*inter/(ba.size+bb.size):0; return lev*.4+bsim*.6; }
+// "Está na casa" é o único valor que marca como feito nesta planilha
+function _isTruthy(val){ if(val===null||val===undefined||val==='') return false; const s=String(val).toLowerCase().trim(); return s==='está na casa'||s==='esta na casa'||['x','sim','yes','y','1','true','ok','v','✓','✔','verdadeiro','s'].includes(s); }
+// Aceita dois títulos (original + nacional) e retorna o melhor score
+function _scoreFilm(rt,rtn,rd,film){
+  const ft=_normTitle(film.titulo||'');
+  const ts1=_strSim(_normTitle(rt),ft);
+  const ts2=rtn?_strSim(_normTitle(rtn),ft):0;
+  const ts=Math.max(ts1,ts2);
+  const ds=rd&&film.distribuidora?_strSim(_normDist(rd),_normDist(film.distribuidora)):0;
+  return rd?ts*.65+ds*.35:ts;
+}
+
+function goImpStep3() {
+  const gv=id=>parseInt(document.getElementById(id).value);
+  const cm={titulo:gv('cTitulo'),tituloNac:gv('cTituloNac'),dist:gv('cDist'),ping:gv('cPingplay'),acess:gv('cAcess'),master:gv('cMaster')};
+  if(cm.titulo<0&&cm.tituloNac<0){alert('Selecione ao menos uma coluna de título.');return;}
+  impMatches=impRows.map(row=>{
+    const rt  = cm.titulo>=0    ? String(row[cm.titulo]||'')    : '';
+    const rtn = cm.tituloNac>=0 ? String(row[cm.tituloNac]||'') : '';
+    const rd  = cm.dist>=0      ? String(row[cm.dist]||'')      : '';
+    const displayTitle = rt||rtn;
+    const scored=filmes.map(f=>({film:f,score:_scoreFilm(rt,rtn,rd,f)})).sort((a,b)=>b.score-a.score);
+    return { row, rowTitle:displayTitle, rowTitleOrig:rt, rowTitleNac:rtn, rowDist:rd,
+             film:scored[0]?.score>0.28?scored[0].film:null, score:scored[0]?.score||0, top5:scored.slice(0,6),
+             ping:cm.ping>=0?_isTruthy(row[cm.ping]):null, acess:cm.acess>=0?_isTruthy(row[cm.acess]):null, master:cm.master>=0?_isTruthy(row[cm.master]):null, skip:false };
+  });
+  renderReview();
+  goImpStep(3);
+}
+
+function renderReview() {
+  const conf=impMatches.filter(m=>m.film&&!m.skip).length;
+  document.getElementById('impStep3Sub').textContent=`${conf} de ${impMatches.length} linhas com correspondência — corrija os matches duvidosos antes de aplicar.`;
+  document.getElementById('btnAplicarImp').textContent=`✓ Aplicar ${conf} filmes`;
+
+  const dot=(val,label)=>val===null?'':`<span class="feat-dot ${val?'feat-on':'feat-off'}" title="${label}: ${val?'Sim':'Não'}"></span>`;
+  const tbody=impMatches.map((m,idx)=>{
+    const pct=Math.round(m.score*100);
+    const col=pct>=80?'#16a34a':pct>=55?'#d97706':'#dc2626';
+    const opts=[`<option value="">(ignorar linha)</option>`,...m.top5.map(({film,score})=>`<option value="${film.id}"${m.film?.id===film.id?' selected':''}>${escHtml(film.titulo)} — ${escHtml(film.distribuidora||'?')} (${Math.round(score*100)}%)</option>`)].join('');
+    const titleHtml=[
+      m.rowTitleOrig?`<strong style="font-size:12px">${escHtml(m.rowTitleOrig)}</strong>`:'',
+      m.rowTitleNac&&m.rowTitleNac!==m.rowTitleOrig?`<span style="font-size:10px;color:var(--muted);display:block">${escHtml(m.rowTitleNac)}</span>`:'',
+      m.rowDist?`<span style="font-size:10px;color:var(--muted2);display:block">${escHtml(m.rowDist)}</span>`:'',
+    ].filter(Boolean).join('');
+    return `<tr class="${m.skip||!m.film?'rev-skip':''}">
+      <td>${titleHtml||escHtml(m.rowTitle)}</td>
+      <td><select class="match-sel" onchange="changeImpMatch(${idx},this.value)">${opts}</select></td>
+      <td><div class="conf-bar"><div class="conf-pill"><div class="conf-fill" style="width:${pct}%;background:${col}"></div></div><span class="conf-pct" style="color:${col}">${pct}%</span></div></td>
+      <td>${dot(m.ping,'PingPlay')}${dot(m.acess,'Acessibilidades')}${dot(m.master,'Masterização')}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('reviewContainer').innerHTML=`<table class="review-table"><thead><tr><th>Planilha</th><th>Correspondência no calendário</th><th>Confiança</th><th>Recursos</th></tr></thead><tbody>${tbody}</tbody></table>`;
+}
+
+function changeImpMatch(idx,filmId) {
+  if(!filmId){impMatches[idx].film=null;impMatches[idx].skip=true;}
+  else{impMatches[idx].film=filmes.find(f=>f.id==filmId)||null;impMatches[idx].skip=false;}
+  const conf=impMatches.filter(m=>m.film&&!m.skip).length;
+  document.getElementById('btnAplicarImp').textContent=`✓ Aplicar ${conf} filmes`;
+  // atualiza visual da linha
+  const rows=document.querySelectorAll('#reviewContainer .review-table tbody tr');
+  if(rows[idx]) rows[idx].classList.toggle('rev-skip', impMatches[idx].skip||!impMatches[idx].film);
+}
+
+function aplicarImport() {
+  let n=0;
+  impMatches.filter(m=>m.film&&!m.skip).forEach(m=>{
+    const k=filmKey(m.film.titulo);
+    if(!anotacoes[k]) anotacoes[k]={};
+    if(m.ping!==null)   anotacoes[k].pingplay        = m.ping;
+    if(m.acess!==null)  anotacoes[k].acessibilidades = m.acess;
+    if(m.master!==null) anotacoes[k].masterizacao    = m.master;
+    n++;
+  });
+  agendarSalvarAnn(); render(); fecharImport();
+  const logP=document.getElementById('logP');
+  logP.classList.add('active');
+  logP.innerHTML=`<span class="log-ok"> > ${n} filmes atualizados via importação.</span>`;
+  setTimeout(()=>logP.classList.remove('active'),4000);
+}
 
 /* ── START ── */
 init();
