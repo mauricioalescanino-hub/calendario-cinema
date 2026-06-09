@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:09:47.707Z",
+  "atualizado_em": "2026-06-09T22:11:18.331Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -59,6 +59,13 @@
       "pingplay": false,
       "acessibilidades": false,
       "masterizacao": false
+    },
+    "o-barulho-da-noite": {
+      "relevancia": "alta",
+      "pre_estreia": "2026-06-02",
+      "pingplay": true,
+      "acessibilidades": true,
+      "masterizacao": true
     }
   }
 }
