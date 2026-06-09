@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:11:47.890Z",
+  "atualizado_em": "2026-06-09T22:11:50.013Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -74,7 +74,7 @@
       "status": "sem"
     },
     "a-saga-crepsculo-eclipse-relanamento": {
-      "status": "feito"
+      "status": "sem"
     }
   }
 }
