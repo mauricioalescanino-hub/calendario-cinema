@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T21:41:40.956Z",
+  "atualizado_em": "2026-06-09T22:06:11.317Z",
   "filmes": {
     "o-barulho-da-noite": {
       "relevancia": "alta",
@@ -15,13 +15,6 @@
       "pingplay": false,
       "acessibilidades": false,
       "masterizacao": true
-    },
-    "trago-seu-amor": {
-      "pingplay": true,
-      "acessibilidades": true,
-      "masterizacao": true,
-      "relevancia": "alta",
-      "pre_estreia": "2026-06-03"
     },
     "aquele-que-viu-o-abismo": {
       "status": "confirmado"
