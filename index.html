@@ -20,7 +20,6 @@
     --gold:#c47d2a; --green:#2a7a4a;
     --shadow:0 1px 3px rgba(26,31,60,.07),0 4px 16px rgba(26,31,60,.04);
     --shadow-lg:0 2px 8px rgba(26,31,60,.08),0 12px 40px rgba(26,31,60,.08);
-    /* relevância */
     --rel-alta:#dc2626; --rel-media:#d97706; --rel-baixa:#6b7280;
   }
 
@@ -34,70 +33,38 @@
     position:sticky; top:0; z-index:50; box-shadow:0 1px 0 var(--border);
   }
   .logo { display:flex; align-items:center; gap:14px; }
-  .logo-mark {
-    width:34px; height:34px; background:var(--accent); border-radius:8px;
-    display:flex; align-items:center; justify-content:center;
-    font-size:13px; font-weight:600; color:#fff; letter-spacing:-.02em; flex-shrink:0;
-  }
+  .logo-mark { width:34px; height:34px; background:var(--accent); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:#fff; flex-shrink:0; }
   .logo-text h1 { font-size:15px; font-weight:600; color:var(--navy); letter-spacing:-.02em; line-height:1.1; }
   .logo-text span { font-size:10px; color:var(--muted); letter-spacing:.05em; }
   .hbtns { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
 
-  .btn-accent {
-    background:var(--accent); color:#fff; border:none; padding:8px 16px;
-    border-radius:7px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500;
-    cursor:pointer; display:flex; align-items:center; gap:6px; transition:background .2s,transform .1s;
-  }
+  .btn-accent { background:var(--accent); color:#fff; border:none; padding:8px 16px; border-radius:7px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; display:flex; align-items:center; gap:6px; transition:background .2s,transform .1s; }
   .btn-accent:hover { background:var(--accent2); }
   .btn-accent:active { transform:scale(.98); }
   .btn-accent:disabled { opacity:.4; cursor:not-allowed; }
-
-  .btn-outline {
-    background:transparent; color:var(--navy); border:1px solid var(--border2);
-    padding:8px 14px; border-radius:7px; font-family:'Sora',sans-serif;
-    font-size:12px; cursor:pointer; transition:border-color .2s,background .2s;
-  }
+  .btn-outline { background:transparent; color:var(--navy); border:1px solid var(--border2); padding:8px 14px; border-radius:7px; font-family:'Sora',sans-serif; font-size:12px; cursor:pointer; transition:border-color .2s,background .2s; }
   .btn-outline:hover { border-color:var(--navy); background:var(--bg3); }
 
   /* ── STATUS BAR ── */
-  .status-bar {
-    padding:7px 2rem; background:var(--navy); display:flex; gap:1.5rem;
-    font-size:11px; color:rgba(255,255,255,.45); flex-wrap:wrap; align-items:center;
-  }
+  .status-bar { padding:7px 2rem; background:var(--navy); display:flex; gap:1.5rem; font-size:11px; color:rgba(255,255,255,.45); flex-wrap:wrap; align-items:center; }
   .stat { display:flex; align-items:center; gap:5px; }
   .dot { width:6px; height:6px; border-radius:50%; }
   .dot-r { background:var(--accent); }
   .dot-g { background:#5db87a; }
   .dot-gray { background:rgba(255,255,255,.15); }
 
-  /* ── PROGRESS ── */
   .progress-bar { height:3px; background:var(--border); }
   .progress-fill { height:100%; background:var(--accent); width:0%; transition:width .4s; }
 
-  /* ── LOG ── */
-  .log-panel {
-    background:var(--bg3); border-bottom:1px solid var(--border); padding:.5rem 2rem;
-    font-size:11px; font-family:monospace; display:none; color:var(--muted);
-  }
+  .log-panel { background:var(--bg3); border-bottom:1px solid var(--border); padding:.5rem 2rem; font-size:11px; font-family:monospace; display:none; color:var(--muted); }
   .log-panel.active { display:block; }
-  .log-ok { color:var(--green); } .log-info { color:var(--navy2); } .log-warn { color:var(--accent); }
+  .log-ok { color:var(--green); } .log-warn { color:var(--accent); }
 
   /* ── FILTERS ── */
-  .filters {
-    padding:.75rem 2rem; display:flex; gap:8px; align-items:center;
-    flex-wrap:wrap; border-bottom:1px solid var(--border); background:var(--bg2);
-    position:sticky; top:69px; z-index:40;
-  }
-  .fsel {
-    background:var(--bg); color:var(--navy); border:1px solid var(--border2);
-    padding:6px 10px; border-radius:6px; font-family:'Sora',sans-serif; font-size:11px; cursor:pointer;
-  }
+  .filters { padding:.75rem 2rem; display:flex; gap:8px; align-items:center; flex-wrap:wrap; border-bottom:1px solid var(--border); background:var(--bg2); position:sticky; top:69px; z-index:40; }
+  .fsel { background:var(--bg); color:var(--navy); border:1px solid var(--border2); padding:6px 10px; border-radius:6px; font-family:'Sora',sans-serif; font-size:11px; cursor:pointer; }
   .month-nav { display:flex; gap:4px; margin-left:auto; flex-wrap:wrap; }
-  .mpill {
-    background:transparent; color:var(--muted); border:1px solid var(--border);
-    padding:4px 11px; border-radius:20px; font-size:11px; cursor:pointer;
-    font-family:'Sora',sans-serif; transition:all .15s;
-  }
+  .mpill { background:transparent; color:var(--muted); border:1px solid var(--border); padding:4px 11px; border-radius:20px; font-size:11px; cursor:pointer; font-family:'Sora',sans-serif; transition:all .15s; }
   .mpill.active { background:var(--navy); color:#fff; border-color:var(--navy); }
   .mpill:hover:not(.active) { border-color:var(--navy2); color:var(--navy); }
 
@@ -110,13 +77,8 @@
 
   /* ── GRID ── */
   .film-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:14px; }
-  .film-card {
-    background:var(--bg2); border:1px solid var(--border); border-radius:10px;
-    overflow:hidden; cursor:pointer; transition:box-shadow .2s,transform .15s,border-color .2s;
-    box-shadow:var(--shadow); position:relative;
-  }
+  .film-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; overflow:hidden; cursor:pointer; transition:box-shadow .2s,transform .15s,border-color .2s; box-shadow:var(--shadow); position:relative; }
   .film-card:hover { border-color:var(--border2); box-shadow:var(--shadow-lg); transform:translateY(-2px); }
-  /* relevância no card */
   .film-card[data-rel="alta"]  { border-left:3px solid var(--rel-alta); }
   .film-card[data-rel="media"] { border-left:3px solid var(--rel-media); }
   .film-card[data-rel="baixa"] { border-left:3px solid var(--rel-baixa); }
@@ -125,23 +87,10 @@
   .poster img { width:100%; height:100%; object-fit:cover; display:block; }
   .poster-ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--bg4); }
   .clap { width:30px; height:24px; border:2px solid var(--border2); border-radius:3px; position:relative; }
-  .clap::before {
-    content:''; position:absolute; top:-8px; left:-2px; width:calc(100% + 4px); height:8px;
-    background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 5px,var(--bg4) 5px,var(--bg4) 10px);
-    border-radius:2px 2px 0 0;
-  }
-  .date-badge {
-    position:absolute; top:7px; right:7px; background:rgba(255,255,255,.92);
-    border:1px solid var(--border); border-radius:4px; padding:2px 7px;
-    font-size:9px; color:var(--muted); font-weight:500; letter-spacing:.02em;
-  }
-  .pre-badge {
-    position:absolute; top:7px; left:7px; border-radius:5px; padding:3px 8px;
-    font-size:10px; font-weight:600; letter-spacing:.01em; line-height:1.3;
-  }
+  .clap::before { content:''; position:absolute; top:-8px; left:-2px; width:calc(100% + 4px); height:8px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 5px,var(--bg4) 5px,var(--bg4) 10px); border-radius:2px 2px 0 0; }
+  .date-badge { position:absolute; top:7px; right:7px; background:rgba(255,255,255,.92); border:1px solid var(--border); border-radius:4px; padding:2px 7px; font-size:9px; color:var(--muted); font-weight:500; }
+  .pre-badge { position:absolute; top:7px; left:7px; border-radius:5px; padding:3px 8px; font-size:10px; font-weight:600; }
   .pre-badge.confirmed { background:var(--accent); color:#fff; box-shadow:0 1px 4px rgba(224,90,30,.35); }
-  .pre-badge.estimated { background:rgba(255,255,255,.92); color:var(--gold); border:1px solid rgba(196,125,42,.3); }
-  .pre-badge.searching { background:rgba(255,255,255,.85); color:var(--muted); display:flex; align-items:center; gap:4px; }
 
   .film-info { padding:10px 12px 12px; }
   .film-title { font-size:12px; font-weight:500; color:var(--navy); line-height:1.35; margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -149,27 +98,18 @@
   .film-date { color:var(--accent); font-size:10px; font-weight:500; }
   .distrib-tag { font-size:9px; background:var(--tag-bg); color:var(--tag-color); padding:2px 6px; border-radius:3px; max-width:72px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; }
 
-  /* annotation icons on card */
   .card-ann-row { display:flex; gap:4px; padding:0 12px 8px; flex-wrap:wrap; }
-  .card-ann-chip {
-    font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600;
-    background:var(--tag-bg); color:var(--tag-color);
-  }
+  .card-ann-chip { font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600; background:var(--tag-bg); color:var(--tag-color); }
   .card-ann-chip.alta  { background:#fee2e2; color:var(--rel-alta); }
   .card-ann-chip.media { background:#fef3c7; color:var(--rel-media); }
   .card-ann-chip.baixa { background:#f3f4f6; color:var(--rel-baixa); }
   .card-ann-chip.on    { background:#d1fae5; color:#065f46; }
 
-  /* ── EMPTY ── */
   .empty { text-align:center; padding:5rem 2rem; color:var(--muted2); font-size:14px; line-height:2.4; }
   .empty strong { color:var(--navy); }
   .empty .empty-icon { width:48px; height:48px; background:var(--bg4); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; }
   .empty .clap-lg { width:22px; height:18px; border:2px solid var(--border2); border-radius:2px; position:relative; }
   .empty .clap-lg::before { content:''; position:absolute; top:-6px; left:-2px; width:calc(100% + 4px); height:6px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 4px,var(--bg4) 4px,var(--bg4) 8px); border-radius:1px 1px 0 0; }
-
-  /* ── PULSE ── */
-  .pulse { width:5px; height:5px; background:var(--accent); border-radius:50%; display:inline-block; animation:pulse 1s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
 
   /* ── MODAL ── */
   .modal-ov { display:none; position:fixed; inset:0; background:rgba(26,31,60,.55); backdrop-filter:blur(2px); z-index:200; align-items:center; justify-content:center; padding:1rem; }
@@ -183,23 +123,12 @@
   .mfield { margin-bottom:.9rem; }
   .mfield label { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); display:block; margin-bottom:3px; font-weight:500; }
   .mfield p { font-size:13px; color:var(--navy); line-height:1.55; font-weight:300; }
-
-  .pre-box { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1rem; margin-top:.75rem; }
-  .pre-box h4 { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); margin-bottom:6px; font-weight:500; }
-  .pre-date-confirmed { color:var(--accent); font-size:17px; font-weight:600; }
-  .pre-date-estimated { color:var(--gold); font-size:17px; font-weight:600; }
-  .pre-nota { color:var(--muted); font-size:11px; margin-top:5px; line-height:1.5; font-weight:300; }
   .modal-link { font-size:11px; color:var(--tag-color); margin-top:.75rem; display:inline-block; font-weight:500; }
   .modal-link:hover { color:var(--navy); }
 
   /* ── ANNOTATION BOX ── */
-  .ann-box {
-    background:var(--bg3); border:1px solid var(--border); border-radius:10px;
-    padding:1rem; margin-top:.75rem;
-  }
-  .ann-box-hdr {
-    display:flex; align-items:center; justify-content:space-between; margin-bottom:.85rem;
-  }
+  .ann-box { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1rem; margin-top:.75rem; }
+  .ann-box-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:.85rem; }
   .ann-box-hdr h4 { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); font-weight:500; }
   .ann-save-status { font-size:10px; color:var(--green); font-weight:500; opacity:0; transition:opacity .3s; }
   .ann-save-status.show { opacity:1; }
@@ -209,13 +138,8 @@
   .ann-row:last-child { margin-bottom:0; }
   .ann-label { font-size:12px; color:var(--navy); font-weight:400; }
 
-  /* Toggle group */
   .tgl-grp { display:flex; gap:3px; }
-  .tgl-btn {
-    border:1px solid var(--border2); background:var(--bg2); color:var(--muted);
-    padding:4px 10px; border-radius:5px; font-size:11px; font-weight:500;
-    cursor:pointer; font-family:'Sora',sans-serif; transition:all .15s;
-  }
+  .tgl-btn { border:1px solid var(--border2); background:var(--bg2); color:var(--muted); padding:4px 10px; border-radius:5px; font-size:11px; font-weight:500; cursor:pointer; font-family:'Sora',sans-serif; transition:all .15s; }
   .tgl-btn:hover { border-color:var(--navy); color:var(--navy); }
   .tgl-btn.active-alta  { background:var(--rel-alta);  border-color:var(--rel-alta);  color:#fff; }
   .tgl-btn.active-media { background:var(--rel-media); border-color:var(--rel-media); color:#fff; }
@@ -223,25 +147,27 @@
   .tgl-btn.active-sim   { background:var(--green);     border-color:var(--green);     color:#fff; }
   .tgl-btn.active-nao   { background:var(--rel-alta);  border-color:var(--rel-alta);  color:#fff; }
 
-  /* ── SCROLLBAR ── */
+  /* date input de pré-estreia */
+  .pre-input-row { display:flex; align-items:center; gap:6px; }
+  .pre-date-input { background:var(--bg2); color:var(--navy); border:1px solid var(--border2); border-radius:5px; padding:4px 8px; font-family:'Sora',sans-serif; font-size:12px; outline:none; transition:border-color .2s; flex:1; }
+  .pre-date-input:focus { border-color:var(--navy); }
+  .pre-clear-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:14px; padding:2px 5px; border-radius:4px; line-height:1; }
+  .pre-clear-btn:hover { color:var(--rel-alta); background:var(--bg4); }
+
   ::-webkit-scrollbar { width:5px; }
   ::-webkit-scrollbar-track { background:var(--bg); }
   ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
 
-  /* ── API KEY SCREEN ── */
-  .config-screen {
-    display:none; position:fixed; inset:0; background:var(--bg);
-    z-index:500; align-items:center; justify-content:center; padding:1.5rem;
-  }
+  /* ── CONFIG SCREEN (GitHub apenas) ── */
+  .config-screen { display:none; position:fixed; inset:0; background:var(--bg); z-index:500; align-items:center; justify-content:center; padding:1.5rem; }
   .config-screen.open { display:flex; }
   .config-card { background:var(--bg2); border:1px solid var(--border); border-radius:18px; width:100%; max-width:420px; padding:2.5rem 2rem; box-shadow:var(--shadow-lg); }
   .ak-logo-row { display:flex; align-items:center; gap:10px; margin-bottom:1.75rem; }
   .ak-logo-mark { width:38px; height:38px; background:var(--accent); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; color:#fff; }
   .ak-logo-text p { font-size:15px; font-weight:600; color:var(--navy); line-height:1.1; }
   .ak-logo-text span { font-size:11px; color:var(--muted); font-weight:300; }
-  .ak-divider { height:1px; background:var(--border); margin-bottom:1.5rem; }
   .ak-label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); display:block; margin-bottom:8px; font-weight:500; }
-  .ak-input { width:100%; background:var(--bg); color:var(--navy); border:1.5px solid var(--border2); border-radius:8px; padding:10px 14px; font-family:'Sora',sans-serif; font-size:13px; letter-spacing:.03em; outline:none; transition:border-color .2s; margin-bottom:.75rem; }
+  .ak-input { width:100%; background:var(--bg); color:var(--navy); border:1.5px solid var(--border2); border-radius:8px; padding:10px 14px; font-family:'Sora',sans-serif; font-size:13px; outline:none; transition:border-color .2s; margin-bottom:.75rem; }
   .ak-input:focus { border-color:var(--navy); }
   .ak-input::placeholder { color:var(--muted2); }
   .ak-hint { font-size:11px; color:var(--muted2); margin-bottom:1.5rem; line-height:1.7; font-weight:300; }
@@ -252,23 +178,13 @@
   .ak-btn:disabled { opacity:.4; cursor:not-allowed; }
   .ak-btn-skip { width:100%; background:transparent; color:var(--muted); border:none; margin-top:10px; font-family:'Sora',sans-serif; font-size:12px; cursor:pointer; padding:6px; text-decoration:underline; }
   .ak-btn-skip:hover { color:var(--navy); }
-  .ak-error { font-size:12px; color:var(--accent); margin-top:.75rem; display:none; text-align:center; font-weight:400; }
+  .ak-error { font-size:12px; color:var(--accent); margin-top:.75rem; display:none; text-align:center; }
   .ak-error.show { display:block; }
 
-  /* badge chave no header */
-  .key-badge {
-    display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted);
-    cursor:pointer; border:1px solid var(--border); border-radius:6px; padding:5px 10px;
-    background:var(--bg); transition:all .2s;
-  }
+  .key-badge { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); cursor:pointer; border:1px solid var(--border); border-radius:6px; padding:5px 10px; background:var(--bg); transition:all .2s; }
   .key-badge:hover { border-color:var(--border2); color:var(--navy); }
   .key-dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
   .key-dot.inactive { background:#d0ccc5; }
-
-  /* Tabs dentro do config screen */
-  .cfg-tabs { display:flex; gap:0; margin-bottom:1.5rem; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
-  .cfg-tab { flex:1; padding:9px; text-align:center; font-size:12px; font-weight:500; cursor:pointer; background:var(--bg3); color:var(--muted); border:none; font-family:'Sora',sans-serif; transition:all .15s; }
-  .cfg-tab.active { background:var(--navy); color:#fff; }
 
   @media (max-width:600px) {
     .header { padding:.875rem 1rem; }
@@ -290,23 +206,19 @@
     </div>
   </div>
   <div class="hbtns">
-    <div class="key-badge" id="ghBadge" onclick="abrirConfig('gh')" title="Configurar GitHub">
+    <div class="key-badge" onclick="abrirConfig()" title="Configurar GitHub">
       <span class="key-dot inactive" id="ghDot"></span>
       <span id="ghLabel">GitHub</span>
     </div>
-    <div class="key-badge" id="keyBadge" onclick="abrirConfig('ai')" title="Configurar chave API">
-      <span class="key-dot inactive" id="keyDot"></span>
-      <span id="keyLabel">API IA</span>
-    </div>
-    <button class="btn-outline" id="btnCSV" onclick="exportCSV()">↓ CSV</button>
-    <button class="btn-accent" id="btnFull" onclick="rodarCompleto()">✦ Atualizar tudo</button>
+    <button class="btn-outline" onclick="exportCSV()">↓ CSV</button>
+    <button class="btn-accent" id="btnFull" onclick="carregarFilmes()">↻ Atualizar</button>
   </div>
 </div>
 
 <div class="status-bar">
   <span class="stat"><span class="dot dot-r"></span><span id="stTotal">0</span> filmes</span>
   <span class="stat"><span class="dot dot-g"></span><span id="stPre">0</span> pré-estreias</span>
-  <span class="stat"><span class="dot dot-gray"></span>exibidor.com.br</span>
+  <span class="stat"><span class="dot dot-gray"></span>filmeb.com.br</span>
   <span id="stWhen" style="margin-left:auto;font-size:10px;color:#aaa;"></span>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
@@ -343,48 +255,25 @@
   </div>
 </div>
 
-<!-- CONFIG SCREEN (Anthropic AI + GitHub PAT) -->
+<!-- CONFIG SCREEN — GitHub PAT -->
 <div class="config-screen" id="configScreen">
   <div class="config-card">
     <div class="ak-logo-row">
       <div class="ak-logo-mark">ETC</div>
       <div class="ak-logo-text">
-        <p>Configurações</p>
+        <p>Configurar GitHub</p>
         <span>Calendário de Cinema</span>
       </div>
     </div>
-
-    <div class="cfg-tabs">
-      <button class="cfg-tab active" id="tabAI" onclick="switchCfgTab('ai')">🤖 API IA</button>
-      <button class="cfg-tab" id="tabGH" onclick="switchCfgTab('gh')">🐙 GitHub</button>
-    </div>
-
-    <!-- Painel AI -->
-    <div id="panelAI">
-      <label class="ak-label" for="akInput">Chave API Anthropic</label>
-      <input class="ak-input" id="akInput" type="password" placeholder="sk-ant-api03-..." autocomplete="off" spellcheck="false">
-      <p class="ak-hint">
-        Usada para buscar datas de pré-estreia com IA.<br>
-        Salva somente no seu navegador.<br>
-        <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Criar chave em console.anthropic.com ↗</a>
-      </p>
-      <button class="ak-btn" id="akBtn" onclick="salvarChaveAI()">Salvar chave AI</button>
-      <p class="ak-error" id="akError">Chave inválida.</p>
-    </div>
-
-    <!-- Painel GitHub -->
-    <div id="panelGH" style="display:none">
-      <label class="ak-label" for="ghInput">GitHub Personal Access Token</label>
-      <input class="ak-input" id="ghInput" type="password" placeholder="ghp_..." autocomplete="off" spellcheck="false">
-      <p class="ak-hint">
-        Necessário para salvar anotações no repositório.<br>
-        Crie um token com permissão <strong>repo → Contents (write)</strong>.<br>
-        <a href="https://github.com/settings/tokens/new?scopes=repo&description=calendario-cinema" target="_blank" rel="noopener">Criar token em github.com/settings/tokens ↗</a>
-      </p>
-      <button class="ak-btn" id="ghBtn" onclick="salvarGhPat()">Salvar token GitHub</button>
-      <p class="ak-error" id="ghError">Token inválido ou sem permissão.</p>
-    </div>
-
+    <label class="ak-label" for="ghInput">GitHub Personal Access Token</label>
+    <input class="ak-input" id="ghInput" type="password" placeholder="ghp_..." autocomplete="off" spellcheck="false">
+    <p class="ak-hint">
+      Necessário para salvar anotações no repositório entre dispositivos.<br>
+      Crie um token com permissão <strong>repo → Contents (write)</strong>.<br>
+      <a href="https://github.com/settings/tokens/new?scopes=repo&description=calendario-cinema" target="_blank" rel="noopener">Criar token em github.com/settings/tokens ↗</a>
+    </p>
+    <button class="ak-btn" id="ghBtn" onclick="salvarGhPat()">Salvar token</button>
+    <p class="ak-error" id="ghError">Token inválido ou sem acesso ao repositório.</p>
     <button class="ak-btn-skip" onclick="fecharConfig()">Fechar</button>
   </div>
 </div>
@@ -393,9 +282,6 @@
 /* ═══════════════════════════════════════════════
    CONSTANTES
    ═══════════════════════════════════════════════ */
-const API_URL      = 'https://api.anthropic.com/v1/messages';
-const MODEL        = 'claude-sonnet-4-20250514';
-const KEY_STORE    = 'cinema_apikey';
 const GH_KEY_STORE = 'cinema_gh_pat';
 const GITHUB_REPO  = 'mauricioalescanino-hub/calendario-cinema';
 const GITHUB_BRANCH= 'main';
@@ -404,63 +290,26 @@ const ANN_FILE     = 'anotacoes.json';
 /* ═══════════════════════════════════════════════
    ESTADO
    ═══════════════════════════════════════════════ */
-let filmes       = [];
-let activeMonth  = null;
-let isRunning    = false;
-let anotacoes    = {};   // { filmKey: { relevancia, pingplay, acessibilidades, masterizacao } }
-let ghFileSha    = null; // SHA atual do anotacoes.json no GitHub
-let saveTimer    = null;
-let curCfgTab    = 'ai';
+let filmes         = [];
+let activeMonth    = null;
+let anotacoes      = {};
+let ghFileSha      = null;
+let saveTimer      = null;
 let currentModalId = null;
 
 /* ═══════════════════════════════════════════════
-   CHAVES / CONFIG
+   GITHUB PAT
    ═══════════════════════════════════════════════ */
-const getApiKey = () => localStorage.getItem(KEY_STORE) || '';
-const getGhPat  = () => localStorage.getItem(GH_KEY_STORE) || '';
+const getGhPat = () => localStorage.getItem(GH_KEY_STORE) || '';
 
-function abrirConfig(tab) {
-  curCfgTab = tab || 'ai';
-  switchCfgTab(curCfgTab);
-  document.getElementById('akInput').value = getApiKey();
+function abrirConfig() {
   document.getElementById('ghInput').value = getGhPat();
-  document.getElementById('akError').classList.remove('show');
   document.getElementById('ghError').classList.remove('show');
   document.getElementById('configScreen').classList.add('open');
 }
 function fecharConfig() {
   document.getElementById('configScreen').classList.remove('open');
-  atualizarBadges();
-}
-function switchCfgTab(tab) {
-  curCfgTab = tab;
-  document.getElementById('panelAI').style.display = tab === 'ai' ? '' : 'none';
-  document.getElementById('panelGH').style.display = tab === 'gh' ? '' : 'none';
-  document.getElementById('tabAI').classList.toggle('active', tab === 'ai');
-  document.getElementById('tabGH').classList.toggle('active', tab === 'gh');
-}
-
-async function salvarChaveAI() {
-  const key = document.getElementById('akInput').value.trim();
-  const btn = document.getElementById('akBtn');
-  const err = document.getElementById('akError');
-  if (!key.startsWith('sk-ant-')) { err.textContent = 'A chave deve começar com "sk-ant-".'; err.classList.add('show'); return; }
-  err.classList.remove('show'); btn.disabled = true; btn.textContent = 'Verificando...';
-  try {
-    const r = await fetch(API_URL, {
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body: JSON.stringify({model:MODEL,max_tokens:10,messages:[{role:'user',content:'oi'}]})
-    });
-    if (r.status === 401 || r.status === 403) throw new Error('auth');
-    await r.json();
-    localStorage.setItem(KEY_STORE, key);
-    fecharConfig();
-  } catch(e) {
-    btn.disabled = false; btn.textContent = 'Salvar chave AI';
-    err.textContent = e.message === 'auth' ? 'Chave recusada pela API.' : 'Erro de conexão.';
-    err.classList.add('show');
-  }
+  atualizarBadge();
 }
 
 async function salvarGhPat() {
@@ -479,34 +328,28 @@ async function salvarGhPat() {
     await carregarAnotacoesGitHub();
     render();
   } catch(e) {
-    btn.disabled = false; btn.textContent = 'Salvar token GitHub';
     err.textContent = 'Token inválido ou sem acesso ao repositório.';
     err.classList.add('show');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Salvar token';
   }
 }
 
-function atualizarBadges() {
-  const aiKey = getApiKey();
-  const ghPat = getGhPat();
-  const keyDot = document.getElementById('keyDot');
-  const keyLbl = document.getElementById('keyLabel');
-  const ghDot  = document.getElementById('ghDot');
-  const ghLbl  = document.getElementById('ghLabel');
-  if (aiKey) { keyDot.classList.remove('inactive'); keyLbl.textContent = 'API: •••' + aiKey.slice(-4); }
-  else       { keyDot.classList.add('inactive');    keyLbl.textContent = 'API IA'; }
-  if (ghPat) { ghDot.classList.remove('inactive');  ghLbl.textContent = 'GitHub ✓'; }
-  else       { ghDot.classList.add('inactive');     ghLbl.textContent = 'GitHub'; }
+function atualizarBadge() {
+  const pat = getGhPat();
+  const dot = document.getElementById('ghDot');
+  const lbl = document.getElementById('ghLabel');
+  if (pat) { dot.classList.remove('inactive'); lbl.textContent = 'GitHub ✓'; }
+  else     { dot.classList.add('inactive');    lbl.textContent = 'GitHub'; }
 }
 
 /* ═══════════════════════════════════════════════
-   ANOTAÇÕES — CHAVE
+   CHAVE DE FILME
    ═══════════════════════════════════════════════ */
 function filmKey(titulo) {
-  return (titulo || '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
+  return (titulo||'').toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
 }
-function getAnn(titulo) {
-  return anotacoes[filmKey(titulo)] || {};
-}
+function getAnn(titulo) { return anotacoes[filmKey(titulo)] || {}; }
 
 /* ═══════════════════════════════════════════════
    GITHUB — CARREGAR anotacoes.json
@@ -522,16 +365,11 @@ async function carregarAnotacoesGitHub() {
     if (r.ok) {
       const data = await r.json();
       ghFileSha = data.sha;
-      const content = JSON.parse(atob(data.content.replace(/\n/g, '')));
+      const content = JSON.parse(atob(data.content.replace(/\n/g,'')));
       anotacoes = content.filmes || {};
-      // merge com localStorage
-      const local = JSON.parse(localStorage.getItem('cinema_anotacoes') || '{}');
-      Object.assign(anotacoes, local);
     }
-  } catch(e) {
-    console.warn('Não foi possível carregar anotações do GitHub:', e.message);
-  }
-  // sempre merge localStorage
+  } catch(e) { console.warn('GitHub load:', e.message); }
+  // merge localStorage
   try {
     const local = JSON.parse(localStorage.getItem('cinema_anotacoes') || '{}');
     Object.keys(local).forEach(k => { if (!anotacoes[k]) anotacoes[k] = local[k]; });
@@ -542,55 +380,30 @@ async function carregarAnotacoesGitHub() {
    GITHUB — SALVAR anotacoes.json
    ═══════════════════════════════════════════════ */
 async function salvarAnotacoes() {
-  // sempre salva em localStorage primeiro
   localStorage.setItem('cinema_anotacoes', JSON.stringify(anotacoes));
-
   const pat = getGhPat();
   if (!pat) return;
-
-  const content = JSON.stringify({
-    versao: 1,
-    atualizado_em: new Date().toISOString(),
-    filmes: anotacoes
-  }, null, 2);
-
-  // btoa com suporte a UTF-8
+  const content = JSON.stringify({ versao:1, atualizado_em:new Date().toISOString(), filmes:anotacoes }, null, 2);
   const b64 = btoa(unescape(encodeURIComponent(content)));
-
   const body = {
     message: `anotações: ${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`,
-    content: b64,
-    branch: GITHUB_BRANCH
+    content: b64, branch: GITHUB_BRANCH
   };
   if (ghFileSha) body.sha = ghFileSha;
-
   try {
-    const r = await fetch(
-      `https://api.github.com/repos/${GITHUB_REPO}/contents/${ANN_FILE}`,
-      {
-        method: 'PUT',
-        headers: { 'Authorization': `token ${pat}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      }
-    );
-    if (r.ok) {
-      const d = await r.json();
-      ghFileSha = d.content.sha;
-      showSaveStatus('saved');
-    } else {
-      const err = await r.json();
-      console.warn('GitHub save error:', err.message);
-    }
-  } catch(e) {
-    console.warn('Erro ao salvar no GitHub:', e.message);
-  }
+    const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${ANN_FILE}`, {
+      method:'PUT', headers:{'Authorization':`token ${pat}`,'Content-Type':'application/json'}, body:JSON.stringify(body)
+    });
+    if (r.ok) { const d = await r.json(); ghFileSha = d.content.sha; showSaveStatus('saved'); }
+    else console.warn('GitHub save:', (await r.json()).message);
+  } catch(e) { console.warn('GitHub save:', e.message); }
 }
 
 function showSaveStatus(state) {
   const el = document.getElementById('annSaveStatus');
   if (!el) return;
   if (state === 'saving') { el.textContent = '⟳ Salvando...'; el.className = 'ann-save-status saving show'; }
-  else                    { el.textContent = '✓ Salvo';       el.className = 'ann-save-status show'; setTimeout(() => el.classList.remove('show'), 2500); }
+  else { el.textContent = '✓ Salvo'; el.className = 'ann-save-status show'; setTimeout(() => el.classList.remove('show'), 2500); }
 }
 
 /* ═══════════════════════════════════════════════
@@ -600,44 +413,57 @@ function setAnnotation(titulo, field, value) {
   const k = filmKey(titulo);
   if (!anotacoes[k]) anotacoes[k] = {};
   const cur = anotacoes[k][field];
-  // toggle: clicou no mesmo → remove
   if (cur === value) {
     delete anotacoes[k][field];
     if (Object.keys(anotacoes[k]).length === 0) delete anotacoes[k];
   } else {
     anotacoes[k][field] = value;
   }
-  showSaveStatus('saving');
-  if (saveTimer) clearTimeout(saveTimer);
-  saveTimer = setTimeout(salvarAnotacoes, 1200);
-  render(); // atualiza cards
-  // refresh modal sem fechar
+  agendarSalvar();
+  render();
   if (currentModalId !== null) openMod(currentModalId);
 }
 
+function setPreEstreia(titulo, value) {
+  const k = filmKey(titulo);
+  if (!anotacoes[k]) anotacoes[k] = {};
+  if (value) {
+    anotacoes[k].pre_estreia = value;
+  } else {
+    delete anotacoes[k].pre_estreia;
+    if (Object.keys(anotacoes[k]).length === 0) delete anotacoes[k];
+  }
+  agendarSalvar();
+  render();
+  updateStats();
+  if (currentModalId !== null) openMod(currentModalId);
+}
+
+function agendarSalvar() {
+  showSaveStatus('saving');
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(salvarAnotacoes, 1200);
+}
+
 /* ═══════════════════════════════════════════════
-   CONSTANTES UI
+   UTILS
    ═══════════════════════════════════════════════ */
-const MP = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
-            'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const MP = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const MS = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
 
 function getMeses() {
   const h = new Date(), r = [];
-  for (let i = 0; i < 6; i++) {
-    const d = new Date(h.getFullYear(), h.getMonth() + i, 1);
-    r.push({ y: d.getFullYear(), m: d.getMonth() });
-  }
+  for (let i = 0; i < 6; i++) { const d = new Date(h.getFullYear(), h.getMonth()+i, 1); r.push({y:d.getFullYear(),m:d.getMonth()}); }
   return r;
 }
-function ym(y, m) { return y + '-' + String(m + 1).padStart(2, '0'); }
-function fmt(s) { if (!s) return '—'; const p = s.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
-function today() { return new Date().toISOString().slice(0, 10); }
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function ym(y,m) { return y+'-'+String(m+1).padStart(2,'0'); }
+function fmt(s) { if (!s) return '—'; const p=s.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+function today() { return new Date().toISOString().slice(0,10); }
 function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmtCurto(s) { return s ? s.slice(8,10)+'/'+s.slice(5,7) : ''; }
 
 /* ═══════════════════════════════════════════════
-   PERSISTÊNCIA filmes
+   PERSISTÊNCIA
    ═══════════════════════════════════════════════ */
 function loadData() { try { const s=localStorage.getItem('cinema_cal_v4'); if(s) filmes=JSON.parse(s); } catch(e){ filmes=[]; } }
 function saveData() { try { localStorage.setItem('cinema_cal_v4', JSON.stringify(filmes)); } catch(e){} }
@@ -651,6 +477,7 @@ async function init() {
   buildNav();
   render();
   updateStats();
+  atualizarBadge();
 }
 
 function buildNav() {
@@ -668,6 +495,38 @@ function setMonth(m, el) {
 }
 
 /* ═══════════════════════════════════════════════
+   CARREGAR filmes.json
+   ═══════════════════════════════════════════════ */
+async function carregarFilmes() {
+  const btn = document.getElementById('btnFull');
+  btn.disabled = true; btn.textContent = '⟳ Carregando...';
+  setProgress(10);
+  const logP = document.getElementById('logP');
+  logP.classList.add('active');
+  logP.innerHTML = '<span class="log-info"> > Carregando filmes.json...</span>';
+  try {
+    const resp = await fetch('filmes.json?v='+Date.now());
+    if (!resp.ok) throw new Error('filmes.json não encontrado. Rode lanc_filmes_moskit.py primeiro.');
+    const json = await resp.json();
+    const keys = getMeses().map(x => ym(x.y,x.m));
+    filmes = (json.filmes||[])
+      .filter(f => f.estreia && keys.includes(f.estreia.slice(0,7)))
+      .map((f,i) => ({...f, id:f.id||(i+1)}));
+    filmes.sort((a,b) => a.estreia.localeCompare(b.estreia));
+    saveData();
+    setProgress(100);
+    if (json.gerado_em) document.getElementById('stWhen').textContent = `Base: ${json.gerado_em}`;
+    logP.innerHTML = `<span class="log-ok"> > ${filmes.length} filmes carregados.</span>`;
+    setTimeout(() => { logP.classList.remove('active'); setProgress(0); }, 3000);
+  } catch(e) {
+    logP.innerHTML = `<span class="log-warn"> > Erro: ${escHtml(e.message)}</span>`;
+    setProgress(0);
+  }
+  btn.disabled = false; btn.textContent = '↻ Atualizar';
+  render(); updateStats();
+}
+
+/* ═══════════════════════════════════════════════
    FILTROS
    ═══════════════════════════════════════════════ */
 function getFiltered() {
@@ -675,22 +534,19 @@ function getFiltered() {
   const gen  = document.getElementById('fGen').value;
   const pre  = document.getElementById('fPre').value;
   const rel  = document.getElementById('fRel').value;
-  const keys = getMeses().map(x => ym(x.y, x.m));
+  const keys = getMeses().map(x => ym(x.y,x.m));
   return filmes.filter(f => {
-    const k = f.estreia ? f.estreia.slice(0, 7) : '';
+    const k = f.estreia ? f.estreia.slice(0,7) : '';
     if (!keys.includes(k)) return false;
     if (activeMonth && k !== activeMonth) return false;
     if (dist && f.distribuidora !== dist) return false;
     if (gen  && f.genero !== gen) return false;
-    if (pre === 'yes' && !f.preEstreia) return false;
-    if (pre === 'no'  &&  f.preEstreia) return false;
+    const ann = getAnn(f.titulo);
+    if (pre === 'yes' && !ann.pre_estreia) return false;
+    if (pre === 'no'  &&  ann.pre_estreia) return false;
     if (rel) {
-      const ann = getAnn(f.titulo);
-      if (rel === 'ann') {
-        if (!anotacoes[filmKey(f.titulo)]) return false;
-      } else {
-        if (ann.relevancia !== rel) return false;
-      }
+      if (rel === 'ann') { if (!anotacoes[filmKey(f.titulo)]) return false; }
+      else { if (ann.relevancia !== rel) return false; }
     }
     return true;
   });
@@ -707,70 +563,54 @@ function render() {
     cal.innerHTML = `<div class="empty">
       <div class="empty-icon"><div class="clap-lg"></div></div>
       Nenhum filme carregado ainda.<br>
-      Rode o <strong>push_filmes_github.py</strong> na sua máquina<br>
-      para subir o <strong>filmes.json</strong> no GitHub.
+      Clique em <strong>↻ Atualizar</strong> para carregar o calendário.<br>
+      <small style="font-size:11px;color:var(--muted2)">Certifique-se que filmes.json foi publicado no GitHub.</small>
     </div>`;
     return;
   }
 
   const grouped = {};
-  filtered.forEach(f => {
-    const k = f.estreia.slice(0, 7);
-    if (!grouped[k]) grouped[k] = [];
-    grouped[k].push(f);
-  });
-
+  filtered.forEach(f => { const k=f.estreia.slice(0,7); if(!grouped[k]) grouped[k]=[]; grouped[k].push(f); });
   const keys = Object.keys(grouped).sort();
-  if (keys.length === 0) {
-    cal.innerHTML = '<div class="empty">Nenhum filme para os filtros selecionados.</div>';
-    return;
-  }
+  if (!keys.length) { cal.innerHTML = '<div class="empty">Nenhum filme para os filtros selecionados.</div>'; return; }
 
   cal.innerHTML = keys.map(k => {
-    const [y, m] = k.split('-');
-    const lista = grouped[k].slice().sort((a, b) => a.estreia.localeCompare(b.estreia));
+    const [y,m] = k.split('-');
+    const lista = grouped[k].slice().sort((a,b) => a.estreia.localeCompare(b.estreia));
     return `<div class="month-sec">
       <div class="month-hdr">
         <span class="month-name">${MP[parseInt(m)-1]} ${y}</span>
-        <span class="month-count">${lista.length} título${lista.length !== 1 ? 's' : ''}</span>
+        <span class="month-count">${lista.length} título${lista.length!==1?'s':''}</span>
       </div>
       <div class="film-grid">${lista.map(filmCard).join('')}</div>
     </div>`;
   }).join('');
 
-  const distribs = [...new Set(filmes.map(f => f.distribuidora).filter(Boolean))].sort();
-  const generos  = [...new Set(filmes.map(f => f.genero).filter(Boolean))].sort();
-  const fd = document.getElementById('fDist'), fg = document.getElementById('fGen');
-  const dv = fd.value, gv = fg.value;
-  fd.innerHTML = '<option value="">Todas as distribuidoras</option>' +
-    distribs.map(d => `<option value="${d}"${d===dv?' selected':''}>${d}</option>`).join('');
-  fg.innerHTML = '<option value="">Todos os gêneros</option>' +
-    generos.map(g => `<option value="${g}"${g===gv?' selected':''}>${g}</option>`).join('');
+  const distribs = [...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))].sort();
+  const generos  = [...new Set(filmes.map(f=>f.genero).filter(Boolean))].sort();
+  const fd=document.getElementById('fDist'), fg=document.getElementById('fGen');
+  const dv=fd.value, gv=fg.value;
+  fd.innerHTML = '<option value="">Todas as distribuidoras</option>'+distribs.map(d=>`<option value="${d}"${d===dv?' selected':''}>${d}</option>`).join('');
+  fg.innerHTML = '<option value="">Todos os gêneros</option>'+generos.map(g=>`<option value="${g}"${g===gv?' selected':''}>${g}</option>`).join('');
 }
 
 function filmCard(f) {
   const ann = getAnn(f.titulo);
-  let pre = '';
-  const fmtCurto = s => s ? s.slice(8,10)+'/'+s.slice(5,7) : '';
-  if (f.preEstreia)            pre = `<span class="pre-badge confirmed">Pré ${fmtCurto(f.preEstreia)}</span>`;
-  else if (f.preStatus==='searching') pre = `<span class="pre-badge searching"><span class="pulse"></span></span>`;
-  else if (f.preEstimada)      pre = `<span class="pre-badge estimated">~${fmtCurto(f.preEstimada)}</span>`;
-
   const poster = f.poster
     ? `<img src="${f.poster}" alt="${escHtml(f.titulo)}" loading="lazy" onerror="this.outerHTML='<div class=\\'poster-ph\\'><div class=\\'clap\\'></div></div>'">`
     : `<div class="poster-ph"><div class="clap"></div></div>`;
+  const dd = f.estreia ? fmtCurto(f.estreia) : '';
+  const preBadge = ann.pre_estreia
+    ? `<span class="pre-badge confirmed">Pré ${fmtCurto(ann.pre_estreia)}</span>` : '';
 
-  const dd = f.estreia ? f.estreia.slice(8,10)+'/'+f.estreia.slice(5,7) : '';
-
-  // annotation chips no card
   let chips = '';
   if (ann.relevancia) chips += `<span class="card-ann-chip ${ann.relevancia}">${ann.relevancia.charAt(0).toUpperCase()+ann.relevancia.slice(1)}</span>`;
-  if (ann.pingplay === true)       chips += `<span class="card-ann-chip on">PingPlay</span>`;
-  if (ann.acessibilidades === true)chips += `<span class="card-ann-chip on">Access.</span>`;
-  if (ann.masterizacao === true)   chips += `<span class="card-ann-chip on">Master.</span>`;
+  if (ann.pingplay===true)        chips += `<span class="card-ann-chip on">PingPlay</span>`;
+  if (ann.acessibilidades===true) chips += `<span class="card-ann-chip on">Access.</span>`;
+  if (ann.masterizacao===true)    chips += `<span class="card-ann-chip on">Master.</span>`;
 
   return `<div class="film-card" onclick="openMod(${f.id})" data-rel="${ann.relevancia||''}">
-    <div class="poster">${poster}${pre}<span class="date-badge">${dd}</span></div>
+    <div class="poster">${poster}${preBadge}<span class="date-badge">${dd}</span></div>
     <div class="film-info">
       <div class="film-title" title="${escHtml(f.titulo)}">${escHtml(f.titulo)}</div>
       <div class="film-meta">
@@ -778,137 +618,18 @@ function filmCard(f) {
         <span class="distrib-tag">${escHtml(f.distribuidora||'—')}</span>
       </div>
     </div>
-    ${chips ? `<div class="card-ann-row">${chips}</div>` : ''}
+    ${chips?`<div class="card-ann-row">${chips}</div>`:''}
   </div>`;
 }
 
 function updateStats() {
-  const keys = getMeses().map(x => ym(x.y, x.m));
-  const rel  = filmes.filter(f => keys.includes(f.estreia ? f.estreia.slice(0,7) : ''));
+  const keys = getMeses().map(x => ym(x.y,x.m));
+  const rel  = filmes.filter(f => keys.includes(f.estreia?f.estreia.slice(0,7):''));
   document.getElementById('stTotal').textContent = rel.length;
-  document.getElementById('stPre').textContent   = rel.filter(f => f.preEstreia).length;
+  document.getElementById('stPre').textContent   = rel.filter(f => getAnn(f.titulo).pre_estreia).length;
 }
 
-/* ═══════════════════════════════════════════════
-   PROGRESS / LOG
-   ═══════════════════════════════════════════════ */
 function setProgress(p) { document.getElementById('pFill').style.width = p+'%'; }
-function log(msg, type) {
-  const panel = document.getElementById('logP');
-  panel.classList.add('active');
-  panel.innerHTML = `<span class="log-${type||'info'}"> > ${escHtml(msg)}</span>`;
-}
-function clearLog() { const p=document.getElementById('logP'); p.classList.remove('active'); p.innerHTML=''; setProgress(0); }
-
-/* ═══════════════════════════════════════════════
-   ORQUESTRADOR PRINCIPAL
-   ═══════════════════════════════════════════════ */
-async function rodarCompleto() {
-  if (isRunning) return;
-  isRunning = true;
-  const btn = document.getElementById('btnFull');
-  btn.disabled = true; btn.innerHTML = '⟳ Rodando...';
-  filmes = []; saveData(); render(); setProgress(3);
-  try {
-    log('Etapa 1/2 — Carregando filmes.json...','info');
-    await etapa1_buscarFilmes();
-    setProgress(50); render(); updateStats();
-    log(`${filmes.length} filmes carregados. Etapa 2/2 — Pesquisando pré-estreias com IA...`,'ok');
-    await etapa2_buscarPreEstreias();
-    setProgress(100);
-    const agora = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    document.getElementById('stWhen').textContent = `Atualizado às ${agora}`;
-    log(`Concluído — ${filmes.filter(f=>f.preEstreia).length} pré-estreias confirmadas.`,'ok');
-  } catch(e) { log('Erro: '+e.message,'warn'); console.error(e); }
-  btn.disabled = false; btn.innerHTML = '✦ Atualizar tudo';
-  isRunning = false; saveData(); render(); updateStats();
-  setTimeout(clearLog, 6000);
-}
-
-/* ── ETAPA 1 ── */
-async function etapa1_buscarFilmes() {
-  const resp = await fetch('filmes.json?v='+Date.now());
-  if (!resp.ok) throw new Error('filmes.json não encontrado. Rode push_filmes_github.py primeiro.');
-  const json = await resp.json();
-  const keys = getMeses().map(x => ym(x.y, x.m));
-  filmes = (json.filmes||[])
-    .filter(f => f.estreia && keys.includes(f.estreia.slice(0,7)))
-    .map((f,i) => ({...f, id:f.id||(i+1), preEstreia:null, preEstimada:null, preStatus:'pending', preNota:null}));
-  filmes.sort((a,b) => a.estreia.localeCompare(b.estreia));
-  if (!filmes.length) throw new Error('Nenhum filme para os próximos 6 meses.');
-  if (json.gerado_em) document.getElementById('stWhen').textContent = `Base: ${json.gerado_em}`;
-}
-
-/* ── ETAPA 2 ── */
-async function etapa2_buscarPreEstreias() {
-  const LOTE = 10;
-  for (let i = 0; i < filmes.length; i += LOTE) {
-    const lote = filmes.slice(i, i+LOTE);
-    log(`Pesquisando pré-estreias ${i+1}–${Math.min(i+LOTE,filmes.length)} de ${filmes.length}...`,'info');
-    setProgress(52+Math.round((i/filmes.length)*45));
-    const lista = lote.map((f,j) => `${j}. "${f.titulo}" | ${f.distribuidora||'?'} | estreia ${fmt(f.estreia)}`).join('\n');
-    const prompt = `Hoje é ${today()}. Especialista em cinema brasileiro.\n\nPesquise as datas de pré-estreia no Brasil para cada filme abaixo.\n\n${lista}\n\nResponda SOMENTE com JSON:\n{"r":[{"i":0,"data":"YYYY-MM-DD ou null","est":"YYYY-MM-DD ou null","nota":"fonte ou motivo, até 50 chars"}]}`;
-    try {
-      const data  = await chamarClaude(prompt, true);
-      const text  = extrairTexto(data);
-      const parsed = parseJSON(text);
-      (parsed.r||[]).forEach(r => {
-        const f = lote[r.i]; if (!f) return;
-        f.preEstreia  = r.data||null; f.preEstimada = r.est||null;
-        f.preNota = r.nota||null;
-        f.preStatus = f.preEstreia?'confirmed':(f.preEstimada?'estimated':'no-info');
-      });
-    } catch(e) { lote.forEach(f => { if(f.preStatus==='pending') f.preStatus='no-info'; }); }
-    saveData(); render(); updateStats(); await sleep(500);
-  }
-}
-
-async function buscarPreEstreia(f) {
-  const prompt = `Hoje é ${today()}. Pesquise a pré-estreia do filme "${f.titulo}" no Brasil. Distribuidora: ${f.distribuidora||'?'} | Estreia: ${fmt(f.estreia)}\nResponda SOMENTE com JSON: {"data":"YYYY-MM-DD ou null","est":"YYYY-MM-DD ou null","nota":"fonte, até 50 chars"}`;
-  const data = await chamarClaude(prompt, true);
-  const r = parseJSON(extrairTexto(data));
-  return { data:r.data||null, estimada:r.est||r.estimada||null, nota:r.nota||null };
-}
-
-async function buscarPreIndividual(id) {
-  const f = filmes.find(x => x.id===id); if (!f) return;
-  f.preStatus = 'searching'; openMod(id); render();
-  try {
-    const r = await buscarPreEstreia(f);
-    f.preEstreia=r.data||null; f.preEstimada=r.estimada||null; f.preNota=r.nota||null;
-    f.preStatus = r.data?'confirmed':(r.estimada?'estimated':'no-info');
-  } catch(e) { f.preStatus='no-info'; }
-  saveData(); render(); updateStats(); openMod(id);
-}
-
-/* ═══════════════════════════════════════════════
-   CLAUDE API
-   ═══════════════════════════════════════════════ */
-async function chamarClaude(prompt, webSearch=false) {
-  const key = getApiKey();
-  if (!key) { abrirConfig('ai'); throw new Error('Chave API não configurada.'); }
-  const bodyObj = { model:MODEL, max_tokens:4000, messages:[{role:'user',content:prompt}] };
-  if (webSearch) bodyObj.tools = [{type:'web_search_20250305',name:'web_search'}];
-  const resp = await fetch(API_URL, {
-    method:'POST',
-    headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body: JSON.stringify(bodyObj)
-  });
-  const json = await resp.json();
-  if (json.type==='error'||json.error) {
-    if (resp.status===401||resp.status===403) { abrirConfig('ai'); throw new Error('Chave API inválida.'); }
-    throw new Error('Erro da API: '+(json.error?.message||'').slice(0,120));
-  }
-  return json;
-}
-function extrairTexto(data) { return (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(''); }
-function parseJSON(text) {
-  let clean = text.replace(/```json/gi,'').replace(/```/g,'').trim();
-  try { return JSON.parse(clean); } catch(e) {}
-  try { const m=clean.match(/\{[\s\S]*\}/); if(m) return JSON.parse(m[0]); } catch(e) {}
-  try { const m=clean.match(/\[[\s\S]*\]/); if(m) return JSON.parse(m[0]); } catch(e) {}
-  throw new Error('JSON inválido na resposta.');
-}
 
 /* ═══════════════════════════════════════════════
    MODAL
@@ -918,45 +639,34 @@ function openMod(id) {
   const f = filmes.find(x => x.id===id); if (!f) return;
   document.getElementById('mTitle').textContent = f.titulo;
 
-  let preHTML = '';
-  if (f.preEstreia) {
-    preHTML = `<div class="pre-box"><h4>Pré-estreia confirmada</h4>
-      <p class="pre-date-confirmed">${fmt(f.preEstreia)}</p>
-      ${f.preNota?`<p class="pre-nota">${escHtml(f.preNota)}</p>`:''}
-    </div>`;
-  } else if (f.preEstimada) {
-    preHTML = `<div class="pre-box"><h4>Pré-estreia estimada</h4>
-      <p class="pre-date-estimated">${fmt(f.preEstimada)}</p>
-      ${f.preNota?`<p class="pre-nota">${escHtml(f.preNota)}</p>`:''}
-    </div>`;
-  } else if (f.preStatus==='searching') {
-    preHTML = `<div class="pre-box"><h4>Pré-estreia</h4><p><span class="pulse"></span> Pesquisando...</p></div>`;
-  } else {
-    preHTML = `<div class="pre-box"><h4>Pré-estreia</h4>
-      <p style="color:#555;font-size:12px;margin-bottom:10px;">Não encontrada ainda.</p>
-      <button class="btn-accent" onclick="buscarPreIndividual(${f.id})" style="font-size:12px;padding:7px 14px;border-radius:6px;">✦ Buscar agora</button>
-    </div>`;
-  }
-
-  // Annotation box
-  const ann = getAnn(f.titulo);
+  const ann    = getAnn(f.titulo);
   const titulo = f.titulo;
+  const tKey   = filmKey(titulo).replace(/'/g,"\\'");
 
   function tglRel(val) {
     const active = ann.relevancia === val;
-    return `<button class="tgl-btn${active?' active-'+val:''}" onclick="setAnnotation('${escHtml(titulo.replace(/'/g,"\\\'"))}','relevancia','${val}');event.stopPropagation()">${val.charAt(0).toUpperCase()+val.slice(1)}</button>`;
+    return `<button class="tgl-btn${active?' active-'+val:''}" onclick="setAnnotation('${tKey}','relevancia','${val}');event.stopPropagation()">${val.charAt(0).toUpperCase()+val.slice(1)}</button>`;
   }
   function tglBool(field, val) {
-    const cur = ann[field];
-    const active = cur === val;
+    const active = ann[field] === val;
     const cls = active ? (val===true?'active-sim':'active-nao') : '';
-    return `<button class="tgl-btn ${cls}" onclick="setAnnotation('${escHtml(titulo.replace(/'/g,"\\\'"))}','${field}',${val});event.stopPropagation()">${val?'Sim':'Não'}</button>`;
+    return `<button class="tgl-btn ${cls}" onclick="setAnnotation('${tKey}','${field}',${val});event.stopPropagation()">${val?'Sim':'Não'}</button>`;
   }
+
+  const preVal = ann.pre_estreia || '';
 
   const annHTML = `<div class="ann-box">
     <div class="ann-box-hdr">
       <h4>📋 Análise ETC</h4>
       <span class="ann-save-status" id="annSaveStatus"></span>
+    </div>
+    <div class="ann-row">
+      <span class="ann-label">Pré-estreia</span>
+      <div class="pre-input-row">
+        <input type="date" class="pre-date-input" id="preDateInput" value="${preVal}"
+          onchange="setPreEstreia('${tKey}', this.value)" onclick="event.stopPropagation()">
+        ${preVal?`<button class="pre-clear-btn" onclick="setPreEstreia('${tKey}','');event.stopPropagation()" title="Limpar">✕</button>`:''}
+      </div>
     </div>
     <div class="ann-row">
       <span class="ann-label">Relevância de Pré</span>
@@ -981,9 +691,8 @@ function openMod(id) {
     <div class="mfield"><label>Distribuidora</label><p>${escHtml(f.distribuidora||'—')}</p></div>
     <div class="mfield"><label>Gênero</label><p>${escHtml(f.genero||'—')}</p></div>
     <div class="mfield"><label>Sinopse</label><p>${escHtml(f.sinopse||'—')}</p></div>
-    ${preHTML}
     ${annHTML}
-    ${f.urlExibidor?`<a class="modal-link" href="${escHtml(f.urlExibidor)}" target="_blank" rel="noopener">Ver ficha no Exibidor ↗</a>`:''}`;
+    ${f.urlExibidor?`<a class="modal-link" href="${escHtml(f.urlExibidor)}" target="_blank" rel="noopener">Ver ficha no Filme B ↗</a>`:''}`;
 
   document.getElementById('modalOv').classList.add('open');
 }
@@ -996,21 +705,20 @@ function closeModDirect() { document.getElementById('modalOv').classList.remove(
    ═══════════════════════════════════════════════ */
 function exportCSV() {
   if (!filmes.length) { alert('Nenhum dado para exportar.'); return; }
-  const header = 'Título,Estreia,Distribuidora,Gênero,Pré-Estreia,Relevância,PingPlay,Acessibilidades,Masterização';
+  const header = 'Título,Estreia,Pré-Estreia,Distribuidora,Gênero,Relevância,PingPlay,Acessibilidades,Masterização';
   const rows = filmes.map(f => {
     const ann = getAnn(f.titulo);
-    return [f.titulo,f.estreia,f.distribuidora,f.genero,f.preEstreia||'',
-            ann.relevancia||'',ann.pingplay!=null?(ann.pingplay?'Sim':'Não'):'',
+    return [f.titulo, f.estreia, ann.pre_estreia||'', f.distribuidora, f.genero,
+            ann.relevancia||'',
+            ann.pingplay!=null?(ann.pingplay?'Sim':'Não'):'',
             ann.acessibilidades!=null?(ann.acessibilidades?'Sim':'Não'):'',
             ann.masterizacao!=null?(ann.masterizacao?'Sim':'Não'):'']
       .map(v=>`"${String(v||'').replace(/"/g,'""')}"`)
       .join(',');
   });
   const csv = '﻿'+[header,...rows].join('\r\n');
-  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href=url; a.download=`cinema_${today()}.csv`; a.click();
+  const url = URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
+  const a = document.createElement('a'); a.href=url; a.download=`cinema_${today()}.csv`; a.click();
   URL.revokeObjectURL(url);
 }
 
@@ -1018,17 +726,14 @@ function exportCSV() {
    KEYBOARD
    ═══════════════════════════════════════════════ */
 document.addEventListener('keydown', e => {
-  if (e.key==='Escape') {
+  if (e.key === 'Escape') {
     if (document.getElementById('configScreen').classList.contains('open')) fecharConfig();
     else closeModDirect();
   }
-  if (e.key==='Enter' && document.getElementById('configScreen').classList.contains('open')) {
-    if (curCfgTab==='ai') salvarChaveAI(); else salvarGhPat();
-  }
+  if (e.key === 'Enter' && document.getElementById('configScreen').classList.contains('open')) salvarGhPat();
 });
 
 /* ── START ── */
-atualizarBadges();
 init();
 </script>
 </body>
