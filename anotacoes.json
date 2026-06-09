@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T20:26:05.944Z",
+  "atualizado_em": "2026-06-09T20:28:29.073Z",
   "filmes": {
     "o-barulho-da-noite": {
       "relevancia": "alta",
@@ -21,7 +21,7 @@
       "acessibilidades": true,
       "masterizacao": true,
       "relevancia": "alta",
-      "pre_estreia": "2026-06-11"
+      "pre_estreia": "2026-06-03"
     }
   }
 }
