@@ -1,25 +1,63 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:06:27.731Z",
+  "atualizado_em": "2026-06-09T22:09:10.554Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
       "relevancia": "baixa",
       "pingplay": false,
       "acessibilidades": false,
-      "masterizacao": true
+      "masterizacao": false
     },
     "aquele-que-viu-o-abismo": {
-      "status": "confirmado"
+      "status": "sem"
     },
     "guas-mortais": {
-      "status": "confirmado"
+      "status": "sem"
     },
     "a-noite-de-alade": {
       "status": "sem"
     },
     "hit-para-dois": {
-      "status": "confirmado"
+      "status": "confirmado",
+      "pingplay": true,
+      "acessibilidades": true,
+      "masterizacao": true
+    },
+    "presso": {
+      "pingplay": true,
+      "acessibilidades": false,
+      "masterizacao": false
+    },
+    "os-peludos-2": {
+      "pingplay": true,
+      "acessibilidades": false,
+      "masterizacao": true
+    },
+    "lago-dos-ossos": {
+      "pingplay": true,
+      "acessibilidades": false,
+      "masterizacao": false
+    },
+    "trago-seu-amor": {
+      "pingplay": false,
+      "acessibilidades": false,
+      "masterizacao": false
+    },
+    "o-convite": {
+      "pingplay": false,
+      "acessibilidades": false,
+      "masterizacao": false
+    },
+    "segredo-obscuro": {
+      "pingplay": false,
+      "acessibilidades": false,
+      "masterizacao": false
+    },
+    "o-sol-nasce-para-todos": {
+      "pingplay": false,
+      "acessibilidades": false,
+      "masterizacao": false
     }
   }
 }
