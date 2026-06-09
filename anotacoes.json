@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:11:18.331Z",
+  "atualizado_em": "2026-06-09T22:11:23.279Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -66,6 +66,9 @@
       "pingplay": true,
       "acessibilidades": true,
       "masterizacao": true
+    },
+    "dia-d": {
+      "status": "confirmado"
     }
   }
 }
