@@ -159,6 +159,11 @@
   .pre-date-input:focus { border-color:var(--navy); }
   .pre-clear-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:14px; padding:2px 5px; border-radius:4px; }
   .pre-clear-btn:hover { color:var(--rel-alta); }
+  .notas-box { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1rem; margin-top:.75rem; }
+  .notas-box label { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); display:block; margin-bottom:.5rem; font-weight:500; }
+  .notas-textarea { width:100%; background:var(--bg2); color:var(--navy); border:1.5px solid var(--border2); border-radius:7px; padding:9px 12px; font-family:'Sora',sans-serif; font-size:13px; font-weight:300; line-height:1.6; resize:vertical; min-height:90px; outline:none; transition:border-color .2s; }
+  .notas-textarea:focus { border-color:var(--navy); }
+  .notas-textarea::placeholder { color:var(--muted2); }
 
   /* ── CONTACTS BOX (modal) ── */
   .ct-box { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1rem; margin-top:.75rem; }
@@ -684,6 +689,14 @@ function setAnnotation(titulo, field, value) {
   agendarSalvarAnn(); render();
   if(currentModalId!==null) openMod(currentModalId);
 }
+function setNota(titulo, value) {
+  const k=filmKey(titulo);
+  if(!anotacoes[k]) anotacoes[k]={};
+  if(value.trim()) anotacoes[k].nota=value;
+  else { delete anotacoes[k].nota; if(!Object.keys(anotacoes[k]).length) delete anotacoes[k]; }
+  agendarSalvarAnn();
+}
+
 function setPreEstreia(titulo, value) {
   const k=filmKey(titulo);
   if(!anotacoes[k]) anotacoes[k]={};
@@ -1074,11 +1087,19 @@ function renderModalBody(f){
     </div>`;
   }
 
+  const notasHTML=`<div class="notas-box">
+    <label>📝 Notas</label>
+    <textarea class="notas-textarea" placeholder="Observações sobre o filme, negociação, contato..."
+      onclick="event.stopPropagation()"
+      oninput="setNota('${tKey}',this.value)">${escHtml(ann.nota||'')}</textarea>
+  </div>`;
+
   document.getElementById('mBody').innerHTML=`
     ${f.genero?`<div class="mfield"><label>Gênero</label><p>${escHtml(f.genero)}</p></div>`:''}
     ${f.sinopse?`<div class="mfield"><label>Sinopse</label><p>${escHtml(f.sinopse)}</p></div>`:''}
     ${annHTML}
     ${ctHTML}
+    ${notasHTML}
     ${f.urlExibidor?`<a class="modal-link" href="${escHtml(f.urlExibidor)}" target="_blank" rel="noopener">Ver ficha no Filme B ↗</a>`:''}`;
 }
 
