@@ -1,13 +1,5 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T20:28:13.737Z",
-  "distribuidoras": {
-    "H2O": [
-      {
-        "id": "mq73dpiwpmew",
-        "nome": "Pedro",
-        "email": "daniellab.leal@gmail.com"
-      }
-    ]
-  }
+  "atualizado_em": "2026-06-09T20:51:07.036Z",
+  "distribuidoras": {}
 }
