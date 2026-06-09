@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T21:41:22.949Z",
+  "atualizado_em": "2026-06-09T21:41:24.900Z",
   "filmes": {
     "o-barulho-da-noite": {
       "relevancia": "alta",
@@ -27,6 +27,9 @@
       "status": "confirmado"
     },
     "guas-mortais": {
+      "status": "confirmado"
+    },
+    "a-noite-de-alade": {
       "status": "confirmado"
     }
   }
