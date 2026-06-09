@@ -1,9 +1,12 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T20:09:47.144Z",
+  "atualizado_em": "2026-06-09T20:20:54.748Z",
   "filmes": {
     "o-barulho-da-noite": {
       "relevancia": "baixa"
+    },
+    "quinze-dias": {
+      "pre_estreia": "2026-06-09"
     }
   }
 }
