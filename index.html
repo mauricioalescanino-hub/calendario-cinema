@@ -8,8 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  * { box-sizing:border-box; margin:0; padding:0; }
   :root {
     --bg:#f7f6f2; --bg2:#ffffff; --bg3:#f0ede6; --bg4:#ece9e1;
     --border:#e2ddd5; --border2:#d5d0c8;
@@ -17,33 +16,30 @@
     --navy:#1a1f3c; --navy2:#2d3357;
     --text:#1a1f3c; --muted:#8a8880; --muted2:#b0aca5;
     --tag-bg:#eef0f7; --tag-color:#3a4278;
-    --gold:#c47d2a; --green:#2a7a4a;
+    --green:#2a7a4a;
     --shadow:0 1px 3px rgba(26,31,60,.07),0 4px 16px rgba(26,31,60,.04);
     --shadow-lg:0 2px 8px rgba(26,31,60,.08),0 12px 40px rgba(26,31,60,.08);
     --rel-alta:#dc2626; --rel-media:#d97706; --rel-baixa:#6b7280;
   }
-
   body { font-family:'Sora',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
 
   /* ── HEADER ── */
-  .header {
-    background:var(--bg2); border-bottom:1px solid var(--border);
-    padding:1rem 2rem; display:flex; align-items:center;
-    justify-content:space-between; flex-wrap:wrap; gap:.75rem;
-    position:sticky; top:0; z-index:50; box-shadow:0 1px 0 var(--border);
-  }
+  .header { background:var(--bg2); border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.75rem; position:sticky; top:0; z-index:50; }
   .logo { display:flex; align-items:center; gap:14px; }
   .logo-mark { width:34px; height:34px; background:var(--accent); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:#fff; flex-shrink:0; }
   .logo-text h1 { font-size:15px; font-weight:600; color:var(--navy); letter-spacing:-.02em; line-height:1.1; }
   .logo-text span { font-size:10px; color:var(--muted); letter-spacing:.05em; }
   .hbtns { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-
   .btn-accent { background:var(--accent); color:#fff; border:none; padding:8px 16px; border-radius:7px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; display:flex; align-items:center; gap:6px; transition:background .2s,transform .1s; }
   .btn-accent:hover { background:var(--accent2); }
   .btn-accent:active { transform:scale(.98); }
   .btn-accent:disabled { opacity:.4; cursor:not-allowed; }
   .btn-outline { background:transparent; color:var(--navy); border:1px solid var(--border2); padding:8px 14px; border-radius:7px; font-family:'Sora',sans-serif; font-size:12px; cursor:pointer; transition:border-color .2s,background .2s; }
   .btn-outline:hover { border-color:var(--navy); background:var(--bg3); }
+  .key-badge { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); cursor:pointer; border:1px solid var(--border); border-radius:6px; padding:5px 10px; background:var(--bg); transition:all .2s; }
+  .key-badge:hover { border-color:var(--border2); color:var(--navy); }
+  .key-dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
+  .key-dot.inactive { background:#d0ccc5; }
 
   /* ── STATUS BAR ── */
   .status-bar { padding:7px 2rem; background:var(--navy); display:flex; gap:1.5rem; font-size:11px; color:rgba(255,255,255,.45); flex-wrap:wrap; align-items:center; }
@@ -52,10 +48,8 @@
   .dot-r { background:var(--accent); }
   .dot-g { background:#5db87a; }
   .dot-gray { background:rgba(255,255,255,.15); }
-
   .progress-bar { height:3px; background:var(--border); }
   .progress-fill { height:100%; background:var(--accent); width:0%; transition:width .4s; }
-
   .log-panel { background:var(--bg3); border-bottom:1px solid var(--border); padding:.5rem 2rem; font-size:11px; font-family:monospace; display:none; color:var(--muted); }
   .log-panel.active { display:block; }
   .log-ok { color:var(--green); } .log-warn { color:var(--accent); }
@@ -68,56 +62,49 @@
   .mpill.active { background:var(--navy); color:#fff; border-color:var(--navy); }
   .mpill:hover:not(.active) { border-color:var(--navy2); color:var(--navy); }
 
-  /* ── CONTENT ── */
+  /* ── GRID ── */
   .content { padding:2rem; }
   .month-sec { margin-bottom:3rem; }
   .month-hdr { display:flex; align-items:baseline; gap:12px; margin-bottom:1.25rem; }
   .month-name { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--navy); letter-spacing:-.02em; }
   .month-count { font-size:11px; color:var(--muted2); background:var(--bg3); padding:2px 8px; border-radius:10px; }
-
-  /* ── GRID ── */
   .film-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:14px; }
-  .film-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; overflow:hidden; cursor:pointer; transition:box-shadow .2s,transform .15s,border-color .2s; box-shadow:var(--shadow); position:relative; }
+  .film-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; overflow:hidden; cursor:pointer; transition:box-shadow .2s,transform .15s,border-color .2s; box-shadow:var(--shadow); }
   .film-card:hover { border-color:var(--border2); box-shadow:var(--shadow-lg); transform:translateY(-2px); }
   .film-card[data-rel="alta"]  { border-left:3px solid var(--rel-alta); }
   .film-card[data-rel="media"] { border-left:3px solid var(--rel-media); }
   .film-card[data-rel="baixa"] { border-left:3px solid var(--rel-baixa); }
-
   .poster { width:100%; aspect-ratio:2/3; background:var(--bg3); position:relative; overflow:hidden; }
   .poster img { width:100%; height:100%; object-fit:cover; display:block; }
   .poster-ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--bg4); }
   .clap { width:30px; height:24px; border:2px solid var(--border2); border-radius:3px; position:relative; }
-  .clap::before { content:''; position:absolute; top:-8px; left:-2px; width:calc(100% + 4px); height:8px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 5px,var(--bg4) 5px,var(--bg4) 10px); border-radius:2px 2px 0 0; }
+  .clap::before { content:''; position:absolute; top:-8px; left:-2px; width:calc(100%+4px); height:8px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 5px,var(--bg4) 5px,var(--bg4) 10px); border-radius:2px 2px 0 0; }
   .date-badge { position:absolute; top:7px; right:7px; background:rgba(255,255,255,.92); border:1px solid var(--border); border-radius:4px; padding:2px 7px; font-size:9px; color:var(--muted); font-weight:500; }
-  .pre-badge { position:absolute; top:7px; left:7px; border-radius:5px; padding:3px 8px; font-size:10px; font-weight:600; }
-  .pre-badge.confirmed { background:var(--accent); color:#fff; box-shadow:0 1px 4px rgba(224,90,30,.35); }
-
+  .pre-badge { position:absolute; top:7px; left:7px; border-radius:5px; padding:3px 8px; font-size:10px; font-weight:600; background:var(--accent); color:#fff; box-shadow:0 1px 4px rgba(224,90,30,.35); }
   .film-info { padding:10px 12px 12px; }
   .film-title { font-size:12px; font-weight:500; color:var(--navy); line-height:1.35; margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .film-meta { display:flex; justify-content:space-between; align-items:center; }
   .film-date { color:var(--accent); font-size:10px; font-weight:500; }
   .distrib-tag { font-size:9px; background:var(--tag-bg); color:var(--tag-color); padding:2px 6px; border-radius:3px; max-width:72px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; }
-
   .card-ann-row { display:flex; gap:4px; padding:0 12px 8px; flex-wrap:wrap; }
   .card-ann-chip { font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600; background:var(--tag-bg); color:var(--tag-color); }
   .card-ann-chip.alta  { background:#fee2e2; color:var(--rel-alta); }
   .card-ann-chip.media { background:#fef3c7; color:var(--rel-media); }
   .card-ann-chip.baixa { background:#f3f4f6; color:var(--rel-baixa); }
   .card-ann-chip.on    { background:#d1fae5; color:#065f46; }
-
   .empty { text-align:center; padding:5rem 2rem; color:var(--muted2); font-size:14px; line-height:2.4; }
   .empty strong { color:var(--navy); }
   .empty .empty-icon { width:48px; height:48px; background:var(--bg4); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; }
   .empty .clap-lg { width:22px; height:18px; border:2px solid var(--border2); border-radius:2px; position:relative; }
-  .empty .clap-lg::before { content:''; position:absolute; top:-6px; left:-2px; width:calc(100% + 4px); height:6px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 4px,var(--bg4) 4px,var(--bg4) 8px); border-radius:1px 1px 0 0; }
+  .empty .clap-lg::before { content:''; position:absolute; top:-6px; left:-2px; width:calc(100%+4px); height:6px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 4px,var(--bg4) 4px,var(--bg4) 8px); border-radius:1px 1px 0 0; }
 
   /* ── MODAL ── */
   .modal-ov { display:none; position:fixed; inset:0; background:rgba(26,31,60,.55); backdrop-filter:blur(2px); z-index:200; align-items:center; justify-content:center; padding:1rem; }
   .modal-ov.open { display:flex; }
   .modal { background:var(--bg2); border:1px solid var(--border); border-radius:16px; width:100%; max-width:500px; max-height:90vh; overflow-y:auto; box-shadow:var(--shadow-lg); }
-  .modal-hdr { padding:1.25rem 1.5rem 1rem; display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg2); }
+  .modal-hdr { padding:1.25rem 1.5rem 1rem; display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg2); z-index:1; }
   .modal-ttl { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); line-height:1.2; flex:1; padding-right:.75rem; }
-  .modal-x { background:var(--bg3); border:1px solid var(--border); color:var(--muted); width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:13px; flex-shrink:0; transition:background .15s; }
+  .modal-x { background:var(--bg3); border:1px solid var(--border); color:var(--muted); width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:13px; flex-shrink:0; }
   .modal-x:hover { background:var(--bg4); }
   .modal-body { padding:1.25rem 1.5rem; }
   .mfield { margin-bottom:.9rem; }
@@ -133,11 +120,9 @@
   .ann-save-status { font-size:10px; color:var(--green); font-weight:500; opacity:0; transition:opacity .3s; }
   .ann-save-status.show { opacity:1; }
   .ann-save-status.saving { color:var(--muted); }
-
   .ann-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:.65rem; }
   .ann-row:last-child { margin-bottom:0; }
   .ann-label { font-size:12px; color:var(--navy); font-weight:400; }
-
   .tgl-grp { display:flex; gap:3px; }
   .tgl-btn { border:1px solid var(--border2); background:var(--bg2); color:var(--muted); padding:4px 10px; border-radius:5px; font-size:11px; font-weight:500; cursor:pointer; font-family:'Sora',sans-serif; transition:all .15s; }
   .tgl-btn:hover { border-color:var(--navy); color:var(--navy); }
@@ -146,20 +131,83 @@
   .tgl-btn.active-baixa { background:var(--rel-baixa); border-color:var(--rel-baixa); color:#fff; }
   .tgl-btn.active-sim   { background:var(--green);     border-color:var(--green);     color:#fff; }
   .tgl-btn.active-nao   { background:var(--rel-alta);  border-color:var(--rel-alta);  color:#fff; }
-
-  /* date input de pré-estreia */
   .pre-input-row { display:flex; align-items:center; gap:6px; }
   .pre-date-input { background:var(--bg2); color:var(--navy); border:1px solid var(--border2); border-radius:5px; padding:4px 8px; font-family:'Sora',sans-serif; font-size:12px; outline:none; transition:border-color .2s; flex:1; }
   .pre-date-input:focus { border-color:var(--navy); }
-  .pre-clear-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:14px; padding:2px 5px; border-radius:4px; line-height:1; }
-  .pre-clear-btn:hover { color:var(--rel-alta); background:var(--bg4); }
+  .pre-clear-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:14px; padding:2px 5px; border-radius:4px; }
+  .pre-clear-btn:hover { color:var(--rel-alta); }
 
-  ::-webkit-scrollbar { width:5px; }
-  ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+  /* ── CONTACTS BOX (no modal) ── */
+  .ct-box { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1rem; margin-top:.75rem; }
+  .ct-box-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:.75rem; }
+  .ct-box-hdr h4 { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); font-weight:500; }
+  .ct-copy-btn { font-size:10px; color:var(--tag-color); background:var(--bg2); border:1px solid var(--border); border-radius:5px; padding:3px 9px; cursor:pointer; font-family:'Sora',sans-serif; transition:all .15s; }
+  .ct-copy-btn:hover { background:var(--tag-bg); border-color:var(--tag-color); }
+  .ct-copy-btn.copied { background:var(--green); color:#fff; border-color:var(--green); }
+  .ct-person { display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); }
+  .ct-person:last-of-type { border-bottom:none; }
+  .ct-info { display:flex; flex-direction:column; gap:1px; }
+  .ct-name { font-size:12px; color:var(--navy); font-weight:500; }
+  .ct-email { font-size:11px; color:var(--muted); }
+  .ct-none { font-size:12px; color:var(--muted2); font-style:italic; }
+  .ct-go-btn { font-size:10px; color:var(--tag-color); background:none; border:none; cursor:pointer; font-family:'Sora',sans-serif; padding:2px 6px; border-radius:4px; }
+  .ct-go-btn:hover { background:var(--tag-bg); }
 
-  /* ── CONFIG SCREEN (GitHub apenas) ── */
-  .config-screen { display:none; position:fixed; inset:0; background:var(--bg); z-index:500; align-items:center; justify-content:center; padding:1.5rem; }
+  /* ── CONTACTS SCREEN ── */
+  .contacts-screen { display:none; position:fixed; inset:0; background:var(--bg); z-index:300; flex-direction:column; overflow:hidden; }
+  .contacts-screen.open { display:flex; }
+  .cs-header { background:var(--bg2); border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-shrink:0; }
+  .cs-header-left { display:flex; align-items:center; gap:12px; }
+  .cs-back { background:var(--bg3); border:1px solid var(--border); color:var(--muted); width:32px; height:32px; border-radius:8px; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; transition:background .15s; }
+  .cs-back:hover { background:var(--bg4); color:var(--navy); }
+  .cs-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); }
+  .cs-subtitle { font-size:11px; color:var(--muted); }
+  .cs-save-status { font-size:11px; color:var(--green); font-weight:500; opacity:0; transition:opacity .3s; }
+  .cs-save-status.show { opacity:1; }
+  .cs-save-status.saving { color:var(--muted); }
+  .cs-body { flex:1; overflow-y:auto; padding:1.5rem 2rem; max-width:760px; width:100%; margin:0 auto; }
+
+  /* search bar */
+  .cs-search { width:100%; background:var(--bg2); color:var(--navy); border:1.5px solid var(--border2); border-radius:8px; padding:9px 14px; font-family:'Sora',sans-serif; font-size:13px; outline:none; margin-bottom:1.25rem; transition:border-color .2s; }
+  .cs-search:focus { border-color:var(--navy); }
+  .cs-search::placeholder { color:var(--muted2); }
+
+  /* distributor card */
+  .dist-card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; margin-bottom:12px; overflow:hidden; box-shadow:var(--shadow); }
+  .dist-card-hdr { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; cursor:pointer; transition:background .15s; user-select:none; }
+  .dist-card-hdr:hover { background:var(--bg3); }
+  .dist-name { font-size:14px; font-weight:600; color:var(--navy); }
+  .dist-count { font-size:11px; color:var(--muted2); background:var(--bg3); padding:2px 8px; border-radius:10px; margin-left:8px; }
+  .dist-chevron { color:var(--muted2); font-size:11px; transition:transform .2s; }
+  .dist-chevron.open { transform:rotate(180deg); }
+  .dist-body { display:none; border-top:1px solid var(--border); }
+  .dist-body.open { display:block; }
+
+  /* contact row */
+  .ct-row { display:flex; align-items:center; gap:10px; padding:10px 16px; border-bottom:1px solid var(--border); }
+  .ct-row:last-of-type { border-bottom:none; }
+  .ct-fields { flex:1; display:flex; gap:10px; flex-wrap:wrap; }
+  .ct-field-input { flex:1; min-width:140px; background:var(--bg); color:var(--navy); border:1px solid var(--border2); border-radius:6px; padding:6px 10px; font-family:'Sora',sans-serif; font-size:12px; outline:none; transition:border-color .2s; }
+  .ct-field-input:focus { border-color:var(--navy); }
+  .ct-field-input::placeholder { color:var(--muted2); }
+  .ct-del-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:15px; padding:4px 6px; border-radius:5px; line-height:1; flex-shrink:0; }
+  .ct-del-btn:hover { color:var(--rel-alta); background:var(--bg4); }
+
+  /* add contact form */
+  .ct-add-form { padding:10px 16px 14px; background:var(--bg3); display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; }
+  .ct-add-form .ct-field-input { background:var(--bg2); }
+  .ct-add-btn { background:var(--navy); color:#fff; border:none; border-radius:6px; padding:7px 14px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; white-space:nowrap; transition:background .2s; flex-shrink:0; }
+  .ct-add-btn:hover { background:var(--navy2); }
+
+  /* add new distributor */
+  .cs-add-dist { background:var(--bg2); border:1.5px dashed var(--border2); border-radius:12px; padding:1rem 1.25rem; display:flex; gap:8px; align-items:center; margin-top:4px; }
+  .cs-add-dist input { flex:1; background:transparent; color:var(--navy); border:none; font-family:'Sora',sans-serif; font-size:13px; outline:none; }
+  .cs-add-dist input::placeholder { color:var(--muted2); }
+  .cs-add-dist button { background:var(--navy); color:#fff; border:none; border-radius:6px; padding:7px 14px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; white-space:nowrap; }
+  .cs-add-dist button:hover { background:var(--navy2); }
+
+  /* ── CONFIG SCREEN — GitHub ── */
+  .config-screen { display:none; position:fixed; inset:0; background:rgba(26,31,60,.5); z-index:500; align-items:center; justify-content:center; padding:1.5rem; }
   .config-screen.open { display:flex; }
   .config-card { background:var(--bg2); border:1px solid var(--border); border-radius:18px; width:100%; max-width:420px; padding:2.5rem 2rem; box-shadow:var(--shadow-lg); }
   .ak-logo-row { display:flex; align-items:center; gap:10px; margin-bottom:1.75rem; }
@@ -181,10 +229,9 @@
   .ak-error { font-size:12px; color:var(--accent); margin-top:.75rem; display:none; text-align:center; }
   .ak-error.show { display:block; }
 
-  .key-badge { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); cursor:pointer; border:1px solid var(--border); border-radius:6px; padding:5px 10px; background:var(--bg); transition:all .2s; }
-  .key-badge:hover { border-color:var(--border2); color:var(--navy); }
-  .key-dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
-  .key-dot.inactive { background:#d0ccc5; }
+  ::-webkit-scrollbar { width:5px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
 
   @media (max-width:600px) {
     .header { padding:.875rem 1rem; }
@@ -192,6 +239,8 @@
     .content { padding:1.25rem 1rem; }
     .month-nav { display:none; }
     .film-grid { grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:10px; }
+    .cs-body { padding:1rem; }
+    .ct-fields { flex-direction:column; }
   }
 </style>
 </head>
@@ -210,6 +259,7 @@
       <span class="key-dot inactive" id="ghDot"></span>
       <span id="ghLabel">GitHub</span>
     </div>
+    <button class="btn-outline" onclick="abrirContatos()">👤 Contatos</button>
     <button class="btn-outline" onclick="exportCSV()">↓ CSV</button>
     <button class="btn-accent" id="btnFull" onclick="carregarFilmes()">↻ Atualizar</button>
   </div>
@@ -244,7 +294,7 @@
 
 <div class="content" id="cal"></div>
 
-<!-- MODAL -->
+<!-- ══ MODAL FILME ══ -->
 <div class="modal-ov" id="modalOv" onclick="closeMod(event)">
   <div class="modal">
     <div class="modal-hdr">
@@ -255,7 +305,29 @@
   </div>
 </div>
 
-<!-- CONFIG SCREEN — GitHub PAT -->
+<!-- ══ CONTACTS SCREEN ══ -->
+<div class="contacts-screen" id="contactsScreen">
+  <div class="cs-header">
+    <div class="cs-header-left">
+      <button class="cs-back" onclick="fecharContatos()">←</button>
+      <div>
+        <div class="cs-title">Contatos</div>
+        <div class="cs-subtitle">Por distribuidora</div>
+      </div>
+    </div>
+    <span class="cs-save-status" id="csSaveStatus"></span>
+  </div>
+  <div class="cs-body">
+    <input class="cs-search" id="csSearch" placeholder="Buscar distribuidora ou contato..." oninput="renderContatos()">
+    <div id="csLista"></div>
+    <div class="cs-add-dist">
+      <input id="csNewDist" placeholder="Adicionar nova distribuidora..." onkeydown="if(event.key==='Enter') adicionarDistribuidora()">
+      <button onclick="adicionarDistribuidora()">+ Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONFIG SCREEN — GitHub ══ -->
 <div class="config-screen" id="configScreen">
   <div class="config-card">
     <div class="ak-logo-row">
@@ -268,12 +340,12 @@
     <label class="ak-label" for="ghInput">GitHub Personal Access Token</label>
     <input class="ak-input" id="ghInput" type="password" placeholder="ghp_..." autocomplete="off" spellcheck="false">
     <p class="ak-hint">
-      Necessário para salvar anotações no repositório entre dispositivos.<br>
+      Necessário para sincronizar anotações e contatos entre dispositivos.<br>
       Crie um token com permissão <strong>repo → Contents (write)</strong>.<br>
       <a href="https://github.com/settings/tokens/new?scopes=repo&description=calendario-cinema" target="_blank" rel="noopener">Criar token em github.com/settings/tokens ↗</a>
     </p>
     <button class="ak-btn" id="ghBtn" onclick="salvarGhPat()">Salvar token</button>
-    <p class="ak-error" id="ghError">Token inválido ou sem acesso ao repositório.</p>
+    <p class="ak-error" id="ghError"></p>
     <button class="ak-btn-skip" onclick="fecharConfig()">Fechar</button>
   </div>
 </div>
@@ -282,19 +354,23 @@
 /* ═══════════════════════════════════════════════
    CONSTANTES
    ═══════════════════════════════════════════════ */
-const GH_KEY_STORE = 'cinema_gh_pat';
-const GITHUB_REPO  = 'mauricioalescanino-hub/calendario-cinema';
-const GITHUB_BRANCH= 'main';
-const ANN_FILE     = 'anotacoes.json';
+const GH_KEY_STORE   = 'cinema_gh_pat';
+const GITHUB_REPO    = 'mauricioalescanino-hub/calendario-cinema';
+const GITHUB_BRANCH  = 'main';
+const ANN_FILE       = 'anotacoes.json';
+const CT_FILE        = 'contatos.json';
 
 /* ═══════════════════════════════════════════════
    ESTADO
    ═══════════════════════════════════════════════ */
 let filmes         = [];
 let activeMonth    = null;
-let anotacoes      = {};
-let ghFileSha      = null;
-let saveTimer      = null;
+let anotacoes      = {};    // { filmKey: { relevancia, pingplay, ... } }
+let contatos       = {};    // { "Disney": [{id,nome,email}], ... }
+let ghAnnSha       = null;
+let ghCtSha        = null;
+let annTimer       = null;
+let ctTimer        = null;
 let currentModalId = null;
 
 /* ═══════════════════════════════════════════════
@@ -311,7 +387,6 @@ function fecharConfig() {
   document.getElementById('configScreen').classList.remove('open');
   atualizarBadge();
 }
-
 async function salvarGhPat() {
   const pat = document.getElementById('ghInput').value.trim();
   const btn = document.getElementById('ghBtn');
@@ -319,151 +394,274 @@ async function salvarGhPat() {
   if (!pat) { err.textContent = 'Token não pode ser vazio.'; err.classList.add('show'); return; }
   err.classList.remove('show'); btn.disabled = true; btn.textContent = 'Verificando...';
   try {
-    const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`, {
-      headers: { 'Authorization': `token ${pat}` }
-    });
+    const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`, { headers:{'Authorization':`token ${pat}`} });
     if (!r.ok) throw new Error('auth');
     localStorage.setItem(GH_KEY_STORE, pat);
     fecharConfig();
-    await carregarAnotacoesGitHub();
-    render();
+    await Promise.all([carregarAnotacoesGitHub(), carregarContatosGitHub()]);
+    render(); renderContatos();
   } catch(e) {
     err.textContent = 'Token inválido ou sem acesso ao repositório.';
     err.classList.add('show');
-  } finally {
-    btn.disabled = false; btn.textContent = 'Salvar token';
-  }
+  } finally { btn.disabled = false; btn.textContent = 'Salvar token'; }
 }
-
 function atualizarBadge() {
   const pat = getGhPat();
-  const dot = document.getElementById('ghDot');
-  const lbl = document.getElementById('ghLabel');
-  if (pat) { dot.classList.remove('inactive'); lbl.textContent = 'GitHub ✓'; }
-  else     { dot.classList.add('inactive');    lbl.textContent = 'GitHub'; }
+  document.getElementById('ghDot').classList.toggle('inactive', !pat);
+  document.getElementById('ghLabel').textContent = pat ? 'GitHub ✓' : 'GitHub';
 }
 
 /* ═══════════════════════════════════════════════
-   CHAVE DE FILME
+   GITHUB — helpers
    ═══════════════════════════════════════════════ */
-function filmKey(titulo) {
-  return (titulo||'').toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+async function ghGet(file) {
+  const pat = getGhPat();
+  const headers = pat ? {'Authorization':`token ${pat}`} : {};
+  const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${file}?ref=${GITHUB_BRANCH}&t=${Date.now()}`, {headers});
+  if (!r.ok) return null;
+  const d = await r.json();
+  return { sha: d.sha, data: JSON.parse(atob(d.content.replace(/\n/g,''))) };
 }
-function getAnn(titulo) { return anotacoes[filmKey(titulo)] || {}; }
+
+async function ghPut(file, sha, content, msg) {
+  const pat = getGhPat();
+  if (!pat) return null;
+  const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+  const body = { message: msg, content: b64, branch: GITHUB_BRANCH };
+  if (sha) body.sha = sha;
+  const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${file}`, {
+    method:'PUT', headers:{'Authorization':`token ${pat}`,'Content-Type':'application/json'}, body:JSON.stringify(body)
+  });
+  if (!r.ok) { console.warn('ghPut error:', (await r.json()).message); return null; }
+  const d = await r.json();
+  return d.content.sha;
+}
 
 /* ═══════════════════════════════════════════════
-   GITHUB — CARREGAR anotacoes.json
+   ANOTAÇÕES — GitHub sync
    ═══════════════════════════════════════════════ */
 async function carregarAnotacoesGitHub() {
-  const pat = getGhPat();
   try {
-    const headers = pat ? { 'Authorization': `token ${pat}` } : {};
-    const r = await fetch(
-      `https://api.github.com/repos/${GITHUB_REPO}/contents/${ANN_FILE}?ref=${GITHUB_BRANCH}&t=${Date.now()}`,
-      { headers }
-    );
-    if (r.ok) {
-      const data = await r.json();
-      ghFileSha = data.sha;
-      const content = JSON.parse(atob(data.content.replace(/\n/g,'')));
-      anotacoes = content.filmes || {};
-    }
-  } catch(e) { console.warn('GitHub load:', e.message); }
-  // merge localStorage
+    const res = await ghGet(ANN_FILE);
+    if (res) { ghAnnSha = res.sha; anotacoes = res.data.filmes || {}; }
+  } catch(e) { console.warn('Ann load:', e.message); }
   try {
     const local = JSON.parse(localStorage.getItem('cinema_anotacoes') || '{}');
     Object.keys(local).forEach(k => { if (!anotacoes[k]) anotacoes[k] = local[k]; });
   } catch(e) {}
 }
 
-/* ═══════════════════════════════════════════════
-   GITHUB — SALVAR anotacoes.json
-   ═══════════════════════════════════════════════ */
 async function salvarAnotacoes() {
   localStorage.setItem('cinema_anotacoes', JSON.stringify(anotacoes));
-  const pat = getGhPat();
-  if (!pat) return;
-  const content = JSON.stringify({ versao:1, atualizado_em:new Date().toISOString(), filmes:anotacoes }, null, 2);
-  const b64 = btoa(unescape(encodeURIComponent(content)));
-  const body = {
-    message: `anotações: ${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`,
-    content: b64, branch: GITHUB_BRANCH
-  };
-  if (ghFileSha) body.sha = ghFileSha;
-  try {
-    const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${ANN_FILE}`, {
-      method:'PUT', headers:{'Authorization':`token ${pat}`,'Content-Type':'application/json'}, body:JSON.stringify(body)
-    });
-    if (r.ok) { const d = await r.json(); ghFileSha = d.content.sha; showSaveStatus('saved'); }
-    else console.warn('GitHub save:', (await r.json()).message);
-  } catch(e) { console.warn('GitHub save:', e.message); }
-}
-
-function showSaveStatus(state) {
-  const el = document.getElementById('annSaveStatus');
-  if (!el) return;
-  if (state === 'saving') { el.textContent = '⟳ Salvando...'; el.className = 'ann-save-status saving show'; }
-  else { el.textContent = '✓ Salvo'; el.className = 'ann-save-status show'; setTimeout(() => el.classList.remove('show'), 2500); }
+  const payload = { versao:1, atualizado_em:new Date().toISOString(), filmes:anotacoes };
+  const ts = tsMsg();
+  const sha = await ghPut(ANN_FILE, ghAnnSha, payload, `anotações: ${ts}`);
+  if (sha) { ghAnnSha = sha; showStatus('annSaveStatus','saved'); }
 }
 
 /* ═══════════════════════════════════════════════
-   ANOTAÇÕES — ATUALIZAR
+   CONTATOS — GitHub sync
    ═══════════════════════════════════════════════ */
+async function carregarContatosGitHub() {
+  try {
+    const res = await ghGet(CT_FILE);
+    if (res) { ghCtSha = res.sha; contatos = res.data.distribuidoras || {}; }
+  } catch(e) { console.warn('Ct load:', e.message); }
+  try {
+    const local = JSON.parse(localStorage.getItem('cinema_contatos') || '{}');
+    Object.keys(local).forEach(k => { if (!contatos[k]) contatos[k] = local[k]; });
+  } catch(e) {}
+}
+
+async function salvarContatos() {
+  localStorage.setItem('cinema_contatos', JSON.stringify(contatos));
+  const payload = { versao:1, atualizado_em:new Date().toISOString(), distribuidoras:contatos };
+  const sha = await ghPut(CT_FILE, ghCtSha, payload, `contatos: ${tsMsg()}`);
+  if (sha) { ghCtSha = sha; showStatus('csSaveStatus','saved'); }
+}
+
+function agendarSalvarAnn() {
+  showStatus('annSaveStatus','saving');
+  if (annTimer) clearTimeout(annTimer);
+  annTimer = setTimeout(salvarAnotacoes, 1200);
+}
+function agendarSalvarCt() {
+  showStatus('csSaveStatus','saving');
+  if (ctTimer) clearTimeout(ctTimer);
+  ctTimer = setTimeout(salvarContatos, 1200);
+}
+
+function tsMsg() {
+  return `${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
+}
+function showStatus(id, state) {
+  const el = document.getElementById(id); if (!el) return;
+  if (state==='saving') { el.textContent='⟳ Salvando...'; el.className='ann-save-status saving show'; }
+  else { el.textContent='✓ Salvo'; el.className='ann-save-status show'; setTimeout(()=>el.classList.remove('show'),2500); }
+}
+
+/* ═══════════════════════════════════════════════
+   ANOTAÇÕES — helpers
+   ═══════════════════════════════════════════════ */
+function filmKey(titulo) { return (titulo||'').toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,''); }
+function getAnn(titulo)  { return anotacoes[filmKey(titulo)] || {}; }
+
 function setAnnotation(titulo, field, value) {
   const k = filmKey(titulo);
   if (!anotacoes[k]) anotacoes[k] = {};
-  const cur = anotacoes[k][field];
-  if (cur === value) {
+  if (anotacoes[k][field] === value) {
     delete anotacoes[k][field];
-    if (Object.keys(anotacoes[k]).length === 0) delete anotacoes[k];
-  } else {
-    anotacoes[k][field] = value;
-  }
-  agendarSalvar();
-  render();
+    if (!Object.keys(anotacoes[k]).length) delete anotacoes[k];
+  } else { anotacoes[k][field] = value; }
+  agendarSalvarAnn(); render();
   if (currentModalId !== null) openMod(currentModalId);
 }
-
 function setPreEstreia(titulo, value) {
   const k = filmKey(titulo);
   if (!anotacoes[k]) anotacoes[k] = {};
-  if (value) {
-    anotacoes[k].pre_estreia = value;
-  } else {
+  if (value) anotacoes[k].pre_estreia = value;
+  else {
     delete anotacoes[k].pre_estreia;
-    if (Object.keys(anotacoes[k]).length === 0) delete anotacoes[k];
+    if (!Object.keys(anotacoes[k]).length) delete anotacoes[k];
   }
-  agendarSalvar();
-  render();
-  updateStats();
+  agendarSalvarAnn(); render(); updateStats();
   if (currentModalId !== null) openMod(currentModalId);
 }
 
-function agendarSalvar() {
-  showSaveStatus('saving');
-  if (saveTimer) clearTimeout(saveTimer);
-  saveTimer = setTimeout(salvarAnotacoes, 1200);
+/* ═══════════════════════════════════════════════
+   CONTATOS — helpers
+   ═══════════════════════════════════════════════ */
+function ctId() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+function getContatos(dist) { return (contatos[dist] || []); }
+
+function adicionarContato(dist, nome, email) {
+  nome = nome.trim(); email = email.trim();
+  if (!nome && !email) return;
+  if (!contatos[dist]) contatos[dist] = [];
+  contatos[dist].push({ id: ctId(), nome, email });
+  agendarSalvarCt(); renderContatos();
+  if (currentModalId !== null) openMod(currentModalId);
+}
+
+function editarContato(dist, id, field, value) {
+  const list = contatos[dist] || [];
+  const ct = list.find(c => c.id === id);
+  if (ct) { ct[field] = value; agendarSalvarCt(); }
+  if (currentModalId !== null) openMod(currentModalId);
+}
+
+function removerContato(dist, id) {
+  if (!contatos[dist]) return;
+  contatos[dist] = contatos[dist].filter(c => c.id !== id);
+  if (!contatos[dist].length) delete contatos[dist];
+  agendarSalvarCt(); renderContatos();
+  if (currentModalId !== null) openMod(currentModalId);
+}
+
+function adicionarDistribuidora() {
+  const inp = document.getElementById('csNewDist');
+  const nome = inp.value.trim(); if (!nome) return;
+  if (!contatos[nome]) contatos[nome] = [];
+  inp.value = '';
+  agendarSalvarCt(); renderContatos();
+}
+
+/* ═══════════════════════════════════════════════
+   CONTACTS SCREEN
+   ═══════════════════════════════════════════════ */
+function abrirContatos() { document.getElementById('contactsScreen').classList.add('open'); renderContatos(); }
+function fecharContatos() { document.getElementById('contactsScreen').classList.remove('open'); }
+
+function renderContatos() {
+  const q = (document.getElementById('csSearch').value || '').toLowerCase();
+  // merge distribuidoras do filmes.json + contatos manuais
+  const distFromFilmes = [...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))];
+  const allDist = [...new Set([...Object.keys(contatos), ...distFromFilmes])].sort();
+  const filtered = allDist.filter(d => {
+    if (!q) return true;
+    if (d.toLowerCase().includes(q)) return true;
+    return (contatos[d]||[]).some(c => c.nome.toLowerCase().includes(q) || c.email.toLowerCase().includes(q));
+  });
+
+  const lista = document.getElementById('csLista');
+  if (!filtered.length) {
+    lista.innerHTML = '<p style="color:var(--muted2);font-size:13px;text-align:center;padding:2rem 0;">Nenhuma distribuidora encontrada.</p>';
+    return;
+  }
+
+  lista.innerHTML = filtered.map(dist => {
+    const cts = contatos[dist] || [];
+    const dId = 'dist-' + dist.replace(/\s+/g,'-').replace(/[^a-z0-9\-]/gi,'');
+    const bodyId = dId+'-body';
+    const chevId = dId+'-chev';
+    const isOpen = q || cts.length > 0; // auto-open se tem busca ou contatos
+
+    const rows = cts.map(c => `
+      <div class="ct-row">
+        <div class="ct-fields">
+          <input class="ct-field-input" placeholder="Nome" value="${escHtml(c.nome)}"
+            onchange="editarContato('${escHtml(dist)}','${c.id}','nome',this.value)"
+            oninput="editarContato('${escHtml(dist)}','${c.id}','nome',this.value)">
+          <input class="ct-field-input" placeholder="E-mail" value="${escHtml(c.email)}"
+            onchange="editarContato('${escHtml(dist)}','${c.id}','email',this.value)"
+            oninput="editarContato('${escHtml(dist)}','${c.id}','email',this.value)">
+        </div>
+        <button class="ct-del-btn" onclick="removerContato('${escHtml(dist)}','${c.id}')" title="Remover">✕</button>
+      </div>`).join('');
+
+    return `<div class="dist-card">
+      <div class="dist-card-hdr" onclick="toggleDist('${bodyId}','${chevId}')">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="dist-name">${escHtml(dist)}</span>
+          <span class="dist-count">${cts.length} contato${cts.length!==1?'s':''}</span>
+        </div>
+        <span class="dist-chevron${isOpen?' open':''}" id="${chevId}">▼</span>
+      </div>
+      <div class="dist-body${isOpen?' open':''}" id="${bodyId}">
+        ${rows}
+        <div class="ct-add-form" id="${dId}-form">
+          <input class="ct-field-input" placeholder="Nome" id="${dId}-nome" onkeydown="if(event.key==='Enter') ctAddSubmit('${escHtml(dist)}','${dId}')">
+          <input class="ct-field-input" placeholder="E-mail" id="${dId}-email" onkeydown="if(event.key==='Enter') ctAddSubmit('${escHtml(dist)}','${dId}')">
+          <button class="ct-add-btn" onclick="ctAddSubmit('${escHtml(dist)}','${dId}')">+ Adicionar</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDist(bodyId, chevId) {
+  const body = document.getElementById(bodyId);
+  const chev = document.getElementById(chevId);
+  if (!body) return;
+  const open = body.classList.toggle('open');
+  if (chev) chev.classList.toggle('open', open);
+}
+
+function ctAddSubmit(dist, dId) {
+  const nome  = document.getElementById(dId+'-nome')?.value || '';
+  const email = document.getElementById(dId+'-email')?.value || '';
+  adicionarContato(dist, nome, email);
+  const n = document.getElementById(dId+'-nome');
+  const e = document.getElementById(dId+'-email');
+  if (n) n.value = '';
+  if (e) e.value = '';
 }
 
 /* ═══════════════════════════════════════════════
    UTILS
    ═══════════════════════════════════════════════ */
-const MP = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-const MS = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-
-function getMeses() {
-  const h = new Date(), r = [];
-  for (let i = 0; i < 6; i++) { const d = new Date(h.getFullYear(), h.getMonth()+i, 1); r.push({y:d.getFullYear(),m:d.getMonth()}); }
-  return r;
-}
+const MP=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const MS=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+function getMeses() { const h=new Date(),r=[]; for(let i=0;i<6;i++){const d=new Date(h.getFullYear(),h.getMonth()+i,1);r.push({y:d.getFullYear(),m:d.getMonth()});} return r; }
 function ym(y,m) { return y+'-'+String(m+1).padStart(2,'0'); }
-function fmt(s) { if (!s) return '—'; const p=s.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+function fmt(s) { if(!s) return '—'; const p=s.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+function fmtCurto(s) { return s ? s.slice(8,10)+'/'+s.slice(5,7) : ''; }
 function today() { return new Date().toISOString().slice(0,10); }
 function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function fmtCurto(s) { return s ? s.slice(8,10)+'/'+s.slice(5,7) : ''; }
 
 /* ═══════════════════════════════════════════════
-   PERSISTÊNCIA
+   PERSISTÊNCIA filmes
    ═══════════════════════════════════════════════ */
 function loadData() { try { const s=localStorage.getItem('cinema_cal_v4'); if(s) filmes=JSON.parse(s); } catch(e){ filmes=[]; } }
 function saveData() { try { localStorage.setItem('cinema_cal_v4', JSON.stringify(filmes)); } catch(e){} }
@@ -473,11 +671,8 @@ function saveData() { try { localStorage.setItem('cinema_cal_v4', JSON.stringify
    ═══════════════════════════════════════════════ */
 async function init() {
   loadData();
-  await carregarAnotacoesGitHub();
-  buildNav();
-  render();
-  updateStats();
-  atualizarBadge();
+  await Promise.all([carregarAnotacoesGitHub(), carregarContatosGitHub()]);
+  buildNav(); render(); updateStats(); atualizarBadge();
 }
 
 function buildNav() {
@@ -486,12 +681,10 @@ function buildNav() {
     '<button class="mpill active" onclick="setMonth(null,this)">Todos</button>' +
     meses.map(x => `<button class="mpill" onclick="setMonth('${ym(x.y,x.m)}',this)">${MS[x.m]}</button>`).join('');
 }
-
 function setMonth(m, el) {
   activeMonth = m;
   document.querySelectorAll('.mpill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  render();
+  el.classList.add('active'); render();
 }
 
 /* ═══════════════════════════════════════════════
@@ -499,11 +692,11 @@ function setMonth(m, el) {
    ═══════════════════════════════════════════════ */
 async function carregarFilmes() {
   const btn = document.getElementById('btnFull');
-  btn.disabled = true; btn.textContent = '⟳ Carregando...';
+  btn.disabled=true; btn.textContent='⟳ Carregando...';
   setProgress(10);
   const logP = document.getElementById('logP');
   logP.classList.add('active');
-  logP.innerHTML = '<span class="log-info"> > Carregando filmes.json...</span>';
+  logP.innerHTML = '<span> > Carregando filmes.json...</span>';
   try {
     const resp = await fetch('filmes.json?v='+Date.now());
     if (!resp.ok) throw new Error('filmes.json não encontrado. Rode lanc_filmes_moskit.py primeiro.');
@@ -513,8 +706,7 @@ async function carregarFilmes() {
       .filter(f => f.estreia && keys.includes(f.estreia.slice(0,7)))
       .map((f,i) => ({...f, id:f.id||(i+1)}));
     filmes.sort((a,b) => a.estreia.localeCompare(b.estreia));
-    saveData();
-    setProgress(100);
+    saveData(); setProgress(100);
     if (json.gerado_em) document.getElementById('stWhen').textContent = `Base: ${json.gerado_em}`;
     logP.innerHTML = `<span class="log-ok"> > ${filmes.length} filmes carregados.</span>`;
     setTimeout(() => { logP.classList.remove('active'); setProgress(0); }, 3000);
@@ -522,12 +714,12 @@ async function carregarFilmes() {
     logP.innerHTML = `<span class="log-warn"> > Erro: ${escHtml(e.message)}</span>`;
     setProgress(0);
   }
-  btn.disabled = false; btn.textContent = '↻ Atualizar';
+  btn.disabled=false; btn.textContent='↻ Atualizar';
   render(); updateStats();
 }
 
 /* ═══════════════════════════════════════════════
-   FILTROS
+   FILTROS / RENDER
    ═══════════════════════════════════════════════ */
 function getFiltered() {
   const dist = document.getElementById('fDist').value;
@@ -552,46 +744,28 @@ function getFiltered() {
   });
 }
 
-/* ═══════════════════════════════════════════════
-   RENDER
-   ═══════════════════════════════════════════════ */
 function render() {
   const filtered = getFiltered();
   const cal = document.getElementById('cal');
-
-  if (filmes.length === 0) {
-    cal.innerHTML = `<div class="empty">
-      <div class="empty-icon"><div class="clap-lg"></div></div>
-      Nenhum filme carregado ainda.<br>
-      Clique em <strong>↻ Atualizar</strong> para carregar o calendário.<br>
-      <small style="font-size:11px;color:var(--muted2)">Certifique-se que filmes.json foi publicado no GitHub.</small>
-    </div>`;
+  if (!filmes.length) {
+    cal.innerHTML = `<div class="empty"><div class="empty-icon"><div class="clap-lg"></div></div>Nenhum filme carregado ainda.<br>Clique em <strong>↻ Atualizar</strong> para carregar o calendário.<br><small style="font-size:11px;color:var(--muted2)">Certifique-se que filmes.json foi publicado no GitHub.</small></div>`;
     return;
   }
-
   const grouped = {};
   filtered.forEach(f => { const k=f.estreia.slice(0,7); if(!grouped[k]) grouped[k]=[]; grouped[k].push(f); });
   const keys = Object.keys(grouped).sort();
   if (!keys.length) { cal.innerHTML = '<div class="empty">Nenhum filme para os filtros selecionados.</div>'; return; }
-
   cal.innerHTML = keys.map(k => {
     const [y,m] = k.split('-');
-    const lista = grouped[k].slice().sort((a,b) => a.estreia.localeCompare(b.estreia));
-    return `<div class="month-sec">
-      <div class="month-hdr">
-        <span class="month-name">${MP[parseInt(m)-1]} ${y}</span>
-        <span class="month-count">${lista.length} título${lista.length!==1?'s':''}</span>
-      </div>
-      <div class="film-grid">${lista.map(filmCard).join('')}</div>
-    </div>`;
+    const lista = grouped[k].slice().sort((a,b)=>a.estreia.localeCompare(b.estreia));
+    return `<div class="month-sec"><div class="month-hdr"><span class="month-name">${MP[parseInt(m)-1]} ${y}</span><span class="month-count">${lista.length} título${lista.length!==1?'s':''}</span></div><div class="film-grid">${lista.map(filmCard).join('')}</div></div>`;
   }).join('');
-
-  const distribs = [...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))].sort();
-  const generos  = [...new Set(filmes.map(f=>f.genero).filter(Boolean))].sort();
-  const fd=document.getElementById('fDist'), fg=document.getElementById('fGen');
-  const dv=fd.value, gv=fg.value;
-  fd.innerHTML = '<option value="">Todas as distribuidoras</option>'+distribs.map(d=>`<option value="${d}"${d===dv?' selected':''}>${d}</option>`).join('');
-  fg.innerHTML = '<option value="">Todos os gêneros</option>'+generos.map(g=>`<option value="${g}"${g===gv?' selected':''}>${g}</option>`).join('');
+  const distribs=[...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))].sort();
+  const generos=[...new Set(filmes.map(f=>f.genero).filter(Boolean))].sort();
+  const fd=document.getElementById('fDist'),fg=document.getElementById('fGen');
+  const dv=fd.value,gv=fg.value;
+  fd.innerHTML='<option value="">Todas as distribuidoras</option>'+distribs.map(d=>`<option value="${d}"${d===dv?' selected':''}>${d}</option>`).join('');
+  fg.innerHTML='<option value="">Todos os gêneros</option>'+generos.map(g=>`<option value="${g}"${g===gv?' selected':''}>${g}</option>`).join('');
 }
 
 function filmCard(f) {
@@ -599,92 +773,95 @@ function filmCard(f) {
   const poster = f.poster
     ? `<img src="${f.poster}" alt="${escHtml(f.titulo)}" loading="lazy" onerror="this.outerHTML='<div class=\\'poster-ph\\'><div class=\\'clap\\'></div></div>'">`
     : `<div class="poster-ph"><div class="clap"></div></div>`;
-  const dd = f.estreia ? fmtCurto(f.estreia) : '';
-  const preBadge = ann.pre_estreia
-    ? `<span class="pre-badge confirmed">Pré ${fmtCurto(ann.pre_estreia)}</span>` : '';
-
+  const dd = fmtCurto(f.estreia);
+  const preBadge = ann.pre_estreia ? `<span class="pre-badge">Pré ${fmtCurto(ann.pre_estreia)}</span>` : '';
   let chips = '';
   if (ann.relevancia) chips += `<span class="card-ann-chip ${ann.relevancia}">${ann.relevancia.charAt(0).toUpperCase()+ann.relevancia.slice(1)}</span>`;
   if (ann.pingplay===true)        chips += `<span class="card-ann-chip on">PingPlay</span>`;
   if (ann.acessibilidades===true) chips += `<span class="card-ann-chip on">Access.</span>`;
   if (ann.masterizacao===true)    chips += `<span class="card-ann-chip on">Master.</span>`;
-
   return `<div class="film-card" onclick="openMod(${f.id})" data-rel="${ann.relevancia||''}">
     <div class="poster">${poster}${preBadge}<span class="date-badge">${dd}</span></div>
     <div class="film-info">
       <div class="film-title" title="${escHtml(f.titulo)}">${escHtml(f.titulo)}</div>
-      <div class="film-meta">
-        <span class="film-date">${fmt(f.estreia)}</span>
-        <span class="distrib-tag">${escHtml(f.distribuidora||'—')}</span>
-      </div>
+      <div class="film-meta"><span class="film-date">${fmt(f.estreia)}</span><span class="distrib-tag">${escHtml(f.distribuidora||'—')}</span></div>
     </div>
     ${chips?`<div class="card-ann-row">${chips}</div>`:''}
   </div>`;
 }
 
 function updateStats() {
-  const keys = getMeses().map(x => ym(x.y,x.m));
-  const rel  = filmes.filter(f => keys.includes(f.estreia?f.estreia.slice(0,7):''));
+  const keys = getMeses().map(x=>ym(x.y,x.m));
+  const rel = filmes.filter(f=>keys.includes(f.estreia?f.estreia.slice(0,7):''));
   document.getElementById('stTotal').textContent = rel.length;
-  document.getElementById('stPre').textContent   = rel.filter(f => getAnn(f.titulo).pre_estreia).length;
+  document.getElementById('stPre').textContent   = rel.filter(f=>getAnn(f.titulo).pre_estreia).length;
 }
-
-function setProgress(p) { document.getElementById('pFill').style.width = p+'%'; }
+function setProgress(p) { document.getElementById('pFill').style.width=p+'%'; }
 
 /* ═══════════════════════════════════════════════
    MODAL
    ═══════════════════════════════════════════════ */
 function openMod(id) {
   currentModalId = id;
-  const f = filmes.find(x => x.id===id); if (!f) return;
+  const f = filmes.find(x=>x.id===id); if(!f) return;
   document.getElementById('mTitle').textContent = f.titulo;
 
   const ann    = getAnn(f.titulo);
+  const tKey   = filmKey(f.titulo).replace(/'/g,"\\'");
   const titulo = f.titulo;
-  const tKey   = filmKey(titulo).replace(/'/g,"\\'");
 
   function tglRel(val) {
     const active = ann.relevancia === val;
     return `<button class="tgl-btn${active?' active-'+val:''}" onclick="setAnnotation('${tKey}','relevancia','${val}');event.stopPropagation()">${val.charAt(0).toUpperCase()+val.slice(1)}</button>`;
   }
   function tglBool(field, val) {
-    const active = ann[field] === val;
-    const cls = active ? (val===true?'active-sim':'active-nao') : '';
+    const active = ann[field]===val;
+    const cls = active?(val===true?'active-sim':'active-nao'):'';
     return `<button class="tgl-btn ${cls}" onclick="setAnnotation('${tKey}','${field}',${val});event.stopPropagation()">${val?'Sim':'Não'}</button>`;
   }
 
   const preVal = ann.pre_estreia || '';
-
   const annHTML = `<div class="ann-box">
-    <div class="ann-box-hdr">
-      <h4>📋 Análise ETC</h4>
-      <span class="ann-save-status" id="annSaveStatus"></span>
-    </div>
+    <div class="ann-box-hdr"><h4>📋 Análise ETC</h4><span class="ann-save-status" id="annSaveStatus"></span></div>
     <div class="ann-row">
       <span class="ann-label">Pré-estreia</span>
       <div class="pre-input-row">
-        <input type="date" class="pre-date-input" id="preDateInput" value="${preVal}"
-          onchange="setPreEstreia('${tKey}', this.value)" onclick="event.stopPropagation()">
+        <input type="date" class="pre-date-input" value="${preVal}"
+          onchange="setPreEstreia('${tKey}',this.value)" onclick="event.stopPropagation()">
         ${preVal?`<button class="pre-clear-btn" onclick="setPreEstreia('${tKey}','');event.stopPropagation()" title="Limpar">✕</button>`:''}
       </div>
     </div>
-    <div class="ann-row">
-      <span class="ann-label">Relevância de Pré</span>
-      <div class="tgl-grp">${tglRel('alta')}${tglRel('media')}${tglRel('baixa')}</div>
-    </div>
-    <div class="ann-row">
-      <span class="ann-label">PingPlay</span>
-      <div class="tgl-grp">${tglBool('pingplay',true)}${tglBool('pingplay',false)}</div>
-    </div>
-    <div class="ann-row">
-      <span class="ann-label">Acessibilidades</span>
-      <div class="tgl-grp">${tglBool('acessibilidades',true)}${tglBool('acessibilidades',false)}</div>
-    </div>
-    <div class="ann-row">
-      <span class="ann-label">Masterização</span>
-      <div class="tgl-grp">${tglBool('masterizacao',true)}${tglBool('masterizacao',false)}</div>
-    </div>
+    <div class="ann-row"><span class="ann-label">Relevância de Pré</span><div class="tgl-grp">${tglRel('alta')}${tglRel('media')}${tglRel('baixa')}</div></div>
+    <div class="ann-row"><span class="ann-label">PingPlay</span><div class="tgl-grp">${tglBool('pingplay',true)}${tglBool('pingplay',false)}</div></div>
+    <div class="ann-row"><span class="ann-label">Acessibilidades</span><div class="tgl-grp">${tglBool('acessibilidades',true)}${tglBool('acessibilidades',false)}</div></div>
+    <div class="ann-row"><span class="ann-label">Masterização</span><div class="tgl-grp">${tglBool('masterizacao',true)}${tglBool('masterizacao',false)}</div></div>
   </div>`;
+
+  // Contatos da distribuidora
+  const dist = f.distribuidora || '';
+  const cts  = getContatos(dist);
+  let ctHTML = '';
+  if (dist) {
+    const emailsList = cts.filter(c=>c.email).map(c=>c.email).join(', ');
+    ctHTML = `<div class="ct-box">
+      <div class="ct-box-hdr">
+        <h4>📨 Contatos — ${escHtml(dist)}</h4>
+        ${emailsList ? `<button class="ct-copy-btn" id="copyBtn" onclick="copiarEmails('${escHtml(emailsList).replace(/'/g,"\\'")}')">Copiar e-mails</button>` : ''}
+      </div>
+      ${cts.length
+        ? cts.map(c=>`<div class="ct-person">
+            <div class="ct-info">
+              <span class="ct-name">${escHtml(c.nome||'—')}</span>
+              <span class="ct-email">${escHtml(c.email||'—')}</span>
+            </div>
+          </div>`).join('')
+        : `<span class="ct-none">Nenhum contato cadastrado ainda.</span>`
+      }
+      <div style="margin-top:.75rem">
+        <button class="ct-go-btn" onclick="fecharFilmeAbrirContatos('${escHtml(dist).replace(/'/g,"\\'")}')">✎ Gerenciar contatos desta distribuidora →</button>
+      </div>
+    </div>`;
+  }
 
   document.getElementById('mBody').innerHTML = `
     <div class="mfield"><label>Estreia</label><p>${fmt(f.estreia)}</p></div>
@@ -692,12 +869,30 @@ function openMod(id) {
     <div class="mfield"><label>Gênero</label><p>${escHtml(f.genero||'—')}</p></div>
     <div class="mfield"><label>Sinopse</label><p>${escHtml(f.sinopse||'—')}</p></div>
     ${annHTML}
+    ${ctHTML}
     ${f.urlExibidor?`<a class="modal-link" href="${escHtml(f.urlExibidor)}" target="_blank" rel="noopener">Ver ficha no Filme B ↗</a>`:''}`;
 
   document.getElementById('modalOv').classList.add('open');
 }
 
-function closeMod(e) { if (e.target===document.getElementById('modalOv')) closeModDirect(); }
+function copiarEmails(emails) {
+  navigator.clipboard.writeText(emails).then(() => {
+    const btn = document.getElementById('copyBtn');
+    if (btn) { btn.textContent='✓ Copiado!'; btn.classList.add('copied'); setTimeout(()=>{btn.textContent='Copiar e-mails';btn.classList.remove('copied');},2000); }
+  }).catch(()=>{ prompt('Copie os e-mails:', emails); });
+}
+
+function fecharFilmeAbrirContatos(dist) {
+  closeModDirect();
+  abrirContatos();
+  // aguarda render e foca a distribuidora
+  setTimeout(() => {
+    document.getElementById('csSearch').value = dist;
+    renderContatos();
+  }, 100);
+}
+
+function closeMod(e) { if(e.target===document.getElementById('modalOv')) closeModDirect(); }
 function closeModDirect() { document.getElementById('modalOv').classList.remove('open'); currentModalId=null; }
 
 /* ═══════════════════════════════════════════════
@@ -705,14 +900,15 @@ function closeModDirect() { document.getElementById('modalOv').classList.remove(
    ═══════════════════════════════════════════════ */
 function exportCSV() {
   if (!filmes.length) { alert('Nenhum dado para exportar.'); return; }
-  const header = 'Título,Estreia,Pré-Estreia,Distribuidora,Gênero,Relevância,PingPlay,Acessibilidades,Masterização';
+  const header = 'Título,Estreia,Pré-Estreia,Distribuidora,Gênero,Relevância,PingPlay,Acessibilidades,Masterização,Contatos';
   const rows = filmes.map(f => {
     const ann = getAnn(f.titulo);
+    const cts = getContatos(f.distribuidora||'').map(c=>`${c.nome} <${c.email}>`).join(' | ');
     return [f.titulo, f.estreia, ann.pre_estreia||'', f.distribuidora, f.genero,
             ann.relevancia||'',
             ann.pingplay!=null?(ann.pingplay?'Sim':'Não'):'',
             ann.acessibilidades!=null?(ann.acessibilidades?'Sim':'Não'):'',
-            ann.masterizacao!=null?(ann.masterizacao?'Sim':'Não'):'']
+            ann.masterizacao!=null?(ann.masterizacao?'Sim':'Não'):'', cts]
       .map(v=>`"${String(v||'').replace(/"/g,'""')}"`)
       .join(',');
   });
@@ -726,11 +922,12 @@ function exportCSV() {
    KEYBOARD
    ═══════════════════════════════════════════════ */
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    if (document.getElementById('configScreen').classList.contains('open')) fecharConfig();
+  if (e.key==='Escape') {
+    if (document.getElementById('configScreen').classList.contains('open'))  fecharConfig();
+    else if (document.getElementById('contactsScreen').classList.contains('open')) fecharContatos();
     else closeModDirect();
   }
-  if (e.key === 'Enter' && document.getElementById('configScreen').classList.contains('open')) salvarGhPat();
+  if (e.key==='Enter' && document.getElementById('configScreen').classList.contains('open')) salvarGhPat();
 });
 
 /* ── START ── */
