@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:11:23.279Z",
+  "atualizado_em": "2026-06-09T22:11:32.757Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -68,7 +68,7 @@
       "masterizacao": true
     },
     "dia-d": {
-      "status": "confirmado"
+      "status": "sem"
     }
   }
 }
