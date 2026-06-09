@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T21:41:15.998Z",
+  "atualizado_em": "2026-06-09T21:41:22.949Z",
   "filmes": {
     "o-barulho-da-noite": {
       "relevancia": "alta",
@@ -24,6 +24,9 @@
       "pre_estreia": "2026-06-03"
     },
     "aquele-que-viu-o-abismo": {
+      "status": "confirmado"
+    },
+    "guas-mortais": {
       "status": "confirmado"
     }
   }
