@@ -788,8 +788,15 @@ function saveData(){ try{localStorage.setItem('cinema_cal_v4',JSON.stringify(fil
    ═══════════════════════════════════════════════ */
 async function init(){
   loadData(); loadPosterCache();
-  await Promise.all([carregarAnotacoesGitHub(), carregarContatosGitHub()]);
-  buildNav(); render(); updateStats(); atualizarBadges();
+  // Anotações e contatos do GitHub (em paralelo com filmes.json)
+  const [,] = await Promise.all([
+    carregarAnotacoesGitHub(),
+    carregarContatosGitHub(),
+  ]);
+  buildNav(); atualizarBadges();
+  // Sempre busca filmes.json frescos — garante que outra máquina veja tudo
+  // silencioso=true: sem painel de log na abertura automática
+  await carregarFilmes(true);
 }
 function buildNav(){
   const meses=getMeses();
@@ -806,13 +813,12 @@ function setMonth(m,el){
 /* ═══════════════════════════════════════════════
    CARREGAR filmes.json
    ═══════════════════════════════════════════════ */
-async function carregarFilmes(){
+async function carregarFilmes(silencioso=false){
   const btn=document.getElementById('btnFull');
   btn.disabled=true; btn.textContent='⟳ Carregando...';
   setProgress(10);
   const logP=document.getElementById('logP');
-  logP.classList.add('active');
-  logP.innerHTML='<span> > Carregando filmes.json...</span>';
+  if(!silencioso){ logP.classList.add('active'); logP.innerHTML='<span> > Carregando filmes.json...</span>'; }
   try {
     const resp=await fetch('filmes.json?v='+Date.now());
     if(!resp.ok) throw new Error('filmes.json não encontrado. Rode lanc_filmes_moskit.py primeiro.');
@@ -824,8 +830,10 @@ async function carregarFilmes(){
     filmes.sort((a,b)=>a.estreia.localeCompare(b.estreia));
     saveData(); setProgress(100);
     if(json.gerado_em) document.getElementById('stWhen').textContent=`Base: ${json.gerado_em}`;
-    logP.innerHTML=`<span class="log-ok"> > ${filmes.length} filmes carregados.</span>`;
-    setTimeout(()=>{logP.classList.remove('active');setProgress(0);},3000);
+    if(!silencioso){
+      logP.innerHTML=`<span class="log-ok"> > ${filmes.length} filmes carregados.</span>`;
+      setTimeout(()=>{logP.classList.remove('active');setProgress(0);},3000);
+    } else { setProgress(0); }
   } catch(e){
     logP.innerHTML=`<span class="log-warn"> > Erro: ${escHtml(e.message)}</span>`;
     setProgress(0);
