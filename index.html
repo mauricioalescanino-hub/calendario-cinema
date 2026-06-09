@@ -20,6 +20,7 @@
     --shadow:0 1px 3px rgba(26,31,60,.07),0 4px 16px rgba(26,31,60,.04);
     --shadow-lg:0 2px 8px rgba(26,31,60,.08),0 12px 40px rgba(26,31,60,.08);
     --rel-alta:#dc2626; --rel-media:#d97706; --rel-baixa:#6b7280;
+  --st-sem:#6b7280; --st-feito:#2563eb; --st-conf:#16a34a;
   }
   body { font-family:'Sora',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
 
@@ -95,6 +96,9 @@
   .card-ann-chip.media { background:#fef3c7; color:var(--rel-media); }
   .card-ann-chip.baixa { background:#f3f4f6; color:var(--rel-baixa); }
   .card-ann-chip.on    { background:#d1fae5; color:#065f46; }
+  .card-ann-chip.st-sem   { background:#f3f4f6; color:var(--st-sem); }
+  .card-ann-chip.st-feito { background:#dbeafe; color:var(--st-feito); }
+  .card-ann-chip.st-conf  { background:#dcfce7; color:var(--st-conf); }
   .empty { text-align:center; padding:5rem 2rem; color:var(--muted2); font-size:14px; line-height:2.4; }
   .empty strong { color:var(--navy); }
   .empty .empty-icon { width:48px; height:48px; background:var(--bg4); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; }
@@ -145,8 +149,11 @@
   .tgl-btn.active-alta  { background:var(--rel-alta);  border-color:var(--rel-alta);  color:#fff; }
   .tgl-btn.active-media { background:var(--rel-media); border-color:var(--rel-media); color:#fff; }
   .tgl-btn.active-baixa { background:var(--rel-baixa); border-color:var(--rel-baixa); color:#fff; }
-  .tgl-btn.active-sim   { background:var(--green);     border-color:var(--green);     color:#fff; }
-  .tgl-btn.active-nao   { background:var(--rel-alta);  border-color:var(--rel-alta);  color:#fff; }
+  .tgl-btn.active-sim      { background:var(--green);     border-color:var(--green);     color:#fff; }
+  .tgl-btn.active-nao      { background:var(--rel-alta);  border-color:var(--rel-alta);  color:#fff; }
+  .tgl-btn.active-sem      { background:var(--st-sem);    border-color:var(--st-sem);    color:#fff; }
+  .tgl-btn.active-feito    { background:var(--st-feito);  border-color:var(--st-feito);  color:#fff; }
+  .tgl-btn.active-confirmado { background:var(--st-conf); border-color:var(--st-conf);   color:#fff; }
   .pre-input-row { display:flex; align-items:center; gap:6px; }
   .pre-date-input { background:var(--bg2); color:var(--navy); border:1px solid var(--border2); border-radius:5px; padding:4px 8px; font-family:'Sora',sans-serif; font-size:12px; outline:none; transition:border-color .2s; flex:1; }
   .pre-date-input:focus { border-color:var(--navy); }
@@ -306,6 +313,18 @@
     <option value="media">Média relevância</option>
     <option value="baixa">Baixa relevância</option>
     <option value="ann">Com anotação</option>
+  </select>
+  <select class="fsel" id="fStatus" onchange="render()">
+    <option value="">Todos os status</option>
+    <option value="sem">Sem contato</option>
+    <option value="feito">Contato feito</option>
+    <option value="confirmado">Confirmado</option>
+  </select>
+  <select class="fsel" id="fRecurso" onchange="render()">
+    <option value="">Todos os recursos</option>
+    <option value="pingplay">Com PingPlay</option>
+    <option value="acessibilidades">Com Acessibilidades</option>
+    <option value="masterizacao">Com Masterização</option>
   </select>
   <div class="month-nav" id="mNav"></div>
 </div>
@@ -655,8 +674,13 @@ function getAnn(titulo) { return anotacoes[filmKey(titulo)]||{}; }
 function setAnnotation(titulo, field, value) {
   const k=filmKey(titulo);
   if(!anotacoes[k]) anotacoes[k]={};
-  if(anotacoes[k][field]===value){delete anotacoes[k][field];if(!Object.keys(anotacoes[k]).length)delete anotacoes[k];}
-  else anotacoes[k][field]=value;
+  // status não faz toggle — sempre sobrescreve
+  if(field==='status'){
+    anotacoes[k][field]=value;
+  } else {
+    if(anotacoes[k][field]===value){delete anotacoes[k][field];if(!Object.keys(anotacoes[k]).length)delete anotacoes[k];}
+    else anotacoes[k][field]=value;
+  }
   agendarSalvarAnn(); render();
   if(currentModalId!==null) openMod(currentModalId);
 }
@@ -846,11 +870,13 @@ async function carregarFilmes(silencioso=false){
    FILTROS / RENDER
    ═══════════════════════════════════════════════ */
 function getFiltered(){
-  const dist=document.getElementById('fDist').value;
-  const gen =document.getElementById('fGen').value;
-  const pre =document.getElementById('fPre').value;
-  const rel =document.getElementById('fRel').value;
-  const keys=getMeses().map(x=>ym(x.y,x.m));
+  const dist    = document.getElementById('fDist').value;
+  const gen     = document.getElementById('fGen').value;
+  const pre     = document.getElementById('fPre').value;
+  const rel     = document.getElementById('fRel').value;
+  const status  = document.getElementById('fStatus').value;
+  const recurso = document.getElementById('fRecurso').value;
+  const keys    = getMeses().map(x=>ym(x.y,x.m));
   return filmes.filter(f=>{
     const k=f.estreia?f.estreia.slice(0,7):'';
     if(!keys.includes(k)) return false;
@@ -863,6 +889,13 @@ function getFiltered(){
     if(rel){
       if(rel==='ann'){if(!anotacoes[filmKey(f.titulo)]) return false;}
       else{if(ann.relevancia!==rel) return false;}
+    }
+    if(status){
+      const st = ann.status || 'sem';
+      if(st !== status) return false;
+    }
+    if(recurso){
+      if(!ann[recurso]) return false;
     }
     return true;
   });
@@ -903,6 +936,9 @@ function filmCard(f){
   const dd=fmtCurto(f.estreia);
   const preBadge=ann.pre_estreia?`<span class="pre-badge">Pré ${fmtCurto(ann.pre_estreia)}</span>`:'';
   let chips='';
+  const stMap = {sem:'Sem contato', feito:'Contato feito', confirmado:'Confirmado'};
+  const stKey = ann.status || null;
+  if(stKey) chips+=`<span class="card-ann-chip st-${stKey}">${stMap[stKey]||stKey}</span>`;
   if(ann.relevancia) chips+=`<span class="card-ann-chip ${ann.relevancia}">${ann.relevancia.charAt(0).toUpperCase()+ann.relevancia.slice(1)}</span>`;
   if(ann.pingplay===true)        chips+=`<span class="card-ann-chip on">PingPlay</span>`;
   if(ann.acessibilidades===true) chips+=`<span class="card-ann-chip on">Access.</span>`;
@@ -935,10 +971,14 @@ async function openMod(id){
   // Título e tags no hero
   document.getElementById('mTitle').textContent=f.titulo;
   const ann=getAnn(f.titulo);
+  const stHero = {sem:'Sem contato', feito:'Contato feito', confirmado:'Confirmado'};
+  const stColor = {sem:'rgba(107,114,128,.85)', feito:'rgba(37,99,235,.85)', confirmado:'rgba(22,163,74,.85)'};
+  const stVal = ann.status || null;
   const tags=[
     f.distribuidora?`<span class="modal-hero-tag">${escHtml(f.distribuidora)}</span>`:'',
     f.estreia?`<span class="modal-hero-tag accent">${fmt(f.estreia)}</span>`:'',
     ann.pre_estreia?`<span class="modal-hero-tag pre">Pré ${fmtCurto(ann.pre_estreia)}</span>`:'',
+    stVal?`<span class="modal-hero-tag" style="background:${stColor[stVal]};color:#fff">${stHero[stVal]}</span>`:'',
   ].filter(Boolean).join('');
   document.getElementById('mMeta').innerHTML=tags;
 
@@ -992,6 +1032,16 @@ function renderModalBody(f){
   const preVal=ann.pre_estreia||'';
   const annHTML=`<div class="ann-box">
     <div class="ann-box-hdr"><h4>📋 Análise ETC</h4><span class="ann-save-status" id="annSaveStatus"></span></div>
+    <div class="ann-row">
+      <span class="ann-label">Status</span>
+      <div class="tgl-grp">
+        ${['sem','feito','confirmado'].map(v=>{
+          const labels={sem:'Sem contato',feito:'Contato feito',confirmado:'Confirmado'};
+          const active=(ann.status||'sem')===v;
+          return `<button class="tgl-btn${active?' active-'+v:''}" onclick="setAnnotation('${tKey}','status','${v}');event.stopPropagation()">${labels[v]}</button>`;
+        }).join('')}
+      </div>
+    </div>
     <div class="ann-row">
       <span class="ann-label">Pré-estreia</span>
       <div class="pre-input-row">
