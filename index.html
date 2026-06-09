@@ -276,6 +276,7 @@
       <span id="tmdbLabel">TMDB</span>
     </div>
     <button class="btn-outline" onclick="abrirContatos()">👤 Contatos</button>
+    <button class="btn-outline" id="btnCapas" onclick="buscarTodasCapas()" style="display:none">🎬 Buscar capas</button>
     <button class="btn-outline" onclick="exportCSV()">↓ CSV</button>
     <button class="btn-accent" id="btnFull" onclick="carregarFilmes()">↻ Atualizar</button>
   </div>
@@ -285,6 +286,7 @@
   <span class="stat"><span class="dot dot-r"></span><span id="stTotal">0</span> filmes</span>
   <span class="stat"><span class="dot dot-g"></span><span id="stPre">0</span> pré-estreias</span>
   <span class="stat"><span class="dot dot-gray"></span>filmeb.com.br</span>
+  <span id="stCapas" style="display:none;color:rgba(255,255,255,.6);"></span>
   <span id="stWhen" style="margin-left:auto;font-size:10px;color:#aaa;"></span>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
@@ -488,6 +490,7 @@ function atualizarBadges() {
   document.getElementById('ghLabel').textContent = gh ? 'GitHub ✓' : 'GitHub';
   document.getElementById('tmdbDot').classList.toggle('inactive', !tmdb);
   document.getElementById('tmdbLabel').textContent = tmdb ? 'TMDB ✓' : 'TMDB';
+  document.getElementById('btnCapas').style.display = (tmdb && filmes.length) ? '' : 'none';
 }
 
 /* ═══════════════════════════════════════════════
@@ -501,8 +504,8 @@ function savePosterCache() {
 }
 
 async function fetchPoster(titulo, ano) {
-  const key   = getTmdbKey(); if (!key) return null;
-  const fk    = filmKey(titulo);
+  const key = getTmdbKey(); if (!key) return null;
+  const fk  = filmKey(titulo);
   if (posterCache[fk] !== undefined) return posterCache[fk] === 'none' ? null : posterCache[fk];
 
   try {
@@ -518,6 +521,70 @@ async function fetchPoster(titulo, ano) {
     return url;
   } catch {
     return null;
+  }
+}
+
+let _buscandoCapas = false;
+
+async function buscarTodasCapas() {
+  if (_buscandoCapas) return;
+  const key = getTmdbKey(); if (!key) { abrirConfig('tmdb'); return; }
+
+  // filmes sem poster ainda no cache
+  const pendentes = filmes.filter(f => posterCache[filmKey(f.titulo)] === undefined);
+  if (!pendentes.length) {
+    document.getElementById('stCapas').style.display = '';
+    document.getElementById('stCapas').textContent   = '✓ Todas as capas já carregadas';
+    setTimeout(() => { document.getElementById('stCapas').style.display = 'none'; }, 3000);
+    return;
+  }
+
+  _buscandoCapas = true;
+  const btn  = document.getElementById('btnCapas');
+  const stat = document.getElementById('stCapas');
+  btn.disabled = true;
+  stat.style.display = '';
+
+  let done = 0;
+  const total = pendentes.length;
+
+  for (const f of pendentes) {
+    const ano = f.estreia ? f.estreia.slice(0,4) : null;
+    await fetchPoster(f.titulo, ano);
+    done++;
+    stat.textContent = `🎬 Capas: ${done}/${total}`;
+
+    // Atualiza o card na tela em tempo real
+    updateCardPoster(f);
+
+    // Respeita rate limit do TMDB (~40 req/10s) — 260ms entre chamadas
+    await new Promise(res => setTimeout(res, 260));
+  }
+
+  savePosterCache();
+  stat.textContent = `✓ ${done} capas carregadas`;
+  setTimeout(() => { stat.style.display = 'none'; }, 4000);
+
+  btn.disabled = false;
+  _buscandoCapas = false;
+}
+
+function updateCardPoster(f) {
+  // Encontra o card pelo onclick e troca só o conteúdo do .poster
+  const allCards = document.querySelectorAll('.film-card');
+  for (const card of allCards) {
+    if (card.getAttribute('onclick') === `openMod(${f.id})`) {
+      const fk = filmKey(f.titulo);
+      const url = posterCache[fk] && posterCache[fk] !== 'none' ? posterCache[fk] : (f.poster || null);
+      if (!url) return;
+      const posterDiv = card.querySelector('.poster');
+      if (!posterDiv) return;
+      // preserva badges
+      const badges = [...posterDiv.querySelectorAll('.date-badge, .pre-badge')].map(el => el.outerHTML).join('');
+      posterDiv.innerHTML = `<img src="${url}" alt="${escHtml(f.titulo)}" loading="lazy"
+        onerror="this.outerHTML='<div class=\\'poster-ph\\'><div class=\\'clap\\'></div></div>'">${badges}`;
+      break;
+    }
   }
 }
 
@@ -764,7 +831,7 @@ async function carregarFilmes(){
     setProgress(0);
   }
   btn.disabled=false; btn.textContent='↻ Atualizar';
-  render(); updateStats();
+  render(); updateStats(); atualizarBadges();
 }
 
 /* ═══════════════════════════════════════════════
