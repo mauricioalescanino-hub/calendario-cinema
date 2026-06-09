@@ -62,20 +62,23 @@
   .mpill.active { background:var(--navy); color:#fff; border-color:var(--navy); }
   .mpill:hover:not(.active) { border-color:var(--navy2); color:var(--navy); }
 
-  /* ── GRID ── */
+  /* ── CONTENT ── */
   .content { padding:2rem; }
   .month-sec { margin-bottom:3rem; }
   .month-hdr { display:flex; align-items:baseline; gap:12px; margin-bottom:1.25rem; }
   .month-name { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--navy); letter-spacing:-.02em; }
   .month-count { font-size:11px; color:var(--muted2); background:var(--bg3); padding:2px 8px; border-radius:10px; }
   .film-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:14px; }
+
+  /* ── FILM CARD ── */
   .film-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; overflow:hidden; cursor:pointer; transition:box-shadow .2s,transform .15s,border-color .2s; box-shadow:var(--shadow); }
   .film-card:hover { border-color:var(--border2); box-shadow:var(--shadow-lg); transform:translateY(-2px); }
   .film-card[data-rel="alta"]  { border-left:3px solid var(--rel-alta); }
   .film-card[data-rel="media"] { border-left:3px solid var(--rel-media); }
   .film-card[data-rel="baixa"] { border-left:3px solid var(--rel-baixa); }
   .poster { width:100%; aspect-ratio:2/3; background:var(--bg3); position:relative; overflow:hidden; }
-  .poster img { width:100%; height:100%; object-fit:cover; display:block; }
+  .poster img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
+  .film-card:hover .poster img { transform:scale(1.03); }
   .poster-ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--bg4); }
   .clap { width:30px; height:24px; border:2px solid var(--border2); border-radius:3px; position:relative; }
   .clap::before { content:''; position:absolute; top:-8px; left:-2px; width:calc(100%+4px); height:8px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 5px,var(--bg4) 5px,var(--bg4) 10px); border-radius:2px 2px 0 0; }
@@ -99,13 +102,26 @@
   .empty .clap-lg::before { content:''; position:absolute; top:-6px; left:-2px; width:calc(100%+4px); height:6px; background:repeating-linear-gradient(90deg,var(--border2) 0,var(--border2) 4px,var(--bg4) 4px,var(--bg4) 8px); border-radius:1px 1px 0 0; }
 
   /* ── MODAL ── */
-  .modal-ov { display:none; position:fixed; inset:0; background:rgba(26,31,60,.55); backdrop-filter:blur(2px); z-index:200; align-items:center; justify-content:center; padding:1rem; }
+  .modal-ov { display:none; position:fixed; inset:0; background:rgba(26,31,60,.6); backdrop-filter:blur(3px); z-index:200; align-items:center; justify-content:center; padding:1rem; }
   .modal-ov.open { display:flex; }
-  .modal { background:var(--bg2); border:1px solid var(--border); border-radius:16px; width:100%; max-width:500px; max-height:90vh; overflow-y:auto; box-shadow:var(--shadow-lg); }
-  .modal-hdr { padding:1.25rem 1.5rem 1rem; display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg2); z-index:1; }
-  .modal-ttl { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); line-height:1.2; flex:1; padding-right:.75rem; }
-  .modal-x { background:var(--bg3); border:1px solid var(--border); color:var(--muted); width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:13px; flex-shrink:0; }
-  .modal-x:hover { background:var(--bg4); }
+  .modal { background:var(--bg2); border:1px solid var(--border); border-radius:16px; width:100%; max-width:560px; max-height:92vh; overflow-y:auto; box-shadow:var(--shadow-lg); }
+
+  /* modal hero com poster */
+  .modal-hero { position:relative; border-radius:16px 16px 0 0; overflow:hidden; background:var(--navy); min-height:80px; }
+  .modal-hero-backdrop { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(18px) brightness(.35); transform:scale(1.1); }
+  .modal-hero-inner { position:relative; display:flex; gap:16px; padding:1.25rem 1.5rem 1rem; align-items:flex-end; }
+  .modal-poster-wrap { flex-shrink:0; width:90px; }
+  .modal-poster-img { width:90px; aspect-ratio:2/3; object-fit:cover; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,.5); display:block; background:var(--bg4); }
+  .modal-poster-ph { width:90px; aspect-ratio:2/3; border-radius:8px; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; }
+  .modal-hero-info { flex:1; min-width:0; }
+  .modal-hero-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#fff; line-height:1.25; margin-bottom:6px; }
+  .modal-hero-meta { display:flex; flex-wrap:wrap; gap:5px; }
+  .modal-hero-tag { font-size:10px; padding:2px 8px; border-radius:4px; background:rgba(255,255,255,.12); color:rgba(255,255,255,.75); font-weight:500; }
+  .modal-hero-tag.accent { background:var(--accent); color:#fff; }
+  .modal-hero-tag.pre { background:rgba(224,90,30,.85); color:#fff; }
+  .modal-x { position:absolute; top:12px; right:12px; background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.15); color:rgba(255,255,255,.7); width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:13px; backdrop-filter:blur(4px); transition:background .15s; }
+  .modal-x:hover { background:rgba(0,0,0,.55); color:#fff; }
+
   .modal-body { padding:1.25rem 1.5rem; }
   .mfield { margin-bottom:.9rem; }
   .mfield label { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); display:block; margin-bottom:3px; font-weight:500; }
@@ -137,12 +153,12 @@
   .pre-clear-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:14px; padding:2px 5px; border-radius:4px; }
   .pre-clear-btn:hover { color:var(--rel-alta); }
 
-  /* ── CONTACTS BOX (no modal) ── */
+  /* ── CONTACTS BOX (modal) ── */
   .ct-box { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1rem; margin-top:.75rem; }
   .ct-box-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:.75rem; }
   .ct-box-hdr h4 { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); font-weight:500; }
   .ct-copy-btn { font-size:10px; color:var(--tag-color); background:var(--bg2); border:1px solid var(--border); border-radius:5px; padding:3px 9px; cursor:pointer; font-family:'Sora',sans-serif; transition:all .15s; }
-  .ct-copy-btn:hover { background:var(--tag-bg); border-color:var(--tag-color); }
+  .ct-copy-btn:hover { background:var(--tag-bg); }
   .ct-copy-btn.copied { background:var(--green); color:#fff; border-color:var(--green); }
   .ct-person { display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); }
   .ct-person:last-of-type { border-bottom:none; }
@@ -166,13 +182,9 @@
   .cs-save-status.show { opacity:1; }
   .cs-save-status.saving { color:var(--muted); }
   .cs-body { flex:1; overflow-y:auto; padding:1.5rem 2rem; max-width:760px; width:100%; margin:0 auto; }
-
-  /* search bar */
   .cs-search { width:100%; background:var(--bg2); color:var(--navy); border:1.5px solid var(--border2); border-radius:8px; padding:9px 14px; font-family:'Sora',sans-serif; font-size:13px; outline:none; margin-bottom:1.25rem; transition:border-color .2s; }
   .cs-search:focus { border-color:var(--navy); }
   .cs-search::placeholder { color:var(--muted2); }
-
-  /* distributor card */
   .dist-card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; margin-bottom:12px; overflow:hidden; box-shadow:var(--shadow); }
   .dist-card-hdr { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; cursor:pointer; transition:background .15s; user-select:none; }
   .dist-card-hdr:hover { background:var(--bg3); }
@@ -182,8 +194,6 @@
   .dist-chevron.open { transform:rotate(180deg); }
   .dist-body { display:none; border-top:1px solid var(--border); }
   .dist-body.open { display:block; }
-
-  /* contact row */
   .ct-row { display:flex; align-items:center; gap:10px; padding:10px 16px; border-bottom:1px solid var(--border); }
   .ct-row:last-of-type { border-bottom:none; }
   .ct-fields { flex:1; display:flex; gap:10px; flex-wrap:wrap; }
@@ -192,28 +202,27 @@
   .ct-field-input::placeholder { color:var(--muted2); }
   .ct-del-btn { background:transparent; border:none; color:var(--muted2); cursor:pointer; font-size:15px; padding:4px 6px; border-radius:5px; line-height:1; flex-shrink:0; }
   .ct-del-btn:hover { color:var(--rel-alta); background:var(--bg4); }
-
-  /* add contact form */
   .ct-add-form { padding:10px 16px 14px; background:var(--bg3); display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; }
   .ct-add-form .ct-field-input { background:var(--bg2); }
   .ct-add-btn { background:var(--navy); color:#fff; border:none; border-radius:6px; padding:7px 14px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; white-space:nowrap; transition:background .2s; flex-shrink:0; }
   .ct-add-btn:hover { background:var(--navy2); }
-
-  /* add new distributor */
   .cs-add-dist { background:var(--bg2); border:1.5px dashed var(--border2); border-radius:12px; padding:1rem 1.25rem; display:flex; gap:8px; align-items:center; margin-top:4px; }
   .cs-add-dist input { flex:1; background:transparent; color:var(--navy); border:none; font-family:'Sora',sans-serif; font-size:13px; outline:none; }
   .cs-add-dist input::placeholder { color:var(--muted2); }
-  .cs-add-dist button { background:var(--navy); color:#fff; border:none; border-radius:6px; padding:7px 14px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; white-space:nowrap; }
+  .cs-add-dist button { background:var(--navy); color:#fff; border:none; border-radius:6px; padding:7px 14px; font-family:'Sora',sans-serif; font-size:12px; font-weight:500; cursor:pointer; }
   .cs-add-dist button:hover { background:var(--navy2); }
 
-  /* ── CONFIG SCREEN — GitHub ── */
+  /* ── CONFIG SCREEN ── */
   .config-screen { display:none; position:fixed; inset:0; background:rgba(26,31,60,.5); z-index:500; align-items:center; justify-content:center; padding:1.5rem; }
   .config-screen.open { display:flex; }
   .config-card { background:var(--bg2); border:1px solid var(--border); border-radius:18px; width:100%; max-width:420px; padding:2.5rem 2rem; box-shadow:var(--shadow-lg); }
-  .ak-logo-row { display:flex; align-items:center; gap:10px; margin-bottom:1.75rem; }
+  .ak-logo-row { display:flex; align-items:center; gap:10px; margin-bottom:1.5rem; }
   .ak-logo-mark { width:38px; height:38px; background:var(--accent); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; color:#fff; }
   .ak-logo-text p { font-size:15px; font-weight:600; color:var(--navy); line-height:1.1; }
   .ak-logo-text span { font-size:11px; color:var(--muted); font-weight:300; }
+  .cfg-tabs { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:1.5rem; }
+  .cfg-tab { flex:1; padding:9px; text-align:center; font-size:12px; font-weight:500; cursor:pointer; background:var(--bg3); color:var(--muted); border:none; font-family:'Sora',sans-serif; transition:all .15s; }
+  .cfg-tab.active { background:var(--navy); color:#fff; }
   .ak-label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted2); display:block; margin-bottom:8px; font-weight:500; }
   .ak-input { width:100%; background:var(--bg); color:var(--navy); border:1.5px solid var(--border2); border-radius:8px; padding:10px 14px; font-family:'Sora',sans-serif; font-size:13px; outline:none; transition:border-color .2s; margin-bottom:.75rem; }
   .ak-input:focus { border-color:var(--navy); }
@@ -241,6 +250,9 @@
     .film-grid { grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:10px; }
     .cs-body { padding:1rem; }
     .ct-fields { flex-direction:column; }
+    .modal-hero-title { font-size:15px; }
+    .modal-poster-wrap { width:70px; }
+    .modal-poster-img { width:70px; }
   }
 </style>
 </head>
@@ -255,9 +267,13 @@
     </div>
   </div>
   <div class="hbtns">
-    <div class="key-badge" onclick="abrirConfig()" title="Configurar GitHub">
+    <div class="key-badge" onclick="abrirConfig('gh')" title="Configurar GitHub">
       <span class="key-dot inactive" id="ghDot"></span>
       <span id="ghLabel">GitHub</span>
+    </div>
+    <div class="key-badge" onclick="abrirConfig('tmdb')" title="Configurar TMDB">
+      <span class="key-dot inactive" id="tmdbDot"></span>
+      <span id="tmdbLabel">TMDB</span>
     </div>
     <button class="btn-outline" onclick="abrirContatos()">👤 Contatos</button>
     <button class="btn-outline" onclick="exportCSV()">↓ CSV</button>
@@ -296,10 +312,20 @@
 
 <!-- ══ MODAL FILME ══ -->
 <div class="modal-ov" id="modalOv" onclick="closeMod(event)">
-  <div class="modal">
-    <div class="modal-hdr">
-      <span class="modal-ttl" id="mTitle">—</span>
+  <div class="modal" id="modalInner">
+    <div class="modal-hero" id="modalHero">
+      <div class="modal-hero-backdrop" id="modalBackdrop"></div>
       <button class="modal-x" onclick="closeModDirect()">✕</button>
+      <div class="modal-hero-inner">
+        <div class="modal-poster-wrap">
+          <img class="modal-poster-img" id="modalPosterImg" src="" alt="" style="display:none">
+          <div class="modal-poster-ph" id="modalPosterPh"><div class="clap" style="border-color:rgba(255,255,255,.3)"></div></div>
+        </div>
+        <div class="modal-hero-info">
+          <div class="modal-hero-title" id="mTitle">—</div>
+          <div class="modal-hero-meta" id="mMeta"></div>
+        </div>
+      </div>
     </div>
     <div class="modal-body" id="mBody"></div>
   </div>
@@ -327,25 +353,41 @@
   </div>
 </div>
 
-<!-- ══ CONFIG SCREEN — GitHub ══ -->
+<!-- ══ CONFIG SCREEN ══ -->
 <div class="config-screen" id="configScreen">
   <div class="config-card">
     <div class="ak-logo-row">
       <div class="ak-logo-mark">ETC</div>
-      <div class="ak-logo-text">
-        <p>Configurar GitHub</p>
-        <span>Calendário de Cinema</span>
-      </div>
+      <div class="ak-logo-text"><p>Configurações</p><span>Calendário de Cinema</span></div>
     </div>
-    <label class="ak-label" for="ghInput">GitHub Personal Access Token</label>
-    <input class="ak-input" id="ghInput" type="password" placeholder="ghp_..." autocomplete="off" spellcheck="false">
-    <p class="ak-hint">
-      Necessário para sincronizar anotações e contatos entre dispositivos.<br>
-      Crie um token com permissão <strong>repo → Contents (write)</strong>.<br>
-      <a href="https://github.com/settings/tokens/new?scopes=repo&description=calendario-cinema" target="_blank" rel="noopener">Criar token em github.com/settings/tokens ↗</a>
-    </p>
-    <button class="ak-btn" id="ghBtn" onclick="salvarGhPat()">Salvar token</button>
-    <p class="ak-error" id="ghError"></p>
+    <div class="cfg-tabs">
+      <button class="cfg-tab active" id="tabGH"   onclick="switchCfgTab('gh')">🐙 GitHub</button>
+      <button class="cfg-tab"        id="tabTMDB" onclick="switchCfgTab('tmdb')">🎬 TMDB</button>
+    </div>
+    <!-- GitHub -->
+    <div id="panelGH">
+      <label class="ak-label">GitHub Personal Access Token</label>
+      <input class="ak-input" id="ghInput" type="password" placeholder="ghp_..." autocomplete="off" spellcheck="false">
+      <p class="ak-hint">
+        Sincroniza anotações e contatos entre dispositivos.<br>
+        Permissão necessária: <strong>repo → Contents (write)</strong>.<br>
+        <a href="https://github.com/settings/tokens/new?scopes=repo&description=calendario-cinema" target="_blank" rel="noopener">Criar token ↗</a>
+      </p>
+      <button class="ak-btn" id="ghBtn" onclick="salvarGhPat()">Salvar token GitHub</button>
+      <p class="ak-error" id="ghError"></p>
+    </div>
+    <!-- TMDB -->
+    <div id="panelTMDB" style="display:none">
+      <label class="ak-label">TMDB API Key</label>
+      <input class="ak-input" id="tmdbInput" type="password" placeholder="Sua API Key do TMDB..." autocomplete="off" spellcheck="false">
+      <p class="ak-hint">
+        Usada para buscar capas dos filmes automaticamente.<br>
+        Salva somente no seu navegador.<br>
+        <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">Obter chave em themoviedb.org ↗</a>
+      </p>
+      <button class="ak-btn" id="tmdbBtn" onclick="salvarTmdbKey()">Salvar chave TMDB</button>
+      <p class="ak-error" id="tmdbError"></p>
+    </div>
     <button class="ak-btn-skip" onclick="fecharConfig()">Fechar</button>
   </div>
 </div>
@@ -355,60 +397,128 @@
    CONSTANTES
    ═══════════════════════════════════════════════ */
 const GH_KEY_STORE   = 'cinema_gh_pat';
+const TMDB_KEY_STORE = 'cinema_tmdb_key';
 const GITHUB_REPO    = 'mauricioalescanino-hub/calendario-cinema';
 const GITHUB_BRANCH  = 'main';
 const ANN_FILE       = 'anotacoes.json';
 const CT_FILE        = 'contatos.json';
+const TMDB_BASE      = 'https://api.themoviedb.org/3';
+const TMDB_IMG       = 'https://image.tmdb.org/t/p/w500';
 
 /* ═══════════════════════════════════════════════
    ESTADO
    ═══════════════════════════════════════════════ */
 let filmes         = [];
 let activeMonth    = null;
-let anotacoes      = {};    // { filmKey: { relevancia, pingplay, ... } }
-let contatos       = {};    // { "Disney": [{id,nome,email}], ... }
+let anotacoes      = {};
+let contatos       = {};
+let posterCache    = {};   // filmKey → url | 'none'
 let ghAnnSha       = null;
 let ghCtSha        = null;
 let annTimer       = null;
 let ctTimer        = null;
 let currentModalId = null;
+let curCfgTab      = 'gh';
 
 /* ═══════════════════════════════════════════════
-   GITHUB PAT
+   CHAVES
    ═══════════════════════════════════════════════ */
-const getGhPat = () => localStorage.getItem(GH_KEY_STORE) || '';
+const getGhPat   = () => localStorage.getItem(GH_KEY_STORE)   || '';
+const getTmdbKey = () => localStorage.getItem(TMDB_KEY_STORE) || '';
 
-function abrirConfig() {
-  document.getElementById('ghInput').value = getGhPat();
-  document.getElementById('ghError').classList.remove('show');
+/* ── Config screen ── */
+function abrirConfig(tab) {
+  curCfgTab = tab || 'gh';
+  switchCfgTab(curCfgTab);
+  document.getElementById('ghInput').value   = getGhPat();
+  document.getElementById('tmdbInput').value = getTmdbKey();
+  ['ghError','tmdbError'].forEach(id => document.getElementById(id).classList.remove('show'));
   document.getElementById('configScreen').classList.add('open');
 }
 function fecharConfig() {
   document.getElementById('configScreen').classList.remove('open');
-  atualizarBadge();
+  atualizarBadges();
 }
+function switchCfgTab(tab) {
+  curCfgTab = tab;
+  document.getElementById('panelGH').style.display   = tab==='gh'   ? '' : 'none';
+  document.getElementById('panelTMDB').style.display = tab==='tmdb' ? '' : 'none';
+  document.getElementById('tabGH').classList.toggle('active',   tab==='gh');
+  document.getElementById('tabTMDB').classList.toggle('active', tab==='tmdb');
+}
+
 async function salvarGhPat() {
   const pat = document.getElementById('ghInput').value.trim();
   const btn = document.getElementById('ghBtn');
   const err = document.getElementById('ghError');
-  if (!pat) { err.textContent = 'Token não pode ser vazio.'; err.classList.add('show'); return; }
-  err.classList.remove('show'); btn.disabled = true; btn.textContent = 'Verificando...';
+  if (!pat) { err.textContent='Token não pode ser vazio.'; err.classList.add('show'); return; }
+  err.classList.remove('show'); btn.disabled=true; btn.textContent='Verificando...';
   try {
     const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`, { headers:{'Authorization':`token ${pat}`} });
-    if (!r.ok) throw new Error('auth');
+    if (!r.ok) throw new Error();
     localStorage.setItem(GH_KEY_STORE, pat);
     fecharConfig();
     await Promise.all([carregarAnotacoesGitHub(), carregarContatosGitHub()]);
     render(); renderContatos();
-  } catch(e) {
-    err.textContent = 'Token inválido ou sem acesso ao repositório.';
-    err.classList.add('show');
-  } finally { btn.disabled = false; btn.textContent = 'Salvar token'; }
+  } catch { err.textContent='Token inválido ou sem acesso ao repositório.'; err.classList.add('show'); }
+  finally { btn.disabled=false; btn.textContent='Salvar token GitHub'; }
 }
-function atualizarBadge() {
-  const pat = getGhPat();
-  document.getElementById('ghDot').classList.toggle('inactive', !pat);
-  document.getElementById('ghLabel').textContent = pat ? 'GitHub ✓' : 'GitHub';
+
+async function salvarTmdbKey() {
+  const key = document.getElementById('tmdbInput').value.trim();
+  const btn = document.getElementById('tmdbBtn');
+  const err = document.getElementById('tmdbError');
+  if (!key) { err.textContent='Chave não pode ser vazia.'; err.classList.add('show'); return; }
+  err.classList.remove('show'); btn.disabled=true; btn.textContent='Verificando...';
+  try {
+    const r = await fetch(`${TMDB_BASE}/configuration?api_key=${key}`);
+    if (!r.ok) throw new Error();
+    localStorage.setItem(TMDB_KEY_STORE, key);
+    posterCache = {};  // limpa cache para recarregar com nova chave
+    localStorage.removeItem('cinema_posters');
+    fecharConfig();
+  } catch { err.textContent='Chave inválida — verifique no TMDB.'; err.classList.add('show'); }
+  finally { btn.disabled=false; btn.textContent='Salvar chave TMDB'; }
+}
+
+function atualizarBadges() {
+  const gh   = getGhPat();
+  const tmdb = getTmdbKey();
+  document.getElementById('ghDot').classList.toggle('inactive', !gh);
+  document.getElementById('ghLabel').textContent = gh ? 'GitHub ✓' : 'GitHub';
+  document.getElementById('tmdbDot').classList.toggle('inactive', !tmdb);
+  document.getElementById('tmdbLabel').textContent = tmdb ? 'TMDB ✓' : 'TMDB';
+}
+
+/* ═══════════════════════════════════════════════
+   TMDB — buscar poster
+   ═══════════════════════════════════════════════ */
+function loadPosterCache() {
+  try { posterCache = JSON.parse(localStorage.getItem('cinema_posters') || '{}'); } catch { posterCache = {}; }
+}
+function savePosterCache() {
+  try { localStorage.setItem('cinema_posters', JSON.stringify(posterCache)); } catch {}
+}
+
+async function fetchPoster(titulo, ano) {
+  const key   = getTmdbKey(); if (!key) return null;
+  const fk    = filmKey(titulo);
+  if (posterCache[fk] !== undefined) return posterCache[fk] === 'none' ? null : posterCache[fk];
+
+  try {
+    const params = new URLSearchParams({ api_key:key, query:titulo, language:'pt-BR', include_adult:false });
+    if (ano) params.set('year', ano);
+    const r = await fetch(`${TMDB_BASE}/search/movie?${params}`);
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+    const hit = (d.results || []).find(x => x.poster_path) || null;
+    const url = hit ? TMDB_IMG + hit.poster_path : null;
+    posterCache[fk] = url || 'none';
+    savePosterCache();
+    return url;
+  } catch {
+    return null;
+  }
 }
 
 /* ═══════════════════════════════════════════════
@@ -420,232 +530,172 @@ async function ghGet(file) {
   const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${file}?ref=${GITHUB_BRANCH}&t=${Date.now()}`, {headers});
   if (!r.ok) return null;
   const d = await r.json();
-  return { sha: d.sha, data: JSON.parse(atob(d.content.replace(/\n/g,''))) };
+  return { sha:d.sha, data:JSON.parse(atob(d.content.replace(/\n/g,''))) };
 }
-
 async function ghPut(file, sha, content, msg) {
-  const pat = getGhPat();
-  if (!pat) return null;
+  const pat = getGhPat(); if (!pat) return null;
   const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
-  const body = { message: msg, content: b64, branch: GITHUB_BRANCH };
+  const body = { message:msg, content:b64, branch:GITHUB_BRANCH };
   if (sha) body.sha = sha;
   const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${file}`, {
     method:'PUT', headers:{'Authorization':`token ${pat}`,'Content-Type':'application/json'}, body:JSON.stringify(body)
   });
-  if (!r.ok) { console.warn('ghPut error:', (await r.json()).message); return null; }
-  const d = await r.json();
-  return d.content.sha;
+  if (!r.ok) { console.warn('ghPut:', (await r.json()).message); return null; }
+  return (await r.json()).content.sha;
 }
 
 /* ═══════════════════════════════════════════════
    ANOTAÇÕES — GitHub sync
    ═══════════════════════════════════════════════ */
 async function carregarAnotacoesGitHub() {
-  try {
-    const res = await ghGet(ANN_FILE);
-    if (res) { ghAnnSha = res.sha; anotacoes = res.data.filmes || {}; }
-  } catch(e) { console.warn('Ann load:', e.message); }
-  try {
-    const local = JSON.parse(localStorage.getItem('cinema_anotacoes') || '{}');
-    Object.keys(local).forEach(k => { if (!anotacoes[k]) anotacoes[k] = local[k]; });
-  } catch(e) {}
+  try { const res=await ghGet(ANN_FILE); if(res){ghAnnSha=res.sha;anotacoes=res.data.filmes||{};} } catch{}
+  try { const local=JSON.parse(localStorage.getItem('cinema_anotacoes')||'{}'); Object.keys(local).forEach(k=>{if(!anotacoes[k])anotacoes[k]=local[k];}); } catch{}
 }
-
 async function salvarAnotacoes() {
   localStorage.setItem('cinema_anotacoes', JSON.stringify(anotacoes));
-  const payload = { versao:1, atualizado_em:new Date().toISOString(), filmes:anotacoes };
-  const ts = tsMsg();
-  const sha = await ghPut(ANN_FILE, ghAnnSha, payload, `anotações: ${ts}`);
-  if (sha) { ghAnnSha = sha; showStatus('annSaveStatus','saved'); }
+  const sha = await ghPut(ANN_FILE, ghAnnSha, {versao:1,atualizado_em:new Date().toISOString(),filmes:anotacoes}, `anotações: ${tsMsg()}`);
+  if (sha) { ghAnnSha=sha; showStatus('annSaveStatus','saved'); }
 }
 
 /* ═══════════════════════════════════════════════
    CONTATOS — GitHub sync
    ═══════════════════════════════════════════════ */
 async function carregarContatosGitHub() {
-  try {
-    const res = await ghGet(CT_FILE);
-    if (res) { ghCtSha = res.sha; contatos = res.data.distribuidoras || {}; }
-  } catch(e) { console.warn('Ct load:', e.message); }
-  try {
-    const local = JSON.parse(localStorage.getItem('cinema_contatos') || '{}');
-    Object.keys(local).forEach(k => { if (!contatos[k]) contatos[k] = local[k]; });
-  } catch(e) {}
+  try { const res=await ghGet(CT_FILE); if(res){ghCtSha=res.sha;contatos=res.data.distribuidoras||{};} } catch{}
+  try { const local=JSON.parse(localStorage.getItem('cinema_contatos')||'{}'); Object.keys(local).forEach(k=>{if(!contatos[k])contatos[k]=local[k];}); } catch{}
 }
-
 async function salvarContatos() {
   localStorage.setItem('cinema_contatos', JSON.stringify(contatos));
-  const payload = { versao:1, atualizado_em:new Date().toISOString(), distribuidoras:contatos };
-  const sha = await ghPut(CT_FILE, ghCtSha, payload, `contatos: ${tsMsg()}`);
-  if (sha) { ghCtSha = sha; showStatus('csSaveStatus','saved'); }
+  const sha = await ghPut(CT_FILE, ghCtSha, {versao:1,atualizado_em:new Date().toISOString(),distribuidoras:contatos}, `contatos: ${tsMsg()}`);
+  if (sha) { ghCtSha=sha; showStatus('csSaveStatus','saved'); }
 }
 
-function agendarSalvarAnn() {
-  showStatus('annSaveStatus','saving');
-  if (annTimer) clearTimeout(annTimer);
-  annTimer = setTimeout(salvarAnotacoes, 1200);
-}
-function agendarSalvarCt() {
-  showStatus('csSaveStatus','saving');
-  if (ctTimer) clearTimeout(ctTimer);
-  ctTimer = setTimeout(salvarContatos, 1200);
-}
-
-function tsMsg() {
-  return `${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
-}
+function agendarSalvarAnn() { showStatus('annSaveStatus','saving'); if(annTimer)clearTimeout(annTimer); annTimer=setTimeout(salvarAnotacoes,1200); }
+function agendarSalvarCt()  { showStatus('csSaveStatus','saving');  if(ctTimer) clearTimeout(ctTimer);  ctTimer=setTimeout(salvarContatos,1200);  }
+function tsMsg() { return `${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`; }
 function showStatus(id, state) {
-  const el = document.getElementById(id); if (!el) return;
-  if (state==='saving') { el.textContent='⟳ Salvando...'; el.className='ann-save-status saving show'; }
-  else { el.textContent='✓ Salvo'; el.className='ann-save-status show'; setTimeout(()=>el.classList.remove('show'),2500); }
+  const el=document.getElementById(id); if(!el) return;
+  if(state==='saving'){el.textContent='⟳ Salvando...';el.className='ann-save-status saving show';}
+  else{el.textContent='✓ Salvo';el.className='ann-save-status show';setTimeout(()=>el.classList.remove('show'),2500);}
 }
 
 /* ═══════════════════════════════════════════════
    ANOTAÇÕES — helpers
    ═══════════════════════════════════════════════ */
-function filmKey(titulo) { return (titulo||'').toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,''); }
-function getAnn(titulo)  { return anotacoes[filmKey(titulo)] || {}; }
+function filmKey(titulo){ return (titulo||'').toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,''); }
+function getAnn(titulo) { return anotacoes[filmKey(titulo)]||{}; }
 
 function setAnnotation(titulo, field, value) {
-  const k = filmKey(titulo);
-  if (!anotacoes[k]) anotacoes[k] = {};
-  if (anotacoes[k][field] === value) {
-    delete anotacoes[k][field];
-    if (!Object.keys(anotacoes[k]).length) delete anotacoes[k];
-  } else { anotacoes[k][field] = value; }
+  const k=filmKey(titulo);
+  if(!anotacoes[k]) anotacoes[k]={};
+  if(anotacoes[k][field]===value){delete anotacoes[k][field];if(!Object.keys(anotacoes[k]).length)delete anotacoes[k];}
+  else anotacoes[k][field]=value;
   agendarSalvarAnn(); render();
-  if (currentModalId !== null) openMod(currentModalId);
+  if(currentModalId!==null) openMod(currentModalId);
 }
 function setPreEstreia(titulo, value) {
-  const k = filmKey(titulo);
-  if (!anotacoes[k]) anotacoes[k] = {};
-  if (value) anotacoes[k].pre_estreia = value;
-  else {
-    delete anotacoes[k].pre_estreia;
-    if (!Object.keys(anotacoes[k]).length) delete anotacoes[k];
-  }
+  const k=filmKey(titulo);
+  if(!anotacoes[k]) anotacoes[k]={};
+  if(value) anotacoes[k].pre_estreia=value;
+  else{delete anotacoes[k].pre_estreia;if(!Object.keys(anotacoes[k]).length)delete anotacoes[k];}
   agendarSalvarAnn(); render(); updateStats();
-  if (currentModalId !== null) openMod(currentModalId);
+  if(currentModalId!==null) openMod(currentModalId);
 }
 
 /* ═══════════════════════════════════════════════
    CONTATOS — helpers
    ═══════════════════════════════════════════════ */
-function ctId() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+function ctId(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function getContatos(dist){ return contatos[dist]||[]; }
 
-function getContatos(dist) { return (contatos[dist] || []); }
-
-function adicionarContato(dist, nome, email) {
-  nome = nome.trim(); email = email.trim();
-  if (!nome && !email) return;
-  if (!contatos[dist]) contatos[dist] = [];
-  contatos[dist].push({ id: ctId(), nome, email });
+function adicionarContato(dist,nome,email){
+  nome=nome.trim();email=email.trim();if(!nome&&!email) return;
+  if(!contatos[dist]) contatos[dist]=[];
+  contatos[dist].push({id:ctId(),nome,email});
   agendarSalvarCt(); renderContatos();
-  if (currentModalId !== null) openMod(currentModalId);
+  if(currentModalId!==null) openMod(currentModalId);
 }
-
-function editarContato(dist, id, field, value) {
-  const list = contatos[dist] || [];
-  const ct = list.find(c => c.id === id);
-  if (ct) { ct[field] = value; agendarSalvarCt(); }
-  if (currentModalId !== null) openMod(currentModalId);
+function editarContato(dist,id,field,value){
+  const ct=(contatos[dist]||[]).find(c=>c.id===id);
+  if(ct){ct[field]=value;agendarSalvarCt();}
+  if(currentModalId!==null) openMod(currentModalId);
 }
-
-function removerContato(dist, id) {
-  if (!contatos[dist]) return;
-  contatos[dist] = contatos[dist].filter(c => c.id !== id);
-  if (!contatos[dist].length) delete contatos[dist];
+function removerContato(dist,id){
+  if(!contatos[dist]) return;
+  contatos[dist]=contatos[dist].filter(c=>c.id!==id);
+  if(!contatos[dist].length) delete contatos[dist];
   agendarSalvarCt(); renderContatos();
-  if (currentModalId !== null) openMod(currentModalId);
+  if(currentModalId!==null) openMod(currentModalId);
 }
-
-function adicionarDistribuidora() {
-  const inp = document.getElementById('csNewDist');
-  const nome = inp.value.trim(); if (!nome) return;
-  if (!contatos[nome]) contatos[nome] = [];
-  inp.value = '';
-  agendarSalvarCt(); renderContatos();
+function adicionarDistribuidora(){
+  const inp=document.getElementById('csNewDist');
+  const nome=inp.value.trim(); if(!nome) return;
+  if(!contatos[nome]) contatos[nome]=[];
+  inp.value=''; agendarSalvarCt(); renderContatos();
 }
 
 /* ═══════════════════════════════════════════════
    CONTACTS SCREEN
    ═══════════════════════════════════════════════ */
-function abrirContatos() { document.getElementById('contactsScreen').classList.add('open'); renderContatos(); }
-function fecharContatos() { document.getElementById('contactsScreen').classList.remove('open'); }
+function abrirContatos(){ document.getElementById('contactsScreen').classList.add('open'); renderContatos(); }
+function fecharContatos(){ document.getElementById('contactsScreen').classList.remove('open'); }
 
-function renderContatos() {
-  const q = (document.getElementById('csSearch').value || '').toLowerCase();
-  // merge distribuidoras do filmes.json + contatos manuais
-  const distFromFilmes = [...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))];
-  const allDist = [...new Set([...Object.keys(contatos), ...distFromFilmes])].sort();
-  const filtered = allDist.filter(d => {
-    if (!q) return true;
-    if (d.toLowerCase().includes(q)) return true;
-    return (contatos[d]||[]).some(c => c.nome.toLowerCase().includes(q) || c.email.toLowerCase().includes(q));
+function renderContatos(){
+  const q=(document.getElementById('csSearch').value||'').toLowerCase();
+  const distFromFilmes=[...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))];
+  const allDist=[...new Set([...Object.keys(contatos),...distFromFilmes])].sort();
+  const filtered=allDist.filter(d=>{
+    if(!q) return true;
+    if(d.toLowerCase().includes(q)) return true;
+    return (contatos[d]||[]).some(c=>c.nome.toLowerCase().includes(q)||c.email.toLowerCase().includes(q));
   });
-
-  const lista = document.getElementById('csLista');
-  if (!filtered.length) {
-    lista.innerHTML = '<p style="color:var(--muted2);font-size:13px;text-align:center;padding:2rem 0;">Nenhuma distribuidora encontrada.</p>';
-    return;
-  }
-
-  lista.innerHTML = filtered.map(dist => {
-    const cts = contatos[dist] || [];
-    const dId = 'dist-' + dist.replace(/\s+/g,'-').replace(/[^a-z0-9\-]/gi,'');
-    const bodyId = dId+'-body';
-    const chevId = dId+'-chev';
-    const isOpen = q || cts.length > 0; // auto-open se tem busca ou contatos
-
-    const rows = cts.map(c => `
-      <div class="ct-row">
-        <div class="ct-fields">
-          <input class="ct-field-input" placeholder="Nome" value="${escHtml(c.nome)}"
-            onchange="editarContato('${escHtml(dist)}','${c.id}','nome',this.value)"
-            oninput="editarContato('${escHtml(dist)}','${c.id}','nome',this.value)">
-          <input class="ct-field-input" placeholder="E-mail" value="${escHtml(c.email)}"
-            onchange="editarContato('${escHtml(dist)}','${c.id}','email',this.value)"
-            oninput="editarContato('${escHtml(dist)}','${c.id}','email',this.value)">
-        </div>
-        <button class="ct-del-btn" onclick="removerContato('${escHtml(dist)}','${c.id}')" title="Remover">✕</button>
-      </div>`).join('');
-
+  const lista=document.getElementById('csLista');
+  if(!filtered.length){lista.innerHTML='<p style="color:var(--muted2);font-size:13px;text-align:center;padding:2rem 0;">Nenhuma distribuidora encontrada.</p>';return;}
+  lista.innerHTML=filtered.map(dist=>{
+    const cts=contatos[dist]||[];
+    const dId='dist-'+dist.replace(/[^a-z0-9]/gi,'-');
+    const isOpen=!!q||cts.length>0;
+    const rows=cts.map(c=>`<div class="ct-row">
+      <div class="ct-fields">
+        <input class="ct-field-input" placeholder="Nome" value="${escHtml(c.nome)}"
+          oninput="editarContato('${escHtml(dist)}','${c.id}','nome',this.value)">
+        <input class="ct-field-input" placeholder="E-mail" value="${escHtml(c.email)}"
+          oninput="editarContato('${escHtml(dist)}','${c.id}','email',this.value)">
+      </div>
+      <button class="ct-del-btn" onclick="removerContato('${escHtml(dist)}','${c.id}')">✕</button>
+    </div>`).join('');
     return `<div class="dist-card">
-      <div class="dist-card-hdr" onclick="toggleDist('${bodyId}','${chevId}')">
+      <div class="dist-card-hdr" onclick="toggleDist('${dId}-body','${dId}-chev')">
         <div style="display:flex;align-items:center;gap:8px">
           <span class="dist-name">${escHtml(dist)}</span>
           <span class="dist-count">${cts.length} contato${cts.length!==1?'s':''}</span>
         </div>
-        <span class="dist-chevron${isOpen?' open':''}" id="${chevId}">▼</span>
+        <span class="dist-chevron${isOpen?' open':''}" id="${dId}-chev">▼</span>
       </div>
-      <div class="dist-body${isOpen?' open':''}" id="${bodyId}">
+      <div class="dist-body${isOpen?' open':''}" id="${dId}-body">
         ${rows}
-        <div class="ct-add-form" id="${dId}-form">
-          <input class="ct-field-input" placeholder="Nome" id="${dId}-nome" onkeydown="if(event.key==='Enter') ctAddSubmit('${escHtml(dist)}','${dId}')">
-          <input class="ct-field-input" placeholder="E-mail" id="${dId}-email" onkeydown="if(event.key==='Enter') ctAddSubmit('${escHtml(dist)}','${dId}')">
+        <div class="ct-add-form">
+          <input class="ct-field-input" placeholder="Nome" id="${dId}-nome" onkeydown="if(event.key==='Enter')ctAddSubmit('${escHtml(dist)}','${dId}')">
+          <input class="ct-field-input" placeholder="E-mail" id="${dId}-email" onkeydown="if(event.key==='Enter')ctAddSubmit('${escHtml(dist)}','${dId}')">
           <button class="ct-add-btn" onclick="ctAddSubmit('${escHtml(dist)}','${dId}')">+ Adicionar</button>
         </div>
       </div>
     </div>`;
   }).join('');
 }
-
-function toggleDist(bodyId, chevId) {
-  const body = document.getElementById(bodyId);
-  const chev = document.getElementById(chevId);
-  if (!body) return;
-  const open = body.classList.toggle('open');
-  if (chev) chev.classList.toggle('open', open);
+function toggleDist(bodyId,chevId){
+  const b=document.getElementById(bodyId),c=document.getElementById(chevId);
+  if(!b) return;
+  const open=b.classList.toggle('open');
+  if(c) c.classList.toggle('open',open);
 }
-
-function ctAddSubmit(dist, dId) {
-  const nome  = document.getElementById(dId+'-nome')?.value || '';
-  const email = document.getElementById(dId+'-email')?.value || '';
-  adicionarContato(dist, nome, email);
-  const n = document.getElementById(dId+'-nome');
-  const e = document.getElementById(dId+'-email');
-  if (n) n.value = '';
-  if (e) e.value = '';
+function ctAddSubmit(dist,dId){
+  const n=document.getElementById(dId+'-nome')?.value||'';
+  const e=document.getElementById(dId+'-email')?.value||'';
+  adicionarContato(dist,n,e);
+  const ni=document.getElementById(dId+'-nome');
+  const ei=document.getElementById(dId+'-email');
+  if(ni) ni.value=''; if(ei) ei.value='';
 }
 
 /* ═══════════════════════════════════════════════
@@ -653,65 +703,64 @@ function ctAddSubmit(dist, dId) {
    ═══════════════════════════════════════════════ */
 const MP=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const MS=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-function getMeses() { const h=new Date(),r=[]; for(let i=0;i<6;i++){const d=new Date(h.getFullYear(),h.getMonth()+i,1);r.push({y:d.getFullYear(),m:d.getMonth()});} return r; }
-function ym(y,m) { return y+'-'+String(m+1).padStart(2,'0'); }
-function fmt(s) { if(!s) return '—'; const p=s.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
-function fmtCurto(s) { return s ? s.slice(8,10)+'/'+s.slice(5,7) : ''; }
-function today() { return new Date().toISOString().slice(0,10); }
-function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function getMeses(){ const h=new Date(),r=[]; for(let i=0;i<6;i++){const d=new Date(h.getFullYear(),h.getMonth()+i,1);r.push({y:d.getFullYear(),m:d.getMonth()});} return r; }
+function ym(y,m){ return y+'-'+String(m+1).padStart(2,'0'); }
+function fmt(s){ if(!s) return '—'; const p=s.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+function fmtCurto(s){ return s?s.slice(8,10)+'/'+s.slice(5,7):''; }
+function today(){ return new Date().toISOString().slice(0,10); }
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 /* ═══════════════════════════════════════════════
    PERSISTÊNCIA filmes
    ═══════════════════════════════════════════════ */
-function loadData() { try { const s=localStorage.getItem('cinema_cal_v4'); if(s) filmes=JSON.parse(s); } catch(e){ filmes=[]; } }
-function saveData() { try { localStorage.setItem('cinema_cal_v4', JSON.stringify(filmes)); } catch(e){} }
+function loadData(){ try{const s=localStorage.getItem('cinema_cal_v4');if(s)filmes=JSON.parse(s);}catch{filmes=[];} }
+function saveData(){ try{localStorage.setItem('cinema_cal_v4',JSON.stringify(filmes));}catch{} }
 
 /* ═══════════════════════════════════════════════
    INIT
    ═══════════════════════════════════════════════ */
-async function init() {
-  loadData();
+async function init(){
+  loadData(); loadPosterCache();
   await Promise.all([carregarAnotacoesGitHub(), carregarContatosGitHub()]);
-  buildNav(); render(); updateStats(); atualizarBadge();
+  buildNav(); render(); updateStats(); atualizarBadges();
 }
-
-function buildNav() {
-  const meses = getMeses();
-  document.getElementById('mNav').innerHTML =
-    '<button class="mpill active" onclick="setMonth(null,this)">Todos</button>' +
-    meses.map(x => `<button class="mpill" onclick="setMonth('${ym(x.y,x.m)}',this)">${MS[x.m]}</button>`).join('');
+function buildNav(){
+  const meses=getMeses();
+  document.getElementById('mNav').innerHTML=
+    '<button class="mpill active" onclick="setMonth(null,this)">Todos</button>'+
+    meses.map(x=>`<button class="mpill" onclick="setMonth('${ym(x.y,x.m)}',this)">${MS[x.m]}</button>`).join('');
 }
-function setMonth(m, el) {
-  activeMonth = m;
-  document.querySelectorAll('.mpill').forEach(p => p.classList.remove('active'));
+function setMonth(m,el){
+  activeMonth=m;
+  document.querySelectorAll('.mpill').forEach(p=>p.classList.remove('active'));
   el.classList.add('active'); render();
 }
 
 /* ═══════════════════════════════════════════════
    CARREGAR filmes.json
    ═══════════════════════════════════════════════ */
-async function carregarFilmes() {
-  const btn = document.getElementById('btnFull');
+async function carregarFilmes(){
+  const btn=document.getElementById('btnFull');
   btn.disabled=true; btn.textContent='⟳ Carregando...';
   setProgress(10);
-  const logP = document.getElementById('logP');
+  const logP=document.getElementById('logP');
   logP.classList.add('active');
-  logP.innerHTML = '<span> > Carregando filmes.json...</span>';
+  logP.innerHTML='<span> > Carregando filmes.json...</span>';
   try {
-    const resp = await fetch('filmes.json?v='+Date.now());
-    if (!resp.ok) throw new Error('filmes.json não encontrado. Rode lanc_filmes_moskit.py primeiro.');
-    const json = await resp.json();
-    const keys = getMeses().map(x => ym(x.y,x.m));
-    filmes = (json.filmes||[])
-      .filter(f => f.estreia && keys.includes(f.estreia.slice(0,7)))
-      .map((f,i) => ({...f, id:f.id||(i+1)}));
-    filmes.sort((a,b) => a.estreia.localeCompare(b.estreia));
+    const resp=await fetch('filmes.json?v='+Date.now());
+    if(!resp.ok) throw new Error('filmes.json não encontrado. Rode lanc_filmes_moskit.py primeiro.');
+    const json=await resp.json();
+    const keys=getMeses().map(x=>ym(x.y,x.m));
+    filmes=(json.filmes||[])
+      .filter(f=>f.estreia&&keys.includes(f.estreia.slice(0,7)))
+      .map((f,i)=>({...f,id:f.id||(i+1)}));
+    filmes.sort((a,b)=>a.estreia.localeCompare(b.estreia));
     saveData(); setProgress(100);
-    if (json.gerado_em) document.getElementById('stWhen').textContent = `Base: ${json.gerado_em}`;
-    logP.innerHTML = `<span class="log-ok"> > ${filmes.length} filmes carregados.</span>`;
-    setTimeout(() => { logP.classList.remove('active'); setProgress(0); }, 3000);
-  } catch(e) {
-    logP.innerHTML = `<span class="log-warn"> > Erro: ${escHtml(e.message)}</span>`;
+    if(json.gerado_em) document.getElementById('stWhen').textContent=`Base: ${json.gerado_em}`;
+    logP.innerHTML=`<span class="log-ok"> > ${filmes.length} filmes carregados.</span>`;
+    setTimeout(()=>{logP.classList.remove('active');setProgress(0);},3000);
+  } catch(e){
+    logP.innerHTML=`<span class="log-warn"> > Erro: ${escHtml(e.message)}</span>`;
     setProgress(0);
   }
   btn.disabled=false; btn.textContent='↻ Atualizar';
@@ -721,43 +770,43 @@ async function carregarFilmes() {
 /* ═══════════════════════════════════════════════
    FILTROS / RENDER
    ═══════════════════════════════════════════════ */
-function getFiltered() {
-  const dist = document.getElementById('fDist').value;
-  const gen  = document.getElementById('fGen').value;
-  const pre  = document.getElementById('fPre').value;
-  const rel  = document.getElementById('fRel').value;
-  const keys = getMeses().map(x => ym(x.y,x.m));
-  return filmes.filter(f => {
-    const k = f.estreia ? f.estreia.slice(0,7) : '';
-    if (!keys.includes(k)) return false;
-    if (activeMonth && k !== activeMonth) return false;
-    if (dist && f.distribuidora !== dist) return false;
-    if (gen  && f.genero !== gen) return false;
-    const ann = getAnn(f.titulo);
-    if (pre === 'yes' && !ann.pre_estreia) return false;
-    if (pre === 'no'  &&  ann.pre_estreia) return false;
-    if (rel) {
-      if (rel === 'ann') { if (!anotacoes[filmKey(f.titulo)]) return false; }
-      else { if (ann.relevancia !== rel) return false; }
+function getFiltered(){
+  const dist=document.getElementById('fDist').value;
+  const gen =document.getElementById('fGen').value;
+  const pre =document.getElementById('fPre').value;
+  const rel =document.getElementById('fRel').value;
+  const keys=getMeses().map(x=>ym(x.y,x.m));
+  return filmes.filter(f=>{
+    const k=f.estreia?f.estreia.slice(0,7):'';
+    if(!keys.includes(k)) return false;
+    if(activeMonth&&k!==activeMonth) return false;
+    if(dist&&f.distribuidora!==dist) return false;
+    if(gen &&f.genero!==gen) return false;
+    const ann=getAnn(f.titulo);
+    if(pre==='yes'&&!ann.pre_estreia) return false;
+    if(pre==='no' && ann.pre_estreia) return false;
+    if(rel){
+      if(rel==='ann'){if(!anotacoes[filmKey(f.titulo)]) return false;}
+      else{if(ann.relevancia!==rel) return false;}
     }
     return true;
   });
 }
 
-function render() {
-  const filtered = getFiltered();
-  const cal = document.getElementById('cal');
-  if (!filmes.length) {
-    cal.innerHTML = `<div class="empty"><div class="empty-icon"><div class="clap-lg"></div></div>Nenhum filme carregado ainda.<br>Clique em <strong>↻ Atualizar</strong> para carregar o calendário.<br><small style="font-size:11px;color:var(--muted2)">Certifique-se que filmes.json foi publicado no GitHub.</small></div>`;
+function render(){
+  const filtered=getFiltered();
+  const cal=document.getElementById('cal');
+  if(!filmes.length){
+    cal.innerHTML=`<div class="empty"><div class="empty-icon"><div class="clap-lg"></div></div>Nenhum filme carregado ainda.<br>Clique em <strong>↻ Atualizar</strong> para carregar o calendário.</div>`;
     return;
   }
-  const grouped = {};
-  filtered.forEach(f => { const k=f.estreia.slice(0,7); if(!grouped[k]) grouped[k]=[]; grouped[k].push(f); });
-  const keys = Object.keys(grouped).sort();
-  if (!keys.length) { cal.innerHTML = '<div class="empty">Nenhum filme para os filtros selecionados.</div>'; return; }
-  cal.innerHTML = keys.map(k => {
-    const [y,m] = k.split('-');
-    const lista = grouped[k].slice().sort((a,b)=>a.estreia.localeCompare(b.estreia));
+  const grouped={};
+  filtered.forEach(f=>{const k=f.estreia.slice(0,7);if(!grouped[k])grouped[k]=[];grouped[k].push(f);});
+  const keys=Object.keys(grouped).sort();
+  if(!keys.length){cal.innerHTML='<div class="empty">Nenhum filme para os filtros selecionados.</div>';return;}
+  cal.innerHTML=keys.map(k=>{
+    const [y,m]=k.split('-');
+    const lista=grouped[k].slice().sort((a,b)=>a.estreia.localeCompare(b.estreia));
     return `<div class="month-sec"><div class="month-hdr"><span class="month-name">${MP[parseInt(m)-1]} ${y}</span><span class="month-count">${lista.length} título${lista.length!==1?'s':''}</span></div><div class="film-grid">${lista.map(filmCard).join('')}</div></div>`;
   }).join('');
   const distribs=[...new Set(filmes.map(f=>f.distribuidora).filter(Boolean))].sort();
@@ -768,18 +817,21 @@ function render() {
   fg.innerHTML='<option value="">Todos os gêneros</option>'+generos.map(g=>`<option value="${g}"${g===gv?' selected':''}>${g}</option>`).join('');
 }
 
-function filmCard(f) {
-  const ann = getAnn(f.titulo);
-  const poster = f.poster
-    ? `<img src="${f.poster}" alt="${escHtml(f.titulo)}" loading="lazy" onerror="this.outerHTML='<div class=\\'poster-ph\\'><div class=\\'clap\\'></div></div>'">`
+function filmCard(f){
+  const ann=getAnn(f.titulo);
+  const fk=filmKey(f.titulo);
+  const cachedPoster=posterCache[fk];
+  const posterUrl=(cachedPoster&&cachedPoster!=='none') ? cachedPoster : (f.poster||null);
+  const poster=posterUrl
+    ? `<img src="${posterUrl}" alt="${escHtml(f.titulo)}" loading="lazy" onerror="this.outerHTML='<div class=\\'poster-ph\\'><div class=\\'clap\\'></div></div>'">`
     : `<div class="poster-ph"><div class="clap"></div></div>`;
-  const dd = fmtCurto(f.estreia);
-  const preBadge = ann.pre_estreia ? `<span class="pre-badge">Pré ${fmtCurto(ann.pre_estreia)}</span>` : '';
-  let chips = '';
-  if (ann.relevancia) chips += `<span class="card-ann-chip ${ann.relevancia}">${ann.relevancia.charAt(0).toUpperCase()+ann.relevancia.slice(1)}</span>`;
-  if (ann.pingplay===true)        chips += `<span class="card-ann-chip on">PingPlay</span>`;
-  if (ann.acessibilidades===true) chips += `<span class="card-ann-chip on">Access.</span>`;
-  if (ann.masterizacao===true)    chips += `<span class="card-ann-chip on">Master.</span>`;
+  const dd=fmtCurto(f.estreia);
+  const preBadge=ann.pre_estreia?`<span class="pre-badge">Pré ${fmtCurto(ann.pre_estreia)}</span>`:'';
+  let chips='';
+  if(ann.relevancia) chips+=`<span class="card-ann-chip ${ann.relevancia}">${ann.relevancia.charAt(0).toUpperCase()+ann.relevancia.slice(1)}</span>`;
+  if(ann.pingplay===true)        chips+=`<span class="card-ann-chip on">PingPlay</span>`;
+  if(ann.acessibilidades===true) chips+=`<span class="card-ann-chip on">Access.</span>`;
+  if(ann.masterizacao===true)    chips+=`<span class="card-ann-chip on">Master.</span>`;
   return `<div class="film-card" onclick="openMod(${f.id})" data-rel="${ann.relevancia||''}">
     <div class="poster">${poster}${preBadge}<span class="date-badge">${dd}</span></div>
     <div class="film-info">
@@ -790,45 +842,87 @@ function filmCard(f) {
   </div>`;
 }
 
-function updateStats() {
-  const keys = getMeses().map(x=>ym(x.y,x.m));
-  const rel = filmes.filter(f=>keys.includes(f.estreia?f.estreia.slice(0,7):''));
-  document.getElementById('stTotal').textContent = rel.length;
-  document.getElementById('stPre').textContent   = rel.filter(f=>getAnn(f.titulo).pre_estreia).length;
+function updateStats(){
+  const keys=getMeses().map(x=>ym(x.y,x.m));
+  const rel=filmes.filter(f=>keys.includes(f.estreia?f.estreia.slice(0,7):''));
+  document.getElementById('stTotal').textContent=rel.length;
+  document.getElementById('stPre').textContent=rel.filter(f=>getAnn(f.titulo).pre_estreia).length;
 }
-function setProgress(p) { document.getElementById('pFill').style.width=p+'%'; }
+function setProgress(p){ document.getElementById('pFill').style.width=p+'%'; }
 
 /* ═══════════════════════════════════════════════
    MODAL
    ═══════════════════════════════════════════════ */
-function openMod(id) {
-  currentModalId = id;
-  const f = filmes.find(x=>x.id===id); if(!f) return;
-  document.getElementById('mTitle').textContent = f.titulo;
+async function openMod(id){
+  currentModalId=id;
+  const f=filmes.find(x=>x.id===id); if(!f) return;
 
-  const ann    = getAnn(f.titulo);
-  const tKey   = filmKey(f.titulo).replace(/'/g,"\\'");
-  const titulo = f.titulo;
+  // Título e tags no hero
+  document.getElementById('mTitle').textContent=f.titulo;
+  const ann=getAnn(f.titulo);
+  const tags=[
+    f.distribuidora?`<span class="modal-hero-tag">${escHtml(f.distribuidora)}</span>`:'',
+    f.estreia?`<span class="modal-hero-tag accent">${fmt(f.estreia)}</span>`:'',
+    ann.pre_estreia?`<span class="modal-hero-tag pre">Pré ${fmtCurto(ann.pre_estreia)}</span>`:'',
+  ].filter(Boolean).join('');
+  document.getElementById('mMeta').innerHTML=tags;
 
-  function tglRel(val) {
-    const active = ann.relevancia === val;
+  // Poster (de cache ou filmes.json)
+  const fk=filmKey(f.titulo);
+  const cachedPoster=posterCache[fk];
+  const currentPoster=(cachedPoster&&cachedPoster!=='none') ? cachedPoster : (f.poster||null);
+  applyModalPoster(currentPoster);
+
+  document.getElementById('modalOv').classList.add('open');
+  renderModalBody(f);
+
+  // Busca poster no TMDB se não tiver
+  if (!currentPoster && getTmdbKey()) {
+    const ano = f.estreia ? f.estreia.slice(0,4) : null;
+    const url = await fetchPoster(f.titulo, ano);
+    if (url) {
+      applyModalPoster(url);
+      render(); // atualiza card também
+    }
+  }
+}
+
+function applyModalPoster(url){
+  const img=document.getElementById('modalPosterImg');
+  const ph =document.getElementById('modalPosterPh');
+  const bd =document.getElementById('modalBackdrop');
+  if(url){
+    img.src=url; img.style.display='block'; ph.style.display='none';
+    bd.style.backgroundImage=`url('${url}')`;
+  } else {
+    img.style.display='none'; ph.style.display='flex';
+    bd.style.backgroundImage='none';
+  }
+}
+
+function renderModalBody(f){
+  const ann=getAnn(f.titulo);
+  const tKey=filmKey(f.titulo).replace(/'/g,"\\'");
+
+  function tglRel(val){
+    const active=ann.relevancia===val;
     return `<button class="tgl-btn${active?' active-'+val:''}" onclick="setAnnotation('${tKey}','relevancia','${val}');event.stopPropagation()">${val.charAt(0).toUpperCase()+val.slice(1)}</button>`;
   }
-  function tglBool(field, val) {
-    const active = ann[field]===val;
-    const cls = active?(val===true?'active-sim':'active-nao'):'';
+  function tglBool(field,val){
+    const active=ann[field]===val;
+    const cls=active?(val===true?'active-sim':'active-nao'):'';
     return `<button class="tgl-btn ${cls}" onclick="setAnnotation('${tKey}','${field}',${val});event.stopPropagation()">${val?'Sim':'Não'}</button>`;
   }
 
-  const preVal = ann.pre_estreia || '';
-  const annHTML = `<div class="ann-box">
+  const preVal=ann.pre_estreia||'';
+  const annHTML=`<div class="ann-box">
     <div class="ann-box-hdr"><h4>📋 Análise ETC</h4><span class="ann-save-status" id="annSaveStatus"></span></div>
     <div class="ann-row">
       <span class="ann-label">Pré-estreia</span>
       <div class="pre-input-row">
         <input type="date" class="pre-date-input" value="${preVal}"
           onchange="setPreEstreia('${tKey}',this.value)" onclick="event.stopPropagation()">
-        ${preVal?`<button class="pre-clear-btn" onclick="setPreEstreia('${tKey}','');event.stopPropagation()" title="Limpar">✕</button>`:''}
+        ${preVal?`<button class="pre-clear-btn" onclick="setPreEstreia('${tKey}','');event.stopPropagation()">✕</button>`:''}
       </div>
     </div>
     <div class="ann-row"><span class="ann-label">Relevância de Pré</span><div class="tgl-grp">${tglRel('alta')}${tglRel('media')}${tglRel('baixa')}</div></div>
@@ -837,97 +931,81 @@ function openMod(id) {
     <div class="ann-row"><span class="ann-label">Masterização</span><div class="tgl-grp">${tglBool('masterizacao',true)}${tglBool('masterizacao',false)}</div></div>
   </div>`;
 
-  // Contatos da distribuidora
-  const dist = f.distribuidora || '';
-  const cts  = getContatos(dist);
-  let ctHTML = '';
-  if (dist) {
-    const emailsList = cts.filter(c=>c.email).map(c=>c.email).join(', ');
-    ctHTML = `<div class="ct-box">
+  const dist=f.distribuidora||'';
+  const cts=getContatos(dist);
+  let ctHTML='';
+  if(dist){
+    const emailsList=cts.filter(c=>c.email).map(c=>c.email).join(', ');
+    ctHTML=`<div class="ct-box">
       <div class="ct-box-hdr">
         <h4>📨 Contatos — ${escHtml(dist)}</h4>
-        ${emailsList ? `<button class="ct-copy-btn" id="copyBtn" onclick="copiarEmails('${escHtml(emailsList).replace(/'/g,"\\'")}')">Copiar e-mails</button>` : ''}
+        ${emailsList?`<button class="ct-copy-btn" id="copyBtn" onclick="copiarEmails('${escHtml(emailsList).replace(/'/g,"\\'")}')">Copiar e-mails</button>`:''}
       </div>
       ${cts.length
-        ? cts.map(c=>`<div class="ct-person">
-            <div class="ct-info">
-              <span class="ct-name">${escHtml(c.nome||'—')}</span>
-              <span class="ct-email">${escHtml(c.email||'—')}</span>
-            </div>
-          </div>`).join('')
-        : `<span class="ct-none">Nenhum contato cadastrado ainda.</span>`
+        ?cts.map(c=>`<div class="ct-person"><div class="ct-info"><span class="ct-name">${escHtml(c.nome||'—')}</span><span class="ct-email">${escHtml(c.email||'—')}</span></div></div>`).join('')
+        :`<span class="ct-none">Nenhum contato cadastrado ainda.</span>`
       }
-      <div style="margin-top:.75rem">
-        <button class="ct-go-btn" onclick="fecharFilmeAbrirContatos('${escHtml(dist).replace(/'/g,"\\'")}')">✎ Gerenciar contatos desta distribuidora →</button>
-      </div>
+      <div style="margin-top:.75rem"><button class="ct-go-btn" onclick="fecharFilmeAbrirContatos('${escHtml(dist).replace(/'/g,"\\'")}')">✎ Gerenciar contatos →</button></div>
     </div>`;
   }
 
-  document.getElementById('mBody').innerHTML = `
-    <div class="mfield"><label>Estreia</label><p>${fmt(f.estreia)}</p></div>
-    <div class="mfield"><label>Distribuidora</label><p>${escHtml(f.distribuidora||'—')}</p></div>
-    <div class="mfield"><label>Gênero</label><p>${escHtml(f.genero||'—')}</p></div>
-    <div class="mfield"><label>Sinopse</label><p>${escHtml(f.sinopse||'—')}</p></div>
+  document.getElementById('mBody').innerHTML=`
+    ${f.genero?`<div class="mfield"><label>Gênero</label><p>${escHtml(f.genero)}</p></div>`:''}
+    ${f.sinopse?`<div class="mfield"><label>Sinopse</label><p>${escHtml(f.sinopse)}</p></div>`:''}
     ${annHTML}
     ${ctHTML}
     ${f.urlExibidor?`<a class="modal-link" href="${escHtml(f.urlExibidor)}" target="_blank" rel="noopener">Ver ficha no Filme B ↗</a>`:''}`;
-
-  document.getElementById('modalOv').classList.add('open');
 }
 
-function copiarEmails(emails) {
-  navigator.clipboard.writeText(emails).then(() => {
-    const btn = document.getElementById('copyBtn');
-    if (btn) { btn.textContent='✓ Copiado!'; btn.classList.add('copied'); setTimeout(()=>{btn.textContent='Copiar e-mails';btn.classList.remove('copied');},2000); }
-  }).catch(()=>{ prompt('Copie os e-mails:', emails); });
+function copiarEmails(emails){
+  navigator.clipboard.writeText(emails).then(()=>{
+    const btn=document.getElementById('copyBtn');
+    if(btn){btn.textContent='✓ Copiado!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copiar e-mails';btn.classList.remove('copied');},2000);}
+  }).catch(()=>prompt('Copie os e-mails:',emails));
+}
+function fecharFilmeAbrirContatos(dist){
+  closeModDirect(); abrirContatos();
+  setTimeout(()=>{document.getElementById('csSearch').value=dist;renderContatos();},100);
 }
 
-function fecharFilmeAbrirContatos(dist) {
-  closeModDirect();
-  abrirContatos();
-  // aguarda render e foca a distribuidora
-  setTimeout(() => {
-    document.getElementById('csSearch').value = dist;
-    renderContatos();
-  }, 100);
-}
-
-function closeMod(e) { if(e.target===document.getElementById('modalOv')) closeModDirect(); }
-function closeModDirect() { document.getElementById('modalOv').classList.remove('open'); currentModalId=null; }
+function closeMod(e){ if(e.target===document.getElementById('modalOv')) closeModDirect(); }
+function closeModDirect(){ document.getElementById('modalOv').classList.remove('open'); currentModalId=null; }
 
 /* ═══════════════════════════════════════════════
    EXPORT CSV
    ═══════════════════════════════════════════════ */
-function exportCSV() {
-  if (!filmes.length) { alert('Nenhum dado para exportar.'); return; }
-  const header = 'Título,Estreia,Pré-Estreia,Distribuidora,Gênero,Relevância,PingPlay,Acessibilidades,Masterização,Contatos';
-  const rows = filmes.map(f => {
-    const ann = getAnn(f.titulo);
-    const cts = getContatos(f.distribuidora||'').map(c=>`${c.nome} <${c.email}>`).join(' | ');
-    return [f.titulo, f.estreia, ann.pre_estreia||'', f.distribuidora, f.genero,
+function exportCSV(){
+  if(!filmes.length){alert('Nenhum dado para exportar.');return;}
+  const header='Título,Estreia,Pré-Estreia,Distribuidora,Gênero,Relevância,PingPlay,Acessibilidades,Masterização,Contatos';
+  const rows=filmes.map(f=>{
+    const ann=getAnn(f.titulo);
+    const cts=getContatos(f.distribuidora||'').map(c=>`${c.nome} <${c.email}>`).join(' | ');
+    return [f.titulo,f.estreia,ann.pre_estreia||'',f.distribuidora,f.genero,
             ann.relevancia||'',
             ann.pingplay!=null?(ann.pingplay?'Sim':'Não'):'',
             ann.acessibilidades!=null?(ann.acessibilidades?'Sim':'Não'):'',
-            ann.masterizacao!=null?(ann.masterizacao?'Sim':'Não'):'', cts]
+            ann.masterizacao!=null?(ann.masterizacao?'Sim':'Não'):'',cts]
       .map(v=>`"${String(v||'').replace(/"/g,'""')}"`)
       .join(',');
   });
-  const csv = '﻿'+[header,...rows].join('\r\n');
-  const url = URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
-  const a = document.createElement('a'); a.href=url; a.download=`cinema_${today()}.csv`; a.click();
+  const csv='﻿'+[header,...rows].join('\r\n');
+  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
+  const a=document.createElement('a');a.href=url;a.download=`cinema_${today()}.csv`;a.click();
   URL.revokeObjectURL(url);
 }
 
 /* ═══════════════════════════════════════════════
    KEYBOARD
    ═══════════════════════════════════════════════ */
-document.addEventListener('keydown', e => {
-  if (e.key==='Escape') {
-    if (document.getElementById('configScreen').classList.contains('open'))  fecharConfig();
-    else if (document.getElementById('contactsScreen').classList.contains('open')) fecharContatos();
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('configScreen').classList.contains('open')) fecharConfig();
+    else if(document.getElementById('contactsScreen').classList.contains('open')) fecharContatos();
     else closeModDirect();
   }
-  if (e.key==='Enter' && document.getElementById('configScreen').classList.contains('open')) salvarGhPat();
+  if(e.key==='Enter'&&document.getElementById('configScreen').classList.contains('open')) {
+    if(curCfgTab==='gh') salvarGhPat(); else salvarTmdbKey();
+  }
 });
 
 /* ── START ── */
