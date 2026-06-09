@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T21:41:24.900Z",
+  "atualizado_em": "2026-06-09T21:41:40.956Z",
   "filmes": {
     "o-barulho-da-noite": {
       "relevancia": "alta",
@@ -30,6 +30,9 @@
       "status": "confirmado"
     },
     "a-noite-de-alade": {
+      "status": "confirmado"
+    },
+    "hit-para-dois": {
       "status": "confirmado"
     }
   }
