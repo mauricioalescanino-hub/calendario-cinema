@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-10T18:48:11.981Z",
+  "atualizado_em": "2026-06-10T18:48:16.027Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -78,7 +78,8 @@
     },
     "toy-story-5": {
       "status": "feito",
-      "pre_estreia": "2026-06-10"
+      "pre_estreia": "2026-06-10",
+      "pingplay": false
     }
   }
 }
