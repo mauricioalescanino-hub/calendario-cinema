@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-06-09T22:11:50.013Z",
+  "atualizado_em": "2026-06-10T18:48:03.569Z",
   "filmes": {
     "quinze-dias": {
       "pre_estreia": "2026-06-09",
@@ -75,6 +75,9 @@
     },
     "a-saga-crepsculo-eclipse-relanamento": {
       "status": "sem"
+    },
+    "toy-story-5": {
+      "status": "feito"
     }
   }
 }
