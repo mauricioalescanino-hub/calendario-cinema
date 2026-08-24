@@ -1,169 +1,9 @@
 {
-  "gerado_em": "17/08/2026 11:01",
-  "total": 231,
+  "gerado_em": "24/08/2026 11:01",
+  "total": 224,
   "filmes": [
     {
       "id": 1,
-      "titulo": "La la land - Cantando estações (relançamento)",
-      "distribuidora": "Paris",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/la-la-land-cantando-estacoes-relancamento"
-    },
-    {
-      "id": 2,
-      "titulo": "Sobrenatural: Agora entre nós",
-      "distribuidora": "Sony",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/sobrenatural-agora-entre-nos"
-    },
-    {
-      "id": 3,
-      "titulo": "O Shaolin do Sertão 2",
-      "distribuidora": "Downtown",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-shaolin-do-sertao-2"
-    },
-    {
-      "id": 4,
-      "titulo": "Terra à deriva 2: Destino",
-      "distribuidora": "SATO Company",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/terra-deriva-2-destino"
-    },
-    {
-      "id": 5,
-      "titulo": "Perdida no Ártico",
-      "distribuidora": "Clube Filmes",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/perdida-no-artico"
-    },
-    {
-      "id": 6,
-      "titulo": "Só por uma noite",
-      "distribuidora": "Universal",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/so-por-uma-noite"
-    },
-    {
-      "id": 7,
-      "titulo": "Amigas sem filtro",
-      "distribuidora": "Diamond",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/amigas-sem-filtro"
-    },
-    {
-      "id": 8,
-      "titulo": "Amélia Toledo - Lembrar de não esquecer",
-      "distribuidora": "Bretz Filmes",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/amelia-toledo-lembrar-de-nao-esquecer"
-    },
-    {
-      "id": 9,
-      "titulo": "Mirrors No. 3",
-      "distribuidora": "Imovision",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/mirrors-no-3"
-    },
-    {
-      "id": 10,
-      "titulo": "Refém por um fio",
-      "distribuidora": "Pandora Filmes",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/refem-por-um-fio"
-    },
-    {
-      "id": 11,
-      "titulo": "Anistia 79",
-      "distribuidora": "Embaúba Filmes",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/anistia-79"
-    },
-    {
-      "id": 12,
-      "titulo": "Mundurukuyü - A floresta das mulheres peixe",
-      "distribuidora": "Curta Distribuidora",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/mundurukuyu-floresta-das-mulheres-peixe"
-    },
-    {
-      "id": 13,
-      "titulo": "Coração partido",
-      "distribuidora": "Paris",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/coracao-partido"
-    },
-    {
-      "id": 14,
-      "titulo": "Túmulo dos vagalumes* (relançamento)",
-      "distribuidora": "Cinemark",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/tumulo-dos-vagalumes-relancamento"
-    },
-    {
-      "id": 15,
-      "titulo": "Sagrado Coração – Seu reino não terá fim",
-      "distribuidora": "Kolbe Arte Produções",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/sagrado-coracao-seu-reino-nao-tera-fim"
-    },
-    {
-      "id": 16,
-      "titulo": "(26/08) GHOST: 2 big to rig",
-      "distribuidora": "Trafalgar",
-      "estreia": "2026-08-20",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/2608-ghost-2-big-rig"
-    },
-    {
-      "id": 17,
       "titulo": "Photochart: Nascido para vencer",
       "distribuidora": "Film Connection",
       "estreia": "2026-08-27",
@@ -173,7 +13,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/photochart-nascido-para-vencer"
     },
     {
-      "id": 18,
+      "id": 2,
       "titulo": "O apego",
       "distribuidora": "Bonfilm/O2 Play",
       "estreia": "2026-08-27",
@@ -183,7 +23,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-apego"
     },
     {
-      "id": 19,
+      "id": 3,
       "titulo": "Coyote vs. Acme",
       "distribuidora": "Paris",
       "estreia": "2026-08-27",
@@ -193,7 +33,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/coyote-vs-acme"
     },
     {
-      "id": 20,
+      "id": 4,
       "titulo": "Ponto sem retorno",
       "distribuidora": "Disney",
       "estreia": "2026-08-27",
@@ -203,7 +43,17 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/ponto-sem-retorno"
     },
     {
-      "id": 21,
+      "id": 5,
+      "titulo": "Perdida no Ártico",
+      "distribuidora": "Clube Filmes",
+      "estreia": "2026-08-27",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/perdida-no-artico"
+    },
+    {
+      "id": 6,
       "titulo": "Muito prazer",
       "distribuidora": "Elo Studios",
       "estreia": "2026-08-27",
@@ -213,7 +63,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/muito-prazer"
     },
     {
-      "id": 22,
+      "id": 7,
       "titulo": "Nosso segredo",
       "distribuidora": "Vitrine Filmes",
       "estreia": "2026-08-27",
@@ -223,7 +73,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nosso-segredo"
     },
     {
-      "id": 23,
+      "id": 8,
       "titulo": "Um olhar inquieto: o cinema de Jorge Bodanzky",
       "distribuidora": "Lança Filmes",
       "estreia": "2026-08-27",
@@ -233,7 +83,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/um-olhar-inquieto-o-cinema-de-jorge-bodanzky"
     },
     {
-      "id": 24,
+      "id": 9,
       "titulo": "Nem tudo é paz e amor",
       "distribuidora": "Pandora Filmes",
       "estreia": "2026-08-27",
@@ -243,7 +93,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nem-tudo-e-paz-e-amor"
     },
     {
-      "id": 25,
+      "id": 10,
       "titulo": "Akira (relançamento)",
       "distribuidora": "SATO Company",
       "estreia": "2026-08-27",
@@ -253,7 +103,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/akira-relancamento"
     },
     {
-      "id": 26,
+      "id": 11,
       "titulo": "A quinta portuguesa",
       "distribuidora": "Kajá Filmes",
       "estreia": "2026-08-27",
@@ -263,7 +113,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/quinta-portuguesa"
     },
     {
-      "id": 27,
+      "id": 12,
       "titulo": "(29/08) Michael (relançamento)",
       "distribuidora": "Universal",
       "estreia": "2026-08-27",
@@ -273,7 +123,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/2908-michael-relancamento"
     },
     {
-      "id": 28,
+      "id": 13,
       "titulo": "(30/08) Harry Potter e a Pedra Filosofal (relançamento)",
       "distribuidora": "Warner",
       "estreia": "2026-08-27",
@@ -283,7 +133,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/3008-harry-potter-e-pedra-filosofal-relancamento"
     },
     {
-      "id": 29,
+      "id": 14,
       "titulo": "(02/09) Katy Perry: The lifetimes tour - Live from Paris",
       "distribuidora": "Trafalgar",
       "estreia": "2026-08-27",
@@ -293,77 +143,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/0209-katy-perry-lifetimes-tour-live-paris"
     },
     {
-      "id": 30,
-      "titulo": "Minha melhor amiga",
-      "distribuidora": "Paris",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/minha-melhor-amiga"
-    },
-    {
-      "id": 31,
-      "titulo": "Lago dos Ossos",
-      "distribuidora": "PlayArte",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/lago-dos-ossos"
-    },
-    {
-      "id": 32,
-      "titulo": "O sorveteiro",
-      "distribuidora": "Diamond",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-sorveteiro"
-    },
-    {
-      "id": 33,
-      "titulo": "Pressão",
-      "distribuidora": "Universal",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/pressao"
-    },
-    {
-      "id": 34,
-      "titulo": "O grande arco de Paris",
-      "distribuidora": "Imovision",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-grande-arco-de-paris"
-    },
-    {
-      "id": 35,
-      "titulo": "Não existe almoço grátis",
-      "distribuidora": "Descoloniza Filmes",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nao-existe-almoco-gratis"
-    },
-    {
-      "id": 36,
-      "titulo": "Minha filha é um zumbi",
-      "distribuidora": "O2 Play",
-      "estreia": "2026-09-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/minha-filha-e-um-zumbi"
-    },
-    {
-      "id": 37,
+      "id": 15,
       "titulo": "Idiotas",
       "distribuidora": "Imagem",
       "estreia": "2026-09-03",
@@ -373,7 +153,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/idiotas"
     },
     {
-      "id": 38,
+      "id": 16,
       "titulo": "George Washington",
       "distribuidora": "Heaven Content",
       "estreia": "2026-09-03",
@@ -383,7 +163,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/george-washington"
     },
     {
-      "id": 39,
+      "id": 17,
       "titulo": "Gonzaguinha, da maior liberdade",
       "distribuidora": "Synapse",
       "estreia": "2026-09-03",
@@ -393,37 +173,77 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/gonzaguinha-da-maior-liberdade"
     },
     {
-      "id": 40,
-      "titulo": "Dia oito: O sopro do espírito",
-      "distribuidora": "Kolbe Arte Produções",
-      "estreia": "2026-09-10",
+      "id": 18,
+      "titulo": "Minha melhor amiga",
+      "distribuidora": "Paris",
+      "estreia": "2026-09-03",
       "genero": null,
       "sinopse": null,
       "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/dia-oito-o-sopro-do-espirito"
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/minha-melhor-amiga"
     },
     {
-      "id": 41,
-      "titulo": "Não haverá mais histórias sem nós",
-      "distribuidora": "Kajá Filmes",
-      "estreia": "2026-09-10",
+      "id": 19,
+      "titulo": "(Quase) O amor da minha vida",
+      "distribuidora": "PlayArte",
+      "estreia": "2026-09-03",
       "genero": null,
       "sinopse": null,
       "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nao-havera-mais-historias-sem-nos"
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/quase-o-amor-da-minha-vida"
     },
     {
-      "id": 42,
-      "titulo": "PRK-30 - O rádio pelo avesso",
-      "distribuidora": "Urca Filmes",
-      "estreia": "2026-09-10",
+      "id": 20,
+      "titulo": "O sorveteiro",
+      "distribuidora": "Diamond",
+      "estreia": "2026-09-03",
       "genero": null,
       "sinopse": null,
       "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/prk-30-o-radio-pelo-avesso"
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-sorveteiro"
     },
     {
-      "id": 43,
+      "id": 21,
+      "titulo": "Pressão",
+      "distribuidora": "Universal",
+      "estreia": "2026-09-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/pressao"
+    },
+    {
+      "id": 22,
+      "titulo": "O grande arco de Paris",
+      "distribuidora": "Imovision",
+      "estreia": "2026-09-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-grande-arco-de-paris"
+    },
+    {
+      "id": 23,
+      "titulo": "Não existe almoço grátis",
+      "distribuidora": "Descoloniza Filmes",
+      "estreia": "2026-09-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nao-existe-almoco-gratis"
+    },
+    {
+      "id": 24,
+      "titulo": "Minha filha é um zumbi",
+      "distribuidora": "O2 Play",
+      "estreia": "2026-09-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/minha-filha-e-um-zumbi"
+    },
+    {
+      "id": 25,
       "titulo": "Código: Vingança",
       "distribuidora": "Paris",
       "estreia": "2026-09-10",
@@ -433,7 +253,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/codigo-vinganca"
     },
     {
-      "id": 44,
+      "id": 26,
       "titulo": "Espermagedom",
       "distribuidora": "Clube Filmes",
       "estreia": "2026-09-10",
@@ -443,7 +263,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/espermagedom"
     },
     {
-      "id": 45,
+      "id": 27,
       "titulo": "Da magia à sedução: Feitiço de amor",
       "distribuidora": "Warner",
       "estreia": "2026-09-10",
@@ -453,7 +273,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/da-magia-seducao-feitico-de-amor"
     },
     {
-      "id": 46,
+      "id": 28,
       "titulo": "Gatos no museu 2: Tesouros do Egito",
       "distribuidora": "Imagem",
       "estreia": "2026-09-10",
@@ -463,7 +283,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/gatos-no-museu-2-tesouros-do-egito"
     },
     {
-      "id": 47,
+      "id": 29,
       "titulo": "Papaya",
       "distribuidora": "Vitrine/Cajuína",
       "estreia": "2026-09-10",
@@ -473,7 +293,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/papaya"
     },
     {
-      "id": 48,
+      "id": 30,
       "titulo": "A maravilhosa árvore encantada",
       "distribuidora": "Diamond",
       "estreia": "2026-09-10",
@@ -483,17 +303,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/maravilhosa-arvore-encantada"
     },
     {
-      "id": 49,
-      "titulo": "Espelho de Tarsila",
-      "distribuidora": "Gullane+",
-      "estreia": "2026-09-10",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/espelho-de-tarsila"
-    },
-    {
-      "id": 50,
+      "id": 31,
       "titulo": "Viva Marília",
       "distribuidora": "Bretz Filmes",
       "estreia": "2026-09-10",
@@ -503,7 +313,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/viva-marilia"
     },
     {
-      "id": 51,
+      "id": 32,
       "titulo": "Coração das trevas",
       "distribuidora": "Imovision",
       "estreia": "2026-09-10",
@@ -513,7 +323,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/coracao-das-trevas"
     },
     {
-      "id": 52,
+      "id": 33,
       "titulo": "Oasis: Don't look back in anger",
       "distribuidora": "Disney",
       "estreia": "2026-09-10",
@@ -523,7 +333,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/oasis-dont-look-back-anger"
     },
     {
-      "id": 53,
+      "id": 34,
       "titulo": "Blue lock",
       "distribuidora": "SATO Company",
       "estreia": "2026-09-10",
@@ -533,7 +343,37 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/blue-lock"
     },
     {
-      "id": 54,
+      "id": 35,
+      "titulo": "Dia oito: O sopro do espírito",
+      "distribuidora": "Kolbe Arte Produções",
+      "estreia": "2026-09-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/dia-oito-o-sopro-do-espirito"
+    },
+    {
+      "id": 36,
+      "titulo": "Não haverá mais histórias sem nós",
+      "distribuidora": "Kajá Filmes",
+      "estreia": "2026-09-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nao-havera-mais-historias-sem-nos"
+    },
+    {
+      "id": 37,
+      "titulo": "PRK-30 - O rádio pelo avesso",
+      "distribuidora": "Urca Filmes",
+      "estreia": "2026-09-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/prk-30-o-radio-pelo-avesso"
+    },
+    {
+      "id": 38,
       "titulo": "Resident Evil",
       "distribuidora": "Sony",
       "estreia": "2026-09-17",
@@ -543,7 +383,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/resident-evil"
     },
     {
-      "id": 55,
+      "id": 39,
       "titulo": "Morte e vida Madalena",
       "distribuidora": "Embaúba Filmes",
       "estreia": "2026-09-17",
@@ -553,7 +393,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/morte-e-vida-madalena"
     },
     {
-      "id": 56,
+      "id": 40,
       "titulo": "Masha e os ursos",
       "distribuidora": "A2 Filmes",
       "estreia": "2026-09-17",
@@ -563,7 +403,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/masha-e-os-ursos"
     },
     {
-      "id": 57,
+      "id": 41,
       "titulo": "Procurando Emily",
       "distribuidora": "Universal",
       "estreia": "2026-09-17",
@@ -573,7 +413,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/procurando-emily"
     },
     {
-      "id": 58,
+      "id": 42,
       "titulo": "No limite da justiça",
       "distribuidora": "Diamond",
       "estreia": "2026-09-17",
@@ -583,7 +423,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/no-limite-da-justica"
     },
     {
-      "id": 59,
+      "id": 43,
       "titulo": "Era uma vez minha 1ª vez",
       "distribuidora": "Na Paralela Filmes",
       "estreia": "2026-09-17",
@@ -593,7 +433,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/era-uma-vez-minha-1a-vez"
     },
     {
-      "id": 60,
+      "id": 44,
       "titulo": "Antártida",
       "distribuidora": "Paris",
       "estreia": "2026-09-17",
@@ -603,7 +443,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/antartida"
     },
     {
-      "id": 61,
+      "id": 45,
       "titulo": "Querendo ou não*",
       "distribuidora": "Imovision",
       "estreia": "2026-09-17",
@@ -613,17 +453,17 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/querendo-ou-nao"
     },
     {
-      "id": 62,
-      "titulo": "Paraíso prometido",
-      "distribuidora": "Filmes do Estação",
+      "id": 46,
+      "titulo": "Três vezes adeus",
+      "distribuidora": "Autoral Filmes",
       "estreia": "2026-09-17",
       "genero": null,
       "sinopse": null,
       "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/paraiso-prometido"
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/tres-vezes-adeus"
     },
     {
-      "id": 63,
+      "id": 47,
       "titulo": "One Piece: O filme",
       "distribuidora": "Paris",
       "estreia": "2026-09-17",
@@ -633,7 +473,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/one-piece-o-filme"
     },
     {
-      "id": 64,
+      "id": 48,
       "titulo": "Os trapaceiros de Garibaldi",
       "distribuidora": "Pandora Filmes",
       "estreia": "2026-09-17",
@@ -643,107 +483,17 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/os-trapaceiros-de-garibaldi"
     },
     {
-      "id": 65,
-      "titulo": "Virtuosas",
-      "distribuidora": "Olhar Distribuição",
-      "estreia": "2026-09-24",
+      "id": 49,
+      "titulo": "Furnas Fundas: Uma fábula gótica brasileira",
+      "distribuidora": "Capuri",
+      "estreia": "2026-09-17",
       "genero": null,
       "sinopse": null,
       "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/virtuosas"
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/furnas-fundas-uma-fabula-gotica-brasileira"
     },
     {
-      "id": 66,
-      "titulo": "Hotel Amor",
-      "distribuidora": "Imovision",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/hotel-amor"
-    },
-    {
-      "id": 67,
-      "titulo": "Me filma",
-      "distribuidora": "Amálgama",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/me-filma"
-    },
-    {
-      "id": 68,
-      "titulo": "Precisamos falar",
-      "distribuidora": "Sony",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/precisamos-falar"
-    },
-    {
-      "id": 69,
-      "titulo": "Vingadores: Ultimato encore",
-      "distribuidora": "Disney",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/vingadores-ultimato-encore"
-    },
-    {
-      "id": 70,
-      "titulo": "A queda 2: No limite",
-      "distribuidora": "Paris",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/queda-2-no-limite"
-    },
-    {
-      "id": 71,
-      "titulo": "Out of the nest",
-      "distribuidora": "PlayArte",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/out-nest"
-    },
-    {
-      "id": 72,
-      "titulo": "Marido de aluguel",
-      "distribuidora": "Imagem",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/marido-de-aluguel"
-    },
-    {
-      "id": 73,
-      "titulo": "The Fox sisters",
-      "distribuidora": "Film Connection",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fox-sisters"
-    },
-    {
-      "id": 74,
-      "titulo": "A ilha esquecida",
-      "distribuidora": "Universal",
-      "estreia": "2026-09-24",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/ilha-esquecida"
-    },
-    {
-      "id": 75,
+      "id": 50,
       "titulo": "Coração selvagem",
       "distribuidora": "Paramount Pictures",
       "estreia": "2026-09-24",
@@ -753,7 +503,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/coracao-selvagem"
     },
     {
-      "id": 76,
+      "id": 51,
       "titulo": "Nem toda história de amor acaba em morte",
       "distribuidora": "Elo Studios",
       "estreia": "2026-09-24",
@@ -763,7 +513,97 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nem-toda-historia-de-amor-acaba-em-morte-0"
     },
     {
-      "id": 77,
+      "id": 52,
+      "titulo": "Virtuosas",
+      "distribuidora": "Olhar Distribuição",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/virtuosas"
+    },
+    {
+      "id": 53,
+      "titulo": "Lago dos Ossos",
+      "distribuidora": "PlayArte",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/lago-dos-ossos"
+    },
+    {
+      "id": 54,
+      "titulo": "Hotel Amor",
+      "distribuidora": "Imovision",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/hotel-amor"
+    },
+    {
+      "id": 55,
+      "titulo": "Me filma",
+      "distribuidora": "Amálgama",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/me-filma"
+    },
+    {
+      "id": 56,
+      "titulo": "Precisamos falar",
+      "distribuidora": "Sony",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/precisamos-falar"
+    },
+    {
+      "id": 57,
+      "titulo": "Vingadores: Ultimato encore",
+      "distribuidora": "Disney",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/vingadores-ultimato-encore"
+    },
+    {
+      "id": 58,
+      "titulo": "Marido de aluguel",
+      "distribuidora": "Imagem",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/marido-de-aluguel"
+    },
+    {
+      "id": 59,
+      "titulo": "The Fox sisters",
+      "distribuidora": "Film Connection",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fox-sisters"
+    },
+    {
+      "id": 60,
+      "titulo": "A ilha esquecida",
+      "distribuidora": "Universal",
+      "estreia": "2026-09-24",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/ilha-esquecida"
+    },
+    {
+      "id": 61,
       "titulo": "(30/09) Linkin Park: Unshatter",
       "distribuidora": "SATO Company",
       "estreia": "2026-09-24",
@@ -773,47 +613,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/3009-linkin-park-unshatter"
     },
     {
-      "id": 78,
-      "titulo": "Verity",
-      "distribuidora": "Sony",
-      "estreia": "2026-10-01",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/verity"
-    },
-    {
-      "id": 79,
-      "titulo": "Zona Zero",
-      "distribuidora": "Paris",
-      "estreia": "2026-10-01",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/zona-zero"
-    },
-    {
-      "id": 80,
-      "titulo": "Três vezes adeus",
-      "distribuidora": "Autoral Filmes",
-      "estreia": "2026-10-01",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/tres-vezes-adeus"
-    },
-    {
-      "id": 81,
-      "titulo": "As dores do mundo: Hyldon",
-      "distribuidora": "Curta Distribuidora",
-      "estreia": "2026-10-01",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/dores-do-mundo-hyldon"
-    },
-    {
-      "id": 82,
+      "id": 62,
       "titulo": "Digger",
       "distribuidora": "Warner",
       "estreia": "2026-10-01",
@@ -823,7 +623,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/digger"
     },
     {
-      "id": 83,
+      "id": 63,
       "titulo": "Galinha Pintadinha - O filme",
       "distribuidora": "Imagem",
       "estreia": "2026-10-01",
@@ -833,7 +633,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/galinha-pintadinha-o-filme"
     },
     {
-      "id": 84,
+      "id": 64,
       "titulo": "Protocolo de extermínio",
       "distribuidora": "Diamond",
       "estreia": "2026-10-01",
@@ -843,7 +643,37 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/protocolo-de-exterminio"
     },
     {
-      "id": 85,
+      "id": 65,
+      "titulo": "Verity",
+      "distribuidora": "Sony",
+      "estreia": "2026-10-01",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/verity"
+    },
+    {
+      "id": 66,
+      "titulo": "Zona Zero",
+      "distribuidora": "Paris",
+      "estreia": "2026-10-01",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/zona-zero"
+    },
+    {
+      "id": 67,
+      "titulo": "As dores do mundo: Hyldon",
+      "distribuidora": "Curta Distribuidora",
+      "estreia": "2026-10-01",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/dores-do-mundo-hyldon"
+    },
+    {
+      "id": 68,
       "titulo": "Criaturas – Uma aventura entre dois mundos",
       "distribuidora": "Retrato Filmes",
       "estreia": "2026-10-01",
@@ -853,7 +683,17 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/criaturas-uma-aventura-entre-dois-mundos"
     },
     {
-      "id": 86,
+      "id": 69,
+      "titulo": "A queda 2: No limite",
+      "distribuidora": "Paris",
+      "estreia": "2026-10-08",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/queda-2-no-limite"
+    },
+    {
+      "id": 70,
       "titulo": "Três horas para viver",
       "distribuidora": "Diamond",
       "estreia": "2026-10-08",
@@ -863,7 +703,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/tres-horas-para-viver"
     },
     {
-      "id": 87,
+      "id": 71,
       "titulo": "As aventuras de Tadeo e a lâmpada mágica",
       "distribuidora": "Paramount Pictures",
       "estreia": "2026-10-08",
@@ -873,7 +713,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/aventuras-de-tadeo-e-lampada-magica"
     },
     {
-      "id": 88,
+      "id": 72,
       "titulo": "Cartório das almas",
       "distribuidora": "Pandora Filmes",
       "estreia": "2026-10-08",
@@ -883,7 +723,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cartorio-das-almas"
     },
     {
-      "id": 89,
+      "id": 73,
       "titulo": "Um tio quase perfeito 3",
       "distribuidora": "H2O",
       "estreia": "2026-10-08",
@@ -893,7 +733,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/um-tio-quase-perfeito-3"
     },
     {
-      "id": 90,
+      "id": 74,
       "titulo": "Se eu fosse você 3",
       "distribuidora": "Disney",
       "estreia": "2026-10-08",
@@ -903,7 +743,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/se-eu-fosse-voce-3"
     },
     {
-      "id": 91,
+      "id": 75,
       "titulo": "O outro lado das redes",
       "distribuidora": "Sony",
       "estreia": "2026-10-08",
@@ -913,7 +753,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-outro-lado-das-redes"
     },
     {
-      "id": 92,
+      "id": 76,
       "titulo": "Carros (relançamento)",
       "distribuidora": "Disney",
       "estreia": "2026-10-08",
@@ -923,7 +763,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/carros-relancamento"
     },
     {
-      "id": 93,
+      "id": 77,
       "titulo": "Ao sabor das cinzas",
       "distribuidora": "Embaúba Filmes",
       "estreia": "2026-10-08",
@@ -933,7 +773,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/ao-sabor-das-cinzas"
     },
     {
-      "id": 94,
+      "id": 78,
       "titulo": "Torniquete",
       "distribuidora": "Vitrine Filmes/Boulevard Filmes",
       "estreia": "2026-10-08",
@@ -943,7 +783,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/torniquete"
     },
     {
-      "id": 95,
+      "id": 79,
       "titulo": "5 centímetros por segundo",
       "distribuidora": "SATO Company",
       "estreia": "2026-10-08",
@@ -953,7 +793,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/5-centimetros-por-segundo"
     },
     {
-      "id": 96,
+      "id": 80,
       "titulo": "Hope",
       "distribuidora": "Imagem",
       "estreia": "2026-10-08",
@@ -963,7 +803,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/hope"
     },
     {
-      "id": 97,
+      "id": 81,
       "titulo": "Jogos Vorazes - Maratona (relançamento)",
       "distribuidora": "Paris",
       "estreia": "2026-10-15",
@@ -973,7 +813,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/jogos-vorazes-maratona-relancamento"
     },
     {
-      "id": 98,
+      "id": 82,
       "titulo": "Dentro da baleia",
       "distribuidora": "Disney",
       "estreia": "2026-10-15",
@@ -983,7 +823,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/untitled-marvel-7"
     },
     {
-      "id": 99,
+      "id": 83,
       "titulo": "Overman - O filme",
       "distribuidora": "Elo Studios",
       "estreia": "2026-10-15",
@@ -993,7 +833,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/overman-o-filme"
     },
     {
-      "id": 100,
+      "id": 84,
       "titulo": "Street Fighter",
       "distribuidora": "Paramount Pictures",
       "estreia": "2026-10-15",
@@ -1003,7 +843,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/street-fighter"
     },
     {
-      "id": 101,
+      "id": 85,
       "titulo": "Cartas para Deus",
       "distribuidora": "Imagem",
       "estreia": "2026-10-15",
@@ -1013,7 +853,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cartas-para-deus"
     },
     {
-      "id": 102,
+      "id": 86,
       "titulo": "Sacrifício",
       "distribuidora": "Diamond",
       "estreia": "2026-10-15",
@@ -1023,7 +863,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/sacrificio-0"
     },
     {
-      "id": 103,
+      "id": 87,
       "titulo": "Razão e sensibilidade",
       "distribuidora": "Universal",
       "estreia": "2026-10-15",
@@ -1033,7 +873,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/razao-e-sensibilidade"
     },
     {
-      "id": 104,
+      "id": 88,
       "titulo": "Medley",
       "distribuidora": "Vitrine Filmes",
       "estreia": "2026-10-15",
@@ -1043,7 +883,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/medley"
     },
     {
-      "id": 105,
+      "id": 89,
       "titulo": "Contos paralelos",
       "distribuidora": "Imovision",
       "estreia": "2026-10-15",
@@ -1053,7 +893,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/contos-paralelos"
     },
     {
-      "id": 106,
+      "id": 90,
       "titulo": "Consequências paralelas",
       "distribuidora": "O2 Play",
       "estreia": "2026-10-15",
@@ -1063,7 +903,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/consequencias-paralelas"
     },
     {
-      "id": 107,
+      "id": 91,
       "titulo": "Space Jam - O jogo do século (relançamento)",
       "distribuidora": "Warner",
       "estreia": "2026-10-15",
@@ -1073,7 +913,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/space-jam-o-jogo-do-seculo-relancamento"
     },
     {
-      "id": 108,
+      "id": 92,
       "titulo": "Rosebush Pruning",
       "distribuidora": "Filmes do Estação",
       "estreia": "2026-10-15",
@@ -1083,17 +923,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/rosebush-pruning"
     },
     {
-      "id": 109,
-      "titulo": "One Piece: Aventura na Ilha Espiral",
-      "distribuidora": "Paris",
-      "estreia": "2026-10-22",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/one-piece-aventura-na-ilha-espiral"
-    },
-    {
-      "id": 110,
+      "id": 93,
       "titulo": "Cara-de-Barro",
       "distribuidora": "Warner",
       "estreia": "2026-10-22",
@@ -1103,7 +933,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cara-de-barro"
     },
     {
-      "id": 111,
+      "id": 94,
       "titulo": "A princesa e o plebeu",
       "distribuidora": "A2 Filmes",
       "estreia": "2026-10-22",
@@ -1113,7 +943,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/princesa-e-o-plebeu"
     },
     {
-      "id": 112,
+      "id": 95,
       "titulo": "Fleak",
       "distribuidora": "PlayArte",
       "estreia": "2026-10-22",
@@ -1123,7 +953,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fleak"
     },
     {
-      "id": 113,
+      "id": 96,
       "titulo": "Família de sorte",
       "distribuidora": "Gullane+",
       "estreia": "2026-10-22",
@@ -1133,7 +963,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/familia-de-sorte"
     },
     {
-      "id": 114,
+      "id": 97,
       "titulo": "Meu verão na Sicília",
       "distribuidora": "Pandora Filmes",
       "estreia": "2026-10-22",
@@ -1143,7 +973,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/meu-verao-na-sicilia"
     },
     {
-      "id": 115,
+      "id": 98,
       "titulo": "Untitled Amazon MGM event film",
       "distribuidora": "Sony",
       "estreia": "2026-10-22",
@@ -1153,7 +983,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/untitled-amazon-mgm-event-film"
     },
     {
-      "id": 116,
+      "id": 99,
       "titulo": "Willow e a Floresta Encantada",
       "distribuidora": "Clube Filmes",
       "estreia": "2026-10-22",
@@ -1163,7 +993,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/willow-e-floresta-encantada"
     },
     {
-      "id": 117,
+      "id": 100,
       "titulo": "Klara e o sol",
       "distribuidora": "Sony",
       "estreia": "2026-10-22",
@@ -1173,7 +1003,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/klara-e-o-sol"
     },
     {
-      "id": 118,
+      "id": 101,
       "titulo": "A talent for a murder",
       "distribuidora": "Diamond",
       "estreia": "2026-10-22",
@@ -1183,7 +1013,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/talent-murder"
     },
     {
-      "id": 119,
+      "id": 102,
       "titulo": "Kit de santidade: O caminho para Deus de Carlo Acutis",
       "distribuidora": "Kolbe Arte Produções",
       "estreia": "2026-10-22",
@@ -1193,7 +1023,17 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/kit-de-santidade-o-caminho-para-deus-de-carlo-acutis"
     },
     {
-      "id": 120,
+      "id": 103,
+      "titulo": "One Piece: Aventura na Ilha Espiral",
+      "distribuidora": "Paris",
+      "estreia": "2026-10-22",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/one-piece-aventura-na-ilha-espiral"
+    },
+    {
+      "id": 104,
       "titulo": "(24/10) BTS world tour 'Arirang' in Buenos Aires: Live viewing",
       "distribuidora": "Trafalgar",
       "estreia": "2026-10-22",
@@ -1203,7 +1043,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/2410-bts-world-tour-arirang-buenos-aires-live-viewing"
     },
     {
-      "id": 121,
+      "id": 105,
       "titulo": "Purgatório - Segredos revelados (relançamento)",
       "distribuidora": "Kolbe Arte Produções",
       "estreia": "2026-10-22",
@@ -1213,67 +1053,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/purgatorio-segredos-revelados-relancamento"
     },
     {
-      "id": 122,
-      "titulo": "Outra mamãe",
-      "distribuidora": "Universal",
-      "estreia": "2026-10-29",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/outra-mamae"
-    },
-    {
-      "id": 123,
-      "titulo": "O Bosque Selvagem",
-      "distribuidora": "Imagem",
-      "estreia": "2026-10-29",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-bosque-selvagem"
-    },
-    {
-      "id": 124,
-      "titulo": "Festival de Cinema Francês do Brasil",
-      "distribuidora": "Bonfilm",
-      "estreia": "2026-10-29",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/festival-de-cinema-frances-do-brasil-0"
-    },
-    {
-      "id": 125,
-      "titulo": "A caixa do demônio",
-      "distribuidora": "Diamond",
-      "estreia": "2026-10-29",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/caixa-do-demonio"
-    },
-    {
-      "id": 126,
-      "titulo": "A terra do meu pai",
-      "distribuidora": "Imovision",
-      "estreia": "2026-10-29",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/terra-do-meu-pai"
-    },
-    {
-      "id": 127,
-      "titulo": "O homem do fraque verde",
-      "distribuidora": "Nosotros y Los Demás",
-      "estreia": "2026-10-29",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-homem-do-fraque-verde"
-    },
-    {
-      "id": 128,
+      "id": 106,
       "titulo": "As dez vantagens de morrer depois de você",
       "distribuidora": "Paris",
       "estreia": "2026-10-29",
@@ -1283,7 +1063,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/dez-vantagens-de-morrer-depois-de-voce"
     },
     {
-      "id": 129,
+      "id": 107,
       "titulo": "100 dias",
       "distribuidora": "Disney",
       "estreia": "2026-10-29",
@@ -1293,7 +1073,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/100-dias"
     },
     {
-      "id": 130,
+      "id": 108,
       "titulo": "Yellow cake",
       "distribuidora": "Olhar Distribuição",
       "estreia": "2026-10-29",
@@ -1303,7 +1083,67 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/yellow-cake"
     },
     {
-      "id": 131,
+      "id": 109,
+      "titulo": "Outra mamãe",
+      "distribuidora": "Universal",
+      "estreia": "2026-10-29",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/outra-mamae"
+    },
+    {
+      "id": 110,
+      "titulo": "O Bosque Selvagem",
+      "distribuidora": "Imagem",
+      "estreia": "2026-10-29",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-bosque-selvagem"
+    },
+    {
+      "id": 111,
+      "titulo": "Festival de Cinema Francês do Brasil",
+      "distribuidora": "Bonfilm",
+      "estreia": "2026-10-29",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/festival-de-cinema-frances-do-brasil-0"
+    },
+    {
+      "id": 112,
+      "titulo": "A caixa do demônio",
+      "distribuidora": "Diamond",
+      "estreia": "2026-10-29",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/caixa-do-demonio"
+    },
+    {
+      "id": 113,
+      "titulo": "A terra do meu pai",
+      "distribuidora": "Imovision",
+      "estreia": "2026-10-29",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/terra-do-meu-pai"
+    },
+    {
+      "id": 114,
+      "titulo": "O homem do fraque verde",
+      "distribuidora": "Nosotros y Los Demás",
+      "estreia": "2026-10-29",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-homem-do-fraque-verde"
+    },
+    {
+      "id": 115,
       "titulo": "(30/10) BTS world tour 'Arirang' in São Paulo: Live viewing",
       "distribuidora": "Trafalgar",
       "estreia": "2026-10-29",
@@ -1313,7 +1153,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/3010-bts-world-tour-arirang-sao-paulo-live-viewing"
     },
     {
-      "id": 132,
+      "id": 116,
       "titulo": "O gatola da cartola",
       "distribuidora": "Warner",
       "estreia": "2026-11-05",
@@ -1323,7 +1163,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-gatola-da-cartola"
     },
     {
-      "id": 133,
+      "id": 117,
       "titulo": "Feito pipa",
       "distribuidora": "Paris",
       "estreia": "2026-11-05",
@@ -1333,7 +1173,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/feito-pipa"
     },
     {
-      "id": 134,
+      "id": 118,
       "titulo": "Pecadora",
       "distribuidora": "Galeria Distribuidora",
       "estreia": "2026-11-05",
@@ -1343,7 +1183,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/pecadora"
     },
     {
-      "id": 135,
+      "id": 119,
       "titulo": "Nova Éden",
       "distribuidora": "Olhar Distribuição",
       "estreia": "2026-11-05",
@@ -1353,7 +1193,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nova-eden"
     },
     {
-      "id": 136,
+      "id": 120,
       "titulo": "A virada: Ignição da alma",
       "distribuidora": "Heaven Content",
       "estreia": "2026-11-05",
@@ -1363,7 +1203,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/virada-ignicao-da-alma"
     },
     {
-      "id": 137,
+      "id": 121,
       "titulo": "Archangel",
       "distribuidora": "Sony",
       "estreia": "2026-11-05",
@@ -1373,7 +1213,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/archangel"
     },
     {
-      "id": 138,
+      "id": 122,
       "titulo": "Elza",
       "distribuidora": "Gullane+",
       "estreia": "2026-11-05",
@@ -1383,7 +1223,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/elza-0"
     },
     {
-      "id": 139,
+      "id": 123,
       "titulo": "Verão da lata",
       "distribuidora": "H2O",
       "estreia": "2026-11-05",
@@ -1393,7 +1233,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/verao-da-lata"
     },
     {
-      "id": 140,
+      "id": 124,
       "titulo": "Night of the reaper",
       "distribuidora": "PlayArte",
       "estreia": "2026-11-05",
@@ -1403,7 +1243,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/night-reaper"
     },
     {
-      "id": 141,
+      "id": 125,
       "titulo": "Cavalo selvagem nove",
       "distribuidora": "Disney",
       "estreia": "2026-11-05",
@@ -1413,7 +1253,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cavalo-selvagem-nove"
     },
     {
-      "id": 142,
+      "id": 126,
       "titulo": "Ana, en passant",
       "distribuidora": "Embaúba Filmes",
       "estreia": "2026-11-05",
@@ -1423,7 +1263,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/ana-en-passant"
     },
     {
-      "id": 143,
+      "id": 127,
       "titulo": "George Michael: The Faith tour",
       "distribuidora": "Universal",
       "estreia": "2026-11-05",
@@ -1433,7 +1273,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/george-michael-faith-tour"
     },
     {
-      "id": 144,
+      "id": 128,
       "titulo": "Godzilla Minus Zero",
       "distribuidora": "SATO Company",
       "estreia": "2026-11-05",
@@ -1443,7 +1283,27 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/godzilla-minus-zero"
     },
     {
-      "id": 145,
+      "id": 129,
+      "titulo": "Paraíso prometido",
+      "distribuidora": "Filmes do Estação",
+      "estreia": "2026-11-05",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/paraiso-prometido"
+    },
+    {
+      "id": 130,
+      "titulo": "Amadeo e o hipotético mundo novo",
+      "distribuidora": "Downtown",
+      "estreia": "2026-11-05",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/amadeo-e-o-hipotetico-mundo-novo"
+    },
+    {
+      "id": 131,
       "titulo": "Amor fora do mapa",
       "distribuidora": "Imagem",
       "estreia": "2026-11-12",
@@ -1453,7 +1313,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/amor-fora-do-mapa"
     },
     {
-      "id": 146,
+      "id": 132,
       "titulo": "Pinóquio: Maldição de madeira",
       "distribuidora": "A2 Filmes",
       "estreia": "2026-11-12",
@@ -1463,7 +1323,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/pinoquio-maldicao-de-madeira"
     },
     {
-      "id": 147,
+      "id": 133,
       "titulo": "Os farofeiros 3",
       "distribuidora": "Downtown",
       "estreia": "2026-11-12",
@@ -1473,17 +1333,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/os-farofeiros-3"
     },
     {
-      "id": 148,
-      "titulo": "Funk",
-      "distribuidora": "Paris",
-      "estreia": "2026-11-12",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/funk"
-    },
-    {
-      "id": 149,
+      "id": 134,
       "titulo": "Ebenezer e os fantasmas do Natal",
       "distribuidora": "Paramount Pictures",
       "estreia": "2026-11-12",
@@ -1493,7 +1343,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/ebenezer-e-os-fantasmas-do-natal"
     },
     {
-      "id": 150,
+      "id": 135,
       "titulo": "Enquanto o céu não me espera",
       "distribuidora": "Kajá Filmes",
       "estreia": "2026-11-12",
@@ -1503,7 +1353,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/enquanto-o-ceu-nao-me-espera"
     },
     {
-      "id": 151,
+      "id": 136,
       "titulo": "Como roubar um banco",
       "distribuidora": "Sony",
       "estreia": "2026-11-12",
@@ -1513,7 +1363,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/como-roubar-um-banco"
     },
     {
-      "id": 152,
+      "id": 137,
       "titulo": "Super Charlie",
       "distribuidora": "Clube Filmes",
       "estreia": "2026-11-12",
@@ -1523,7 +1373,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/super-charlie"
     },
     {
-      "id": 153,
+      "id": 138,
       "titulo": "Quatro meninas",
       "distribuidora": "Filmes do Estação",
       "estreia": "2026-11-12",
@@ -1533,7 +1383,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/quatro-meninas"
     },
     {
-      "id": 154,
+      "id": 139,
       "titulo": "Velozes & furiosos (relançamento)",
       "distribuidora": "Universal",
       "estreia": "2026-11-12",
@@ -1543,7 +1393,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/velozes-furiosos-relancamento"
     },
     {
-      "id": 155,
+      "id": 140,
       "titulo": "Peixe abissal",
       "distribuidora": "Descoloniza Filmes",
       "estreia": "2026-11-12",
@@ -1553,7 +1403,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/peixe-abissal"
     },
     {
-      "id": 156,
+      "id": 141,
       "titulo": "Só não posso dizer o nome",
       "distribuidora": "O2 Play",
       "estreia": "2026-11-12",
@@ -1563,7 +1413,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/so-nao-posso-dizer-o-nome"
     },
     {
-      "id": 157,
+      "id": 142,
       "titulo": "Apenas uma ilusão",
       "distribuidora": "Mares Filmes",
       "estreia": "2026-11-12",
@@ -1573,97 +1423,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/apenas-uma-ilusao"
     },
     {
-      "id": 158,
-      "titulo": "Eu vou ter saudades de você",
-      "distribuidora": "Vitrine Filmes",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/eu-vou-ter-saudades-de-voce"
-    },
-    {
-      "id": 159,
-      "titulo": "Enaldinho em uma noite infinita",
-      "distribuidora": "Imagem",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/enaldinho-em-uma-noite-infinita"
-    },
-    {
-      "id": 160,
-      "titulo": "Detetives de 4 patas",
-      "distribuidora": "PlayArte",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/detetives-de-4-patas"
-    },
-    {
-      "id": 161,
-      "titulo": "Jogos Vorazes - Amanhecer na colheita",
-      "distribuidora": "Paris",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/jogos-vorazes-amanhecer-na-colheita"
-    },
-    {
-      "id": 162,
-      "titulo": "Malês (relançamento)",
-      "distribuidora": "Imovision",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/males-relancamento"
-    },
-    {
-      "id": 163,
-      "titulo": "Querido mundo",
-      "distribuidora": "O2 Play",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/querido-mundo"
-    },
-    {
-      "id": 164,
-      "titulo": "O projeto",
-      "distribuidora": "Gullane+",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-projeto"
-    },
-    {
-      "id": 165,
-      "titulo": "As travessias de Letieres Leitte",
-      "distribuidora": "Olhar Distribuição",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/travessias-de-letieres-leitte"
-    },
-    {
-      "id": 166,
-      "titulo": "Eu sou o Rocky",
-      "distribuidora": "Diamond",
-      "estreia": "2026-11-19",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/eu-sou-o-rocky"
-    },
-    {
-      "id": 167,
+      "id": 143,
       "titulo": "As crianças estão bem",
       "distribuidora": "Autoral Filmes",
       "estreia": "2026-11-19",
@@ -1673,7 +1433,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/criancas-estao-bem"
     },
     {
-      "id": 168,
+      "id": 144,
       "titulo": "Sem pai nem mãe",
       "distribuidora": "Brás Filmes",
       "estreia": "2026-11-19",
@@ -1683,7 +1443,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/sem-pai-nem-mae"
     },
     {
-      "id": 169,
+      "id": 145,
       "titulo": "I love boosters",
       "distribuidora": "Universal",
       "estreia": "2026-11-19",
@@ -1693,7 +1453,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/i-love-boosters"
     },
     {
-      "id": 170,
+      "id": 146,
       "titulo": "Kopenawa: Sonhar a terra-floresta",
       "distribuidora": "Indiana+",
       "estreia": "2026-11-19",
@@ -1703,7 +1463,97 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/kopenawa-sonhar-terra-floresta"
     },
     {
-      "id": 171,
+      "id": 147,
+      "titulo": "Eu vou ter saudades de você",
+      "distribuidora": "Vitrine Filmes",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/eu-vou-ter-saudades-de-voce"
+    },
+    {
+      "id": 148,
+      "titulo": "Enaldinho em uma noite infinita",
+      "distribuidora": "Imagem",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/enaldinho-em-uma-noite-infinita"
+    },
+    {
+      "id": 149,
+      "titulo": "Detetives de 4 patas",
+      "distribuidora": "PlayArte",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/detetives-de-4-patas"
+    },
+    {
+      "id": 150,
+      "titulo": "Jogos Vorazes - Amanhecer na colheita",
+      "distribuidora": "Paris",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/jogos-vorazes-amanhecer-na-colheita"
+    },
+    {
+      "id": 151,
+      "titulo": "Malês (relançamento)",
+      "distribuidora": "Imovision",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/males-relancamento"
+    },
+    {
+      "id": 152,
+      "titulo": "Querido mundo",
+      "distribuidora": "O2 Play",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/querido-mundo"
+    },
+    {
+      "id": 153,
+      "titulo": "O projeto",
+      "distribuidora": "Gullane+",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/o-projeto"
+    },
+    {
+      "id": 154,
+      "titulo": "As travessias de Letieres Leitte",
+      "distribuidora": "Olhar Distribuição",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/travessias-de-letieres-leitte"
+    },
+    {
+      "id": 155,
+      "titulo": "Eu sou o Rocky",
+      "distribuidora": "Diamond",
+      "estreia": "2026-11-19",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/eu-sou-o-rocky"
+    },
+    {
+      "id": 156,
       "titulo": "The florist",
       "distribuidora": "A2 Filmes",
       "estreia": "2026-11-26",
@@ -1713,7 +1563,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/florist"
     },
     {
-      "id": 172,
+      "id": 157,
       "titulo": "The money maker",
       "distribuidora": "Mares Filmes",
       "estreia": "2026-11-26",
@@ -1723,7 +1573,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/money-maker"
     },
     {
-      "id": 173,
+      "id": 158,
       "titulo": "Enfeitiçadas: Bem-vindos a Hexe",
       "distribuidora": "Disney",
       "estreia": "2026-11-26",
@@ -1733,7 +1583,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/enfeiticadas-bem-vindos-hexe"
     },
     {
-      "id": 174,
+      "id": 159,
       "titulo": "Deus ainda é brasileiro",
       "distribuidora": "Imagem",
       "estreia": "2026-11-26",
@@ -1743,7 +1593,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/deus-ainda-e-brasileiro"
     },
     {
-      "id": 175,
+      "id": 160,
       "titulo": "Apenas 3 meninas",
       "distribuidora": "Elo Studios",
       "estreia": "2026-11-26",
@@ -1753,7 +1603,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/apenas-3-meninas"
     },
     {
-      "id": 176,
+      "id": 161,
       "titulo": "Entrando numa grande fria",
       "distribuidora": "Paramount Pictures",
       "estreia": "2026-11-26",
@@ -1763,7 +1613,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/entrando-numa-grande-fria"
     },
     {
-      "id": 177,
+      "id": 162,
       "titulo": "Fogaréu",
       "distribuidora": "Filmes do Estação",
       "estreia": "2026-11-26",
@@ -1773,7 +1623,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fogareu"
     },
     {
-      "id": 178,
+      "id": 163,
       "titulo": "All of a sudden",
       "distribuidora": "Vitrine Filmes",
       "estreia": "2026-11-26",
@@ -1783,7 +1633,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/all-sudden"
     },
     {
-      "id": 179,
+      "id": 164,
       "titulo": "Retratos da várzea",
       "distribuidora": "Embaúba Filmes",
       "estreia": "2026-11-26",
@@ -1793,47 +1643,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/retratos-da-varzea"
     },
     {
-      "id": 180,
-      "titulo": "Magalhães",
-      "distribuidora": "Filmes do Estação",
-      "estreia": "2026-12-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/magalhaes"
-    },
-    {
-      "id": 181,
-      "titulo": "One Piece: O reino de Chopper na ilha dos animais estranhos",
-      "distribuidora": "Paris",
-      "estreia": "2026-12-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/one-piece-o-reino-de-chopper-na-ilha-dos-animais-estranhos"
-    },
-    {
-      "id": 182,
-      "titulo": "Uma em mil",
-      "distribuidora": "Alata",
-      "estreia": "2026-12-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/uma-em-mil"
-    },
-    {
-      "id": 183,
-      "titulo": "Behemoth! Uma vida composta em peças",
-      "distribuidora": "Disney",
-      "estreia": "2026-12-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/behemoth-uma-vida-composta-em-pecas"
-    },
-    {
-      "id": 184,
+      "id": 165,
       "titulo": "Viver é melhor que sonhar",
       "distribuidora": "H2O",
       "estreia": "2026-12-03",
@@ -1843,7 +1653,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/viver-e-melhor-que-sonhar"
     },
     {
-      "id": 185,
+      "id": 166,
       "titulo": "Clarice vê estrelas",
       "distribuidora": "Descoloniza Filmes",
       "estreia": "2026-12-03",
@@ -1853,7 +1663,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/clarice-ve-estrelas"
     },
     {
-      "id": 186,
+      "id": 167,
       "titulo": "Noite ainda mais infeliz",
       "distribuidora": "Universal",
       "estreia": "2026-12-03",
@@ -1863,17 +1673,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/noite-ainda-mais-infeliz"
     },
     {
-      "id": 187,
-      "titulo": "Cabras da peste 2 - Miami vixe",
-      "distribuidora": "Paris",
-      "estreia": "2026-12-03",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cabras-da-peste-2-miami-vixe"
-    },
-    {
-      "id": 188,
+      "id": 168,
       "titulo": "Zero D.C.",
       "distribuidora": "Imagem",
       "estreia": "2026-12-03",
@@ -1883,7 +1683,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/zero-dc"
     },
     {
-      "id": 189,
+      "id": 169,
       "titulo": "Búfalo kids",
       "distribuidora": "PlayArte",
       "estreia": "2026-12-03",
@@ -1893,7 +1693,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/bufalo-kids"
     },
     {
-      "id": 190,
+      "id": 170,
       "titulo": "Psicopata vitoriana",
       "distribuidora": "Diamond",
       "estreia": "2026-12-03",
@@ -1903,7 +1703,47 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/psicopata-vitoriana"
     },
     {
-      "id": 191,
+      "id": 171,
+      "titulo": "Magalhães",
+      "distribuidora": "Filmes do Estação",
+      "estreia": "2026-12-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/magalhaes"
+    },
+    {
+      "id": 172,
+      "titulo": "One Piece: O reino de Chopper na ilha dos animais estranhos",
+      "distribuidora": "Paris",
+      "estreia": "2026-12-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/one-piece-o-reino-de-chopper-na-ilha-dos-animais-estranhos"
+    },
+    {
+      "id": 173,
+      "titulo": "Uma em mil",
+      "distribuidora": "Alata",
+      "estreia": "2026-12-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/uma-em-mil"
+    },
+    {
+      "id": 174,
+      "titulo": "Behemoth! Uma vida composta em peças",
+      "distribuidora": "Disney",
+      "estreia": "2026-12-03",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/behemoth-uma-vida-composta-em-pecas"
+    },
+    {
+      "id": 175,
       "titulo": "Fiz um foguete imaginando que você vinha",
       "distribuidora": "Moçambique Audiovisual",
       "estreia": "2026-12-03",
@@ -1913,7 +1753,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fiz-um-foguete-imaginando-que-voce-vinha"
     },
     {
-      "id": 192,
+      "id": 176,
       "titulo": "Cássia (relançamento)",
       "distribuidora": "H2O",
       "estreia": "2026-12-10",
@@ -1923,7 +1763,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cassia-relancamento"
     },
     {
-      "id": 193,
+      "id": 177,
       "titulo": "Assalto à brasileira",
       "distribuidora": "Galeria Distribuidora",
       "estreia": "2026-12-10",
@@ -1933,7 +1773,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/assalto-brasileira"
     },
     {
-      "id": 194,
+      "id": 178,
       "titulo": "Para Vigo me voy!",
       "distribuidora": "Gullane+",
       "estreia": "2026-12-10",
@@ -1943,7 +1783,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/para-vigo-me-voy"
     },
     {
-      "id": 195,
+      "id": 179,
       "titulo": "Vudu delivery",
       "distribuidora": "Paris",
       "estreia": "2026-12-10",
@@ -1953,7 +1793,47 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/vudu-delivery"
     },
     {
-      "id": 196,
+      "id": 180,
+      "titulo": "(10/12) Diário de uma paixão (relançamento)",
+      "distribuidora": "Warner",
+      "estreia": "2026-12-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/1012-diario-de-uma-paixao-relancamento"
+    },
+    {
+      "id": 181,
+      "titulo": "(10/12) Antes do amanhecer (relançamento)",
+      "distribuidora": "Warner",
+      "estreia": "2026-12-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/1012-antes-do-amanhecer-relancamento"
+    },
+    {
+      "id": 182,
+      "titulo": "(10/12) O amor não tira férias (relançamento)",
+      "distribuidora": "Universal",
+      "estreia": "2026-12-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/1012-o-amor-nao-tira-ferias-relancamento"
+    },
+    {
+      "id": 183,
+      "titulo": "(10/12) Um lugar chamado Notting Hill (relançamento)",
+      "distribuidora": "Universal",
+      "estreia": "2026-12-10",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/1012-um-lugar-chamado-notting-hill-relancamento"
+    },
+    {
+      "id": 184,
       "titulo": "Shrek (relançamento)",
       "distribuidora": "Universal",
       "estreia": "2026-12-10",
@@ -1963,7 +1843,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/shrek-relancamento"
     },
     {
-      "id": 197,
+      "id": 185,
       "titulo": "A Paixão de Cristo (relançamento)",
       "distribuidora": "Heaven Content",
       "estreia": "2026-12-10",
@@ -1973,7 +1853,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/paixao-de-cristo-relancamento"
     },
     {
-      "id": 198,
+      "id": 186,
       "titulo": "Vingadores: Doutor Destino",
       "distribuidora": "Disney",
       "estreia": "2026-12-17",
@@ -1983,7 +1863,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/vingadores-doutor-destino"
     },
     {
-      "id": 199,
+      "id": 187,
       "titulo": "Duna - Parte 3",
       "distribuidora": "Warner",
       "estreia": "2026-12-17",
@@ -1993,7 +1873,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/duna-parte-3"
     },
     {
-      "id": 200,
+      "id": 188,
       "titulo": "Alice Júnior - Férias de verão",
       "distribuidora": "Olhar Distribuição",
       "estreia": "2026-12-17",
@@ -2003,7 +1883,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/alice-junior-ferias-de-verao"
     },
     {
-      "id": 201,
+      "id": 189,
       "titulo": "Filhas da noite",
       "distribuidora": "Descoloniza Filmes",
       "estreia": "2026-12-17",
@@ -2013,7 +1893,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/filhas-da-noite"
     },
     {
-      "id": 202,
+      "id": 190,
       "titulo": "Anxious people",
       "distribuidora": "Diamond",
       "estreia": "2026-12-24",
@@ -2023,7 +1903,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/anxious-people"
     },
     {
-      "id": 203,
+      "id": 191,
       "titulo": "(01/01) Angry Birds 3 - O filme",
       "distribuidora": "Paramount Pictures",
       "estreia": "2026-12-31",
@@ -2033,7 +1913,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/0101-angry-birds-3-o-filme"
     },
     {
-      "id": 204,
+      "id": 192,
       "titulo": "Jumanji - Mundo real",
       "distribuidora": "Sony",
       "estreia": "2027-01-07",
@@ -2043,7 +1923,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/jumanji-mundo-real"
     },
     {
-      "id": 205,
+      "id": 193,
       "titulo": "Miss Moxy",
       "distribuidora": "Clube Filmes",
       "estreia": "2027-01-07",
@@ -2053,7 +1933,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/miss-moxy"
     },
     {
-      "id": 206,
+      "id": 194,
       "titulo": "Tigre de papel",
       "distribuidora": "Diamond",
       "estreia": "2027-01-07",
@@ -2063,7 +1943,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/tigre-de-papel"
     },
     {
-      "id": 207,
+      "id": 195,
       "titulo": "Victor, como Hugo",
       "distribuidora": "Autoral Filmes",
       "estreia": "2027-01-07",
@@ -2073,7 +1953,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/victor-como-hugo"
     },
     {
-      "id": 208,
+      "id": 196,
       "titulo": "Minha vida com Shurastey",
       "distribuidora": "Paris",
       "estreia": "2027-01-14",
@@ -2083,7 +1963,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/minha-vida-com-shurastey"
     },
     {
-      "id": 209,
+      "id": 197,
       "titulo": "Untitled Blumhouse event film",
       "distribuidora": "Universal",
       "estreia": "2027-01-14",
@@ -2093,7 +1973,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/untitled-blumhouse-event-film-2"
     },
     {
-      "id": 210,
+      "id": 198,
       "titulo": "Álibi",
       "distribuidora": "Imagem",
       "estreia": "2027-01-14",
@@ -2103,7 +1983,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/alibi"
     },
     {
-      "id": 211,
+      "id": 199,
       "titulo": "Filhos de sangue e osso",
       "distribuidora": "Paramount Pictures",
       "estreia": "2027-01-14",
@@ -2113,7 +1993,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/filhos-de-sangue-e-osso"
     },
     {
-      "id": 212,
+      "id": 200,
       "titulo": "Animal friends",
       "distribuidora": "Diamond",
       "estreia": "2027-01-21",
@@ -2123,7 +2003,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/animal-friends"
     },
     {
-      "id": 213,
+      "id": 201,
       "titulo": "Lobis-Homem",
       "distribuidora": "Universal",
       "estreia": "2027-01-21",
@@ -2133,7 +2013,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/lobis-homem"
     },
     {
-      "id": 214,
+      "id": 202,
       "titulo": "Nosso Lar 3 - Vida eterna",
       "distribuidora": "Disney",
       "estreia": "2027-01-21",
@@ -2143,7 +2023,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/nosso-lar-3-vida-eterna"
     },
     {
-      "id": 215,
+      "id": 203,
       "titulo": "Asterix: O Reino da Nubia",
       "distribuidora": "Imagem",
       "estreia": "2027-01-21",
@@ -2153,7 +2033,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/asterix-o-reino-da-nubia"
     },
     {
-      "id": 216,
+      "id": 204,
       "titulo": "A bola preta",
       "distribuidora": "Paris",
       "estreia": "2027-01-21",
@@ -2163,7 +2043,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/bola-preta"
     },
     {
-      "id": 217,
+      "id": 205,
       "titulo": "Um homem perdido",
       "distribuidora": "Kajá Filmes",
       "estreia": "2027-01-21",
@@ -2173,7 +2053,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/um-homem-perdido"
     },
     {
-      "id": 218,
+      "id": 206,
       "titulo": "Tom Jobim - Este seu olhar",
       "distribuidora": "H2O",
       "estreia": "2027-01-28",
@@ -2183,7 +2063,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/tom-jobim-este-seu-olhar"
     },
     {
-      "id": 219,
+      "id": 207,
       "titulo": "The beekeeper 2",
       "distribuidora": "Amazon MGM Studios",
       "estreia": "2027-01-28",
@@ -2193,7 +2073,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/beekeeper-2"
     },
     {
-      "id": 220,
+      "id": 208,
       "titulo": "Pendulum",
       "distribuidora": "Diamond",
       "estreia": "2027-01-28",
@@ -2203,7 +2083,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/pendulum"
     },
     {
-      "id": 221,
+      "id": 209,
       "titulo": "Karoshi",
       "distribuidora": "Paris",
       "estreia": "2027-01-28",
@@ -2213,7 +2093,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/karoshi"
     },
     {
-      "id": 222,
+      "id": 210,
       "titulo": "A grande estreia",
       "distribuidora": "Imagem",
       "estreia": "2027-01-28",
@@ -2223,7 +2103,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/grande-estreia"
     },
     {
-      "id": 223,
+      "id": 211,
       "titulo": "Elsinore",
       "distribuidora": "Universal",
       "estreia": "2027-01-28",
@@ -2233,47 +2113,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/elsinore"
     },
     {
-      "id": 224,
-      "titulo": "What happened to Doris?",
-      "distribuidora": "Imagem",
-      "estreia": "2027-02-04",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/what-happened-doris"
-    },
-    {
-      "id": 225,
-      "titulo": "Na terra de Arto",
-      "distribuidora": "Autoral Filmes",
-      "estreia": "2027-02-04",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/na-terra-de-arto"
-    },
-    {
-      "id": 226,
-      "titulo": "Fjord",
-      "distribuidora": "Diamond",
-      "estreia": "2027-02-04",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fjord"
-    },
-    {
-      "id": 227,
-      "titulo": "Mr. Irrelevant",
-      "distribuidora": "Paramount Pictures",
-      "estreia": "2027-02-04",
-      "genero": null,
-      "sinopse": null,
-      "poster": null,
-      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/mr-irrelevant"
-    },
-    {
-      "id": 228,
+      "id": 212,
       "titulo": "A era do gelo: Mundo de lava",
       "distribuidora": "Disney",
       "estreia": "2027-02-04",
@@ -2283,7 +2123,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/era-do-gelo-mundo-de-lava"
     },
     {
-      "id": 229,
+      "id": 213,
       "titulo": "Remain",
       "distribuidora": "Warner",
       "estreia": "2027-02-04",
@@ -2293,7 +2133,7 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/remain"
     },
     {
-      "id": 230,
+      "id": 214,
       "titulo": "Untitled Universal Romcom Event Film",
       "distribuidora": "Universal",
       "estreia": "2027-02-04",
@@ -2303,7 +2143,47 @@
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/untitled-universal-romcom-event-film"
     },
     {
-      "id": 231,
+      "id": 215,
+      "titulo": "What happened to Doris?",
+      "distribuidora": "Imagem",
+      "estreia": "2027-02-04",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/what-happened-doris"
+    },
+    {
+      "id": 216,
+      "titulo": "Na terra de Arto",
+      "distribuidora": "Autoral Filmes",
+      "estreia": "2027-02-04",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/na-terra-de-arto"
+    },
+    {
+      "id": 217,
+      "titulo": "Fjord",
+      "distribuidora": "Diamond",
+      "estreia": "2027-02-04",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/fjord"
+    },
+    {
+      "id": 218,
+      "titulo": "Mr. Irrelevant",
+      "distribuidora": "Paramount Pictures",
+      "estreia": "2027-02-04",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/mr-irrelevant"
+    },
+    {
+      "id": 219,
       "titulo": "As Crônicas de Nárnia: O sobrinho do mago",
       "distribuidora": "Sony",
       "estreia": "2027-02-11",
@@ -2311,6 +2191,56 @@
       "sinopse": null,
       "poster": null,
       "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/cronicas-de-narnia-o-sobrinho-do-mago"
+    },
+    {
+      "id": 220,
+      "titulo": "The comeback king",
+      "distribuidora": "Universal",
+      "estreia": "2027-02-18",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/comeback-king"
+    },
+    {
+      "id": 221,
+      "titulo": "Star Wars: Episódio IV - Uma nova esperança (relançamento)",
+      "distribuidora": "Disney",
+      "estreia": "2027-02-18",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/star-wars-episodio-iv-uma-nova-esperanca-relancamento"
+    },
+    {
+      "id": 222,
+      "titulo": "Espelho de Tarsila",
+      "distribuidora": "Gullane+",
+      "estreia": "2027-02-18",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/espelho-de-tarsila"
+    },
+    {
+      "id": 223,
+      "titulo": "Bruna Surfistinha 2",
+      "distribuidora": "Imagem",
+      "estreia": "2027-02-18",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/bruna-surfistinha-2"
+    },
+    {
+      "id": 224,
+      "titulo": "The rescue",
+      "distribuidora": "Paramount Pictures",
+      "estreia": "2027-02-18",
+      "genero": null,
+      "sinopse": null,
+      "poster": null,
+      "urlExibidor": "https://www.filmeb.com.br/calendario-de-estreias/rescue"
     }
   ]
 }
